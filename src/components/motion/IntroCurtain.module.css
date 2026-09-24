@@ -1,0 +1,110 @@
+.curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  background-color: var(--ink);
+  color: var(--paper);
+  pointer-events: none;
+  animation: curtainLift 1s var(--ease-curtain) 1.55s forwards;
+}
+
+@keyframes curtainLift {
+  to {
+    transform: translate3d(0, -100%, 0);
+    visibility: hidden;
+  }
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  animation: centerOut 0.7s var(--ease-curtain) 1.45s forwards;
+}
+
+@keyframes centerOut {
+  to {
+    opacity: 0;
+    transform: translate3d(0, -40px, 0);
+  }
+}
+
+.wordmark {
+  display: flex;
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(3.5rem, 9vw, 7.5rem);
+  line-height: 1;
+  letter-spacing: 0.18em;
+  margin-right: -0.18em; /* optically centre the tracked word */
+}
+
+.letterMask {
+  display: inline-block;
+  overflow: hidden;
+  padding-bottom: 0.05em;
+}
+
+.letter {
+  display: inline-block;
+  transform: translate3d(0, 110%, 0);
+  animation: letterUp 0.9s var(--ease-editorial) forwards;
+}
+
+@keyframes letterUp {
+  to {
+    transform: none;
+  }
+}
+
+.rule {
+  width: min(220px, 50vw);
+  height: 1px;
+  background: rgba(241, 238, 232, 0.14);
+  overflow: hidden;
+}
+
+.ruleFill {
+  display: block;
+  height: 100%;
+  background: var(--brass);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: ruleGrow 1.25s var(--ease-in-out) 0.15s forwards;
+}
+
+@keyframes ruleGrow {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.caption {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--muted-on-dark);
+  opacity: 0;
+  animation: captionIn 0.8s var(--ease-editorial) 0.55s forwards;
+}
+
+@keyframes captionIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--brass);
+}

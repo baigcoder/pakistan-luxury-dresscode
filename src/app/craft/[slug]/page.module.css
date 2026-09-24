@@ -1,0 +1,290 @@
+.page {
+  width: 100%;
+  background-color: var(--paper);
+}
+
+.header {
+  padding-top: var(--space-3xl);
+  padding-bottom: var(--space-3xl);
+  background-color: var(--paper-light);
+  border-bottom: 1px solid var(--line);
+}
+
+.breadcrumbs {
+  display: flex;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: var(--space-lg);
+}
+
+.breadcrumbs a {
+  color: var(--muted);
+}
+
+.breadcrumbs a:hover {
+  color: var(--ink);
+}
+
+.current {
+  color: var(--ink);
+}
+
+.headerMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.title {
+  color: var(--ink);
+  line-height: 1.02;
+}
+
+.summary {
+  color: var(--espresso);
+  max-width: 820px;
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.citationBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background-color: var(--paper);
+  border: 1px solid var(--line);
+  font-size: 0.78rem;
+  color: var(--espresso);
+}
+
+.icon {
+  color: var(--terracotta);
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Split Grid
+   ========================================================================== */
+.splitGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3xl);
+}
+
+@media (min-width: 1024px) {
+  .splitGrid {
+    grid-template-columns: 5fr 7fr;
+    gap: var(--space-4xl);
+  }
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+}
+
+.imageFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background-color: var(--espresso);
+  border: 1px solid var(--line);
+}
+
+.image {
+  object-fit: cover;
+}
+
+.historyBlock {
+  background-color: var(--paper-light);
+  border: 1px solid var(--line);
+  padding: var(--space-xl);
+}
+
+.artisanCard {
+  border-left: 2px solid var(--terracotta);
+  background-color: var(--paper-light);
+  padding: var(--space-xl);
+}
+
+.artisanQuote {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--espresso);
+  line-height: 1.45;
+  margin-top: 12px;
+}
+
+/* ==========================================================================
+   Right Column: Stages
+   ========================================================================== */
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.stagesHeader {
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--line);
+}
+
+.stagesList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+}
+
+.stageItem {
+  display: flex;
+  gap: var(--space-lg);
+  padding-bottom: var(--space-xl);
+  border-bottom: 1px solid var(--line-subtle);
+}
+
+.stepIndicator {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background-color: var(--paper-light);
+}
+
+.stepNum {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--terracotta);
+}
+
+.stepContent {
+  flex: 1;
+}
+
+.stepTitle {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.materialsTag {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.collectionCallout {
+  margin-top: var(--space-3xl);
+  padding: var(--space-xl);
+  background-color: var(--paper-light);
+  border: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+}
+
+/* ==========================================================================
+   Related Pieces
+   ========================================================================== */
+.relatedSection {
+  padding-top: var(--space-5xl);
+  padding-bottom: var(--space-5xl);
+  border-top: 1px solid var(--line);
+  background-color: var(--paper-light);
+}
+
+.relatedHeader {
+  margin-bottom: var(--space-3xl);
+}
+
+.relatedGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2xl);
+}
+
+@media (min-width: 640px) {
+  .relatedGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .relatedGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.productCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.productLink {
+  text-decoration: none;
+}
+
+.productFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background-color: var(--paper);
+}
+
+.productImg {
+  object-fit: cover;
+  transition: transform var(--duration-image) var(--ease-editorial);
+}
+
+.productCard:hover .productImg {
+  transform: scale(1.035);
+}
+
+.productMeta {
+  padding-top: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.productTitle {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--ink);
+}
+
+.productPrice {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  color: var(--espresso);
+  margin-top: 2px;
+}
+
+/* Craft names split at the colon: title, then an italic sub-line */
+.titleSub {
+  display: block;
+  margin-top: 0.25em;
+  font-size: 0.42em;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}

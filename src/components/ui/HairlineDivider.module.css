@@ -1,0 +1,37 @@
+.divider {
+  background-color: var(--line);
+  flex-shrink: 0;
+}
+
+.horizontal {
+  width: 100%;
+  height: 1px;
+}
+
+.vertical {
+  width: 1px;
+  height: 100%;
+  min-height: 24px;
+}
+
+.dividerWithLabel {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: var(--space-md);
+}
+
+.line {
+  flex: 1;
+  height: 1px;
+  background-color: var(--line);
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}

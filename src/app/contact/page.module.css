@@ -1,0 +1,250 @@
+.page {
+  padding-top: clamp(28px, 3.5vw, 52px);
+  padding-bottom: var(--space-4xl);
+  min-height: 100vh;
+  background-color: var(--surface);
+}
+
+.header {
+  padding-bottom: var(--space-2xl);
+  border-bottom: 1px solid var(--border);
+}
+
+.headerMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-md);
+  letter-spacing: 0.14em;
+}
+
+.title {
+  color: var(--primary);
+  margin-bottom: var(--space-sm);
+}
+
+.subhead {
+  max-width: 640px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   Main Grid Layout
+   ========================================================================== */
+.mainSection {
+  padding-top: var(--space-3xl);
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: var(--space-3xl);
+  align-items: start;
+}
+
+@media (max-width: 960px) {
+  .contactGrid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-2xl);
+  }
+}
+
+/* ==========================================================================
+   Form Column
+   ========================================================================== */
+.formCol {
+  background-color: var(--surface-subtle);
+  border: 1px solid var(--border);
+  padding: var(--space-2xl);
+  border-radius: var(--radius-sm);
+}
+
+@media (max-width: 640px) {
+  .formCol {
+    padding: var(--space-lg);
+  }
+}
+
+.formHeader {
+  margin-bottom: var(--space-lg);
+}
+
+.formTitle {
+  margin-top: var(--space-xs);
+  color: var(--primary);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.fieldRow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-md);
+}
+
+@media (max-width: 640px) {
+  .fieldRow {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-family: var(--font-grotesk);
+  font-size: var(--text-metadata);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.input,
+.select,
+.textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font-family: var(--font-grotesk);
+  font-size: var(--text-body);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--primary);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.textarea {
+  resize: vertical;
+}
+
+.submitWrap {
+  margin-top: var(--space-sm);
+}
+
+.successState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-2xl) var(--space-lg);
+}
+
+.successTitle {
+  margin-top: var(--space-md);
+  color: var(--primary);
+}
+
+/* ==========================================================================
+   Locations Column
+   ========================================================================== */
+.locationsCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.locationsTitle {
+  margin-top: var(--space-xs);
+  margin-bottom: var(--space-xl);
+  color: var(--primary);
+}
+
+.locationsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.locationCard {
+  padding: var(--space-lg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background-color: var(--surface);
+}
+
+.locationCity {
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.locationAddress {
+  font-family: var(--font-grotesk);
+  font-size: var(--text-body);
+  color: var(--secondary);
+}
+
+.locationArea {
+  font-family: var(--font-grotesk);
+  font-size: var(--text-caption);
+  color: var(--muted);
+  margin-bottom: var(--space-md);
+}
+
+.contactDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--border);
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-family: var(--font-grotesk);
+  font-size: var(--text-caption);
+  color: var(--secondary);
+}
+
+.conciergeCard {
+  margin-top: var(--space-xl);
+  padding: var(--space-xl);
+  background-color: var(--surface-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.conciergeHead {
+  margin-top: var(--space-xs);
+  color: var(--primary);
+}
+
+.whatsAppLink {
+  font-family: var(--font-grotesk);
+  font-size: var(--text-metadata);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.whatsAppLink:hover {
+  color: var(--primary);
+  transform: translateX(4px);
+}
+
+.field input,
+.field select,
+.field textarea {
+  min-width: 0;
+  max-width: 100%;
+}

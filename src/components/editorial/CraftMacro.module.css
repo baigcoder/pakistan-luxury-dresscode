@@ -1,0 +1,138 @@
+.section {
+  padding-top: var(--space-5xl);
+  padding-bottom: var(--space-5xl);
+  border-bottom: 1px solid var(--line);
+  background-color: var(--paper);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--line);
+  margin-bottom: var(--space-3xl);
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.title {
+  color: var(--ink);
+  margin-top: 4px;
+}
+
+/* ==========================================================================
+   Stage Grid
+   ========================================================================== */
+.stageGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3xl);
+}
+
+@media (min-width: 1024px) {
+  .stageGrid {
+    grid-template-columns: 7fr 5fr;
+    gap: var(--space-4xl);
+    align-items: center;
+  }
+}
+
+.lensWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.lensFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background-color: var(--espresso);
+  border: 1px solid var(--line);
+  cursor: crosshair;
+}
+
+.macroImage {
+  object-fit: cover;
+  transition: transform 900ms var(--ease-editorial);
+  transform: scale(1);
+}
+
+.lensZoomed .macroImage {
+  transform: scale(1.45);
+}
+
+.zoomToggle {
+  position: absolute;
+  bottom: var(--space-md);
+  right: var(--space-md);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(21, 19, 17, 0.85);
+  color: var(--paper);
+  backdrop-filter: blur(8px);
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  border: 1px solid rgba(241, 238, 232, 0.2);
+  transition: all var(--duration-micro) var(--ease-editorial);
+  z-index: 2;
+}
+
+.zoomToggle:hover {
+  background-color: var(--ink);
+  border-color: var(--paper);
+}
+
+.lensCaption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  padding-top: var(--space-xs);
+}
+
+/* ==========================================================================
+   Provenance Panel
+   ========================================================================== */
+.provenancePanel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+}
+
+.panelHeader {
+  display: flex;
+  flex-direction: column;
+}
+
+.metadataCard {
+  background-color: var(--paper-light);
+  border: 1px solid var(--line);
+  padding: var(--space-xl);
+}
+
+.actionRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.citationLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: var(--terracotta);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

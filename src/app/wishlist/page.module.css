@@ -1,0 +1,419 @@
+.page {
+  --gutter: clamp(20px, 3vw, 44px);
+  max-width: 1760px;
+  margin: 0 auto;
+  padding: clamp(28px, 3.5vw, 52px) var(--gutter) clamp(96px, 12vw, 180px);
+  color: var(--ink);
+}
+
+.eyebrow,
+.sectionLabel {
+  display: block;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+}
+
+.textCta {
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding-bottom: 4px;
+  border-bottom: 1px solid currentColor;
+  transition: color 0.3s ease;
+}
+
+.textCta:hover {
+  color: var(--terracotta);
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+  padding-bottom: clamp(24px, 3vw, 40px);
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.title {
+  margin-top: 16px;
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(3.4rem, 8vw, 8.5rem);
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+}
+
+.title em {
+  font-style: italic;
+}
+
+.lineMask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.1em;
+  margin-bottom: -0.1em;
+}
+
+.line {
+  display: block;
+  animation: lineUp 1.3s var(--ease-editorial) 0.1s both;
+}
+
+@keyframes lineUp {
+  from {
+    transform: translate3d(0, 105%, 0) rotate(2deg);
+  }
+}
+
+.headerAside {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 18px;
+}
+
+.count {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.countNum {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(2.8rem, 4.5vw, 4.6rem);
+  line-height: 0.85;
+  letter-spacing: -0.03em;
+}
+
+.countLabel {
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.moveAll,
+.moveBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: var(--radius-pill);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.moveAll {
+  padding: 12px 20px;
+  background-color: var(--ink);
+  color: var(--paper);
+}
+
+.moveAll:hover {
+  background-color: var(--terracotta);
+}
+
+/* ==========================================================================
+   Empty
+   ========================================================================== */
+.empty {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(40px, 6vw, 120px);
+  padding-top: clamp(40px, 5vw, 72px);
+}
+
+.emptyTitle {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(2.6rem, 4.5vw, 4.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  animation: fadeUp 1s var(--ease-editorial) 0.3s both;
+}
+
+.emptyTitle em {
+  font-style: italic;
+  color: var(--terracotta);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+  }
+}
+
+.emptyText {
+  max-width: 380px;
+  margin-top: 20px;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--muted);
+  animation: fadeUp 1s var(--ease-editorial) 0.4s both;
+}
+
+.emptyActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+  margin-top: 32px;
+  animation: fadeUp 1s var(--ease-editorial) 0.5s both;
+}
+
+.primaryCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  height: 52px;
+  padding: 0 10px 0 26px;
+  border-radius: var(--radius-pill);
+  background-color: var(--ink);
+  color: var(--paper);
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition: background-color 0.4s var(--ease-editorial);
+}
+
+.ctaArrow {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: var(--paper);
+  color: var(--ink);
+  transition: transform 0.5s var(--ease-editorial);
+}
+
+.primaryCta:hover {
+  background-color: var(--terracotta);
+}
+
+.primaryCta:hover .ctaArrow {
+  transform: rotate(-45deg);
+}
+
+.startWith .sectionLabel {
+  margin-bottom: 20px;
+}
+
+.suggestGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+/* ==========================================================================
+   Saved grid
+   ========================================================================== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(40px, 5vw, 64px) clamp(14px, 1.6vw, 28px);
+  padding-top: clamp(40px, 5vw, 64px);
+}
+
+.card {
+  animation: fadeUp 0.9s var(--ease-editorial) both;
+}
+
+.imageFrame {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background-color: var(--paper-tint);
+}
+
+.image {
+  object-fit: cover;
+  transition: transform 1.4s var(--ease-editorial);
+}
+
+.card:hover .image {
+  transform: scale(1.04);
+}
+
+.removeBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(241, 238, 232, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.5s var(--ease-editorial);
+}
+
+.removeBtn:hover {
+  background-color: var(--ink);
+  color: var(--paper);
+  transform: rotate(90deg);
+}
+
+.badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 5px 10px;
+  border-radius: var(--radius-pill);
+  background-color: rgba(241, 238, 232, 0.9);
+  font-size: 0.55rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 16px;
+}
+
+.collection {
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+}
+
+.metaTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.cardTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 1.35vw, 1.4rem);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.cardPrice {
+  flex-shrink: 0;
+  font-size: 0.78rem;
+}
+
+.leadTime {
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 12px;
+}
+
+.moveBtn {
+  padding: 10px 16px;
+  border: 1px solid var(--ink);
+}
+
+.moveBtn:hover {
+  background-color: var(--ink);
+  color: var(--paper);
+}
+
+/* ==========================================================================
+   Also like
+   ========================================================================== */
+.also {
+  margin-top: clamp(96px, 12vw, 180px);
+  padding-top: clamp(24px, 3vw, 40px);
+  border-top: 1px solid var(--line);
+}
+
+.alsoTitle {
+  margin-bottom: clamp(32px, 4vw, 56px);
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(2.4rem, 4.5vw, 4.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+.alsoTitle em {
+  font-style: italic;
+  color: var(--terracotta);
+}
+
+.alsoGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 40px clamp(14px, 1.6vw, 28px);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .empty {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .grid,
+  .alsoGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .headerAside,
+  .count {
+    align-items: flex-start;
+  }
+
+  .suggestGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .suggestGrid > :nth-child(3) {
+    display: none;
+  }
+
+  .metaTop {
+    flex-direction: column;
+    gap: 4px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .line,
+  .emptyTitle,
+  .emptyText,
+  .emptyActions,
+  .card {
+    animation: none;
+  }
+}

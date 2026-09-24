@@ -1,0 +1,207 @@
+/**
+ * NAVA Luxury Fashion House — Editorial Grid & Layout Primitives
+ * Source of truth: 05-DESIGN-SYSTEM.md
+ */
+
+/* ==========================================================================
+   Editorial Containers
+   ========================================================================== */
+.container-max {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--gutter-mobile);
+  padding-right: var(--gutter-mobile);
+}
+
+.container-editorial {
+  width: 100%;
+  max-width: var(--container-editorial);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--gutter-mobile);
+  padding-right: var(--gutter-mobile);
+}
+
+.container-narrow {
+  width: 100%;
+  max-width: var(--container-narrow);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--gutter-mobile);
+  padding-right: var(--gutter-mobile);
+}
+
+.container-reading {
+  width: 100%;
+  max-width: var(--container-reading);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--gutter-mobile);
+  padding-right: var(--gutter-mobile);
+}
+
+.container-bleed {
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media (min-width: 768px) {
+  .container-max,
+  .container-editorial,
+  .container-narrow,
+  .container-reading {
+    padding-left: var(--gutter-tablet);
+    padding-right: var(--gutter-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-max,
+  .container-editorial,
+  .container-narrow,
+  .container-reading {
+    padding-left: var(--gutter-desktop);
+    padding-right: var(--gutter-desktop);
+  }
+}
+
+/* ==========================================================================
+   12-Column Responsive Editorial Grid System
+   ========================================================================== */
+.editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter-mobile);
+  row-gap: var(--gutter-mobile);
+}
+
+@media (min-width: 768px) {
+  .editorial-grid {
+    column-gap: var(--gutter-tablet);
+    row-gap: var(--gutter-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .editorial-grid {
+    column-gap: var(--gutter-desktop);
+    row-gap: var(--gutter-desktop);
+  }
+}
+
+/* Column Spans */
+.col-12 { grid-column: span 12 / span 12; }
+.col-11 { grid-column: span 11 / span 11; }
+.col-10 { grid-column: span 10 / span 10; }
+.col-9  { grid-column: span 9 / span 9; }
+.col-8  { grid-column: span 8 / span 8; }
+.col-7  { grid-column: span 7 / span 7; }
+.col-6  { grid-column: span 6 / span 6; }
+.col-5  { grid-column: span 5 / span 5; }
+.col-4  { grid-column: span 4 / span 4; }
+.col-3  { grid-column: span 3 / span 3; }
+.col-2  { grid-column: span 2 / span 2; }
+.col-1  { grid-column: span 1 / span 1; }
+
+/* Responsive Overrides */
+@media (max-width: 1023px) {
+  .col-lg-12 { grid-column: span 12 / span 12; }
+  .col-lg-6  { grid-column: span 6 / span 6; }
+  .col-lg-4  { grid-column: span 4 / span 4; }
+  .col-lg-3  { grid-column: span 3 / span 3; }
+}
+
+@media (max-width: 767px) {
+  .col-md-12 { grid-column: span 12 / span 12; }
+  .col-md-6  { grid-column: span 6 / span 6; }
+}
+
+/* Column Starts */
+.col-start-1  { grid-column-start: 1; }
+.col-start-2  { grid-column-start: 2; }
+.col-start-3  { grid-column-start: 3; }
+.col-start-4  { grid-column-start: 4; }
+.col-start-5  { grid-column-start: 5; }
+.col-start-6  { grid-column-start: 6; }
+.col-start-7  { grid-column-start: 7; }
+.col-start-8  { grid-column-start: 8; }
+.col-start-9  { grid-column-start: 9; }
+.col-start-10 { grid-column-start: 10; }
+.col-start-11 { grid-column-start: 11; }
+.col-start-12 { grid-column-start: 12; }
+
+/* ==========================================================================
+   Asymmetric Editorial Splits & Offset Utilities
+   ========================================================================== */
+.split-asymmetric-7-5 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gutter-mobile);
+}
+
+@media (min-width: 1024px) {
+  .split-asymmetric-7-5 {
+    grid-template-columns: 7fr 5fr;
+    gap: var(--gutter-desktop);
+    align-items: center;
+  }
+}
+
+.split-asymmetric-5-7 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gutter-mobile);
+}
+
+@media (min-width: 1024px) {
+  .split-asymmetric-5-7 {
+    grid-template-columns: 5fr 7fr;
+    gap: var(--gutter-desktop);
+    align-items: center;
+  }
+}
+
+.split-equal-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gutter-mobile);
+}
+
+@media (min-width: 768px) {
+  .split-equal-2 {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--gutter-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .split-equal-2 {
+    gap: var(--gutter-desktop);
+  }
+}
+
+/* ==========================================================================
+   Hairline Border Utilities (05-DESIGN-SYSTEM.md)
+   ========================================================================== */
+.border-t-hairline {
+  border-top: 1px solid var(--line);
+}
+
+.border-b-hairline {
+  border-bottom: 1px solid var(--line);
+}
+
+.border-l-hairline {
+  border-left: 1px solid var(--line);
+}
+
+.border-r-hairline {
+  border-right: 1px solid var(--line);
+}
+
+.border-hairline {
+  border: 1px solid var(--line);
+}

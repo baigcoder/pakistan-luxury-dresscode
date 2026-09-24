@@ -1,0 +1,132 @@
+/**
+ * NAVA Luxury Fashion House — Design Tokens
+ * Source of truth: 05-DESIGN-SYSTEM.md & 01-REFERENCE-ANALYSIS.md
+ */
+
+:root {
+  /* ==========================================================================
+     Color Tokens — Warm Editorial Pakistani Palette
+     ========================================================================== */
+  --paper: #F1EEE8;          /* Primary background — warm chalk/unbleached cotton */
+  --paper-tint: #EAE6DF;     /* Slightly deeper container background */
+  --paper-light: #F9F7F4;    /* Elevated surface / pristine textile backdrop */
+  
+  --ink: #151311;            /* High-contrast text & primary graphic marks */
+  --espresso: #28211D;       /* Deep warm dark tone for overlays & secondary headings */
+  --taupe: #B7A99D;          /* Architectural hairpins, neutral badges & subtle dividers */
+  --muted: #756C66;          /* Secondary text — AA on --paper */
+  --muted-on-dark: rgba(241, 238, 232, 0.6);
+  --brass: #B8966A;          /* Warm highlight on dark surfaces */
+
+  /* Chrome */
+  --nav-height: 68px;
+  --header-offset: 68px;     /* Updated at runtime: 0 when the header hides */
+
+  /* Theme Aliases */
+  --surface: #F1EEE8;
+  --surface-subtle: #EBE7DF;
+  --primary: #151311;
+  --secondary: #28211D;
+  --accent: #8C5849;
+  --accent-light: #B77A5B;
+  --border: rgba(40, 33, 29, 0.1);
+  --font-grotesk: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Pakistani Craft & Regional Dye Accents */
+  --terracotta: #8C5849;     /* Fired earthen craft accent & warm madder dye */
+  --copper: #B77A5B;         /* Metallic thread, Zardozi gold/copper reflection */
+  --indigo: #263A43;         /* Deep Sindhi Ajrak natural vat indigo */
+  
+  /* Hairline Borders */
+  --line: rgba(21, 19, 17, 0.14);
+  --line-strong: rgba(21, 19, 17, 0.3);
+  --line-subtle: rgba(21, 19, 17, 0.08);
+  --line-light: rgba(241, 238, 232, 0.2);
+  --line-dark: rgba(241, 238, 232, 0.18);
+
+  /* Reference Dribbble Palette Mappings */
+  --ref-gray-light: #CDCCCC;
+  --ref-black-rich: #171210;
+  --ref-brown-dark: #4A342D;
+  --ref-taupe-mid: #605652;
+  --ref-sand-rose: #C2AAA4;
+  --ref-terracotta: #A36153;
+  --ref-copper-rose: #B58677;
+
+  /* ==========================================================================
+     Typography Variables (Mapped to Google Fonts in layout.tsx)
+     ========================================================================== */
+  --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* Former monospace slot — the house sans reads more couture than code */
+  --font-mono: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* ==========================================================================
+     Spatial Scale & Gutters (05-DESIGN-SYSTEM.md)
+     ========================================================================== */
+  --space-2xs: 2px;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 96px;
+  --space-5xl: 128px;
+  --space-6xl: 160px;
+
+  /* Fluid Editorial Gutters */
+  --gutter-desktop: clamp(32px, 3.5vw, 48px);
+  --gutter-tablet: clamp(20px, 2.5vw, 32px);
+  --gutter-mobile: clamp(16px, 4vw, 20px);
+
+  /* Layout Containers */
+  --container-max: 1680px;
+  --container-editorial: 1440px;
+  --container-narrow: 1040px;
+  --container-reading: 780px;
+
+  /* ==========================================================================
+     Border Radii (Architectural & Restrained: 0–4px)
+     ========================================================================== */
+  --radius-none: 0px;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-pill: 9999px;     /* For subtle metadata tags and capsule buttons */
+
+  /* ==========================================================================
+     Transitions & Motion Language (08-ANIMATION.md)
+     Slow, deliberate, editorial, cubic-bezier(0.22, 1, 0.36, 1)
+     ========================================================================== */
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-curtain: cubic-bezier(0.76, 0, 0.24, 1);
+  
+  --duration-micro: 180ms;   /* Buttons, icons, tag hover */
+  --duration-ui: 320ms;      /* Drawers, dropdowns, tabs */
+  --duration-image: 850ms;   /* Editorial zooms, clip reveals */
+  --duration-page: 1000ms;   /* Page-level transitions */
+
+  /* ==========================================================================
+     Z-Index Hierarchy
+     ========================================================================== */
+  --z-negative: -1;
+  --z-elevate: 1;
+  --z-sticky: 20;
+  --z-header: 40;
+  --z-overlay: 50;
+  --z-drawer: 60;
+  --z-modal: 70;
+  --z-cursor: 90;
+}
+
+@media (max-width: 1080px) {
+  :root {
+    --nav-height: 60px;
+    --header-offset: 60px;
+  }
+}

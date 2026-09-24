@@ -1,0 +1,236 @@
+.header {
+  --fg: var(--ink);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: var(--z-header);
+  color: var(--fg);
+  transition:
+    transform 0.6s var(--ease-editorial),
+    background-color 0.5s var(--ease-editorial),
+    border-color 0.5s var(--ease-editorial),
+    color 0.5s var(--ease-editorial);
+  border-bottom: 1px solid transparent;
+}
+
+/* Over the full-bleed hero: no chrome, light type */
+.overlay {
+  --fg: var(--paper);
+  background-color: transparent;
+}
+
+.overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 -40px;
+  background: linear-gradient(180deg, rgba(21, 19, 17, 0.35), transparent);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.solid {
+  background-color: rgba(241, 238, 232, 0.97);
+  backdrop-filter: blur(18px) saturate(1.2);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+  border-bottom-color: var(--line-subtle);
+}
+
+.hidden {
+  transform: translate3d(0, -100%, 0);
+}
+
+.inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  height: var(--nav-height);
+  padding: 0 clamp(20px, 3vw, 44px);
+  max-width: 1760px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   Left navigation
+   ========================================================================== */
+.leftNav {
+  justify-self: start;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 1.7vw, 28px);
+}
+
+.navLink,
+.textBtn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg);
+  padding: 8px 0;
+  transition: opacity 0.3s ease, color 0.5s var(--ease-editorial);
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 3px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s var(--ease-editorial);
+}
+
+.navLink:hover::after,
+.navLinkActive::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.textBtn:hover {
+  opacity: 0.6;
+}
+
+.count {
+  font-size: 0.55rem;
+  letter-spacing: 0;
+  margin-left: 2px;
+  top: -0.5em;
+  position: relative;
+  color: var(--copper);
+}
+
+.overlay .count {
+  color: var(--paper);
+}
+
+/* ==========================================================================
+   Centre wordmark
+   ========================================================================== */
+.wordmark {
+  justify-self: center;
+  font-family: var(--font-serif);
+  font-size: clamp(1.45rem, 2vw, 1.9rem);
+  font-weight: 400;
+  letter-spacing: 0.34em;
+  margin-right: -0.34em;
+  line-height: 1;
+  color: var(--fg);
+  transition: letter-spacing 0.8s var(--ease-editorial), color 0.5s var(--ease-editorial);
+}
+
+.wordmark:hover {
+  letter-spacing: 0.42em;
+  margin-right: -0.42em;
+}
+
+/* ==========================================================================
+   Right utilities
+   ========================================================================== */
+.rightActions {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 1.7vw, 26px);
+}
+
+.currencyWrap {
+  position: relative;
+}
+
+.currencyDropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: -12px;
+  min-width: 84px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--paper-light);
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 40px -18px rgba(21, 19, 17, 0.28);
+  animation: dropIn 0.35s var(--ease-editorial);
+}
+
+@keyframes dropIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+.currencyItem {
+  font-family: var(--font-sans);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  padding: 8px 10px;
+  text-align: left;
+  color: var(--muted);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.currencyItem:hover,
+.currencyActive {
+  color: var(--ink);
+  background-color: var(--paper-tint);
+}
+
+/* ==========================================================================
+   Mobile
+   ========================================================================== */
+.mobileOnly {
+  display: none;
+}
+
+.burger {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 18px;
+}
+
+.burger span {
+  display: block;
+  height: 1px;
+  background: currentColor;
+  transition: transform 0.45s var(--ease-editorial);
+}
+
+.burger[data-open="true"] span:first-child {
+  transform: translateY(3px) rotate(45deg);
+}
+
+.burger[data-open="true"] span:last-child {
+  transform: translateY(-3px) rotate(-45deg);
+}
+
+@media (max-width: 1080px) {
+  .leftNav,
+  .rightActions {
+    display: none;
+  }
+
+  .mobileOnly {
+    display: inline-flex;
+  }
+
+  .mobileOnly:first-of-type {
+    justify-self: start;
+  }
+
+  .mobileBag {
+    justify-self: end;
+  }
+}

@@ -1,0 +1,350 @@
+.page {
+  padding-top: clamp(28px, 3.5vw, 52px);
+  padding-bottom: var(--space-4xl);
+  min-height: 100vh;
+  background-color: var(--surface);
+}
+
+.heroHeader {
+  padding-bottom: var(--space-2xl);
+  border-bottom: 1px solid var(--border);
+}
+
+.eyebrowRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-md);
+  letter-spacing: 0.14em;
+}
+
+.mainTitle {
+  color: var(--primary);
+  margin-bottom: var(--space-md);
+  line-height: 1.05;
+}
+
+.leadIntro {
+  max-width: 760px;
+  color: var(--secondary);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   Banner Section
+   ========================================================================== */
+.bannerSection {
+  padding: var(--space-2xl) 0;
+}
+
+.bannerFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 21 / 9;
+  min-height: 380px;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background-color: var(--surface-subtle);
+}
+
+.bannerImg {
+  object-fit: cover;
+}
+
+.bannerCaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-lg);
+  background: linear-gradient(to top, rgba(21, 19, 17, 0.85) 0%, transparent 100%);
+  color: var(--surface);
+}
+
+/* ==========================================================================
+   Manifesto Section
+   ========================================================================== */
+.manifestoSection {
+  padding: var(--space-3xl) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.manifestoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: var(--space-3xl);
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .manifestoGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+}
+
+.manifestoLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.manifestoHeading {
+  margin-top: var(--space-xs);
+  margin-bottom: var(--space-lg);
+  color: var(--primary);
+}
+
+.manifestoQuote {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--accent);
+  border-left: 2px solid var(--accent);
+  padding-left: var(--space-md);
+}
+
+.manifestoRight {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+}
+
+.pillarItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.pillarTitle {
+  color: var(--primary);
+  margin-bottom: var(--space-xs);
+  font-family: var(--font-display);
+}
+
+/* ==========================================================================
+   Timeline Section
+   ========================================================================== */
+.timelineSection {
+  padding: var(--space-3xl) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.timelineHeader {
+  margin-bottom: var(--space-2xl);
+}
+
+.sectionTitle {
+  margin-top: var(--space-xs);
+  color: var(--primary);
+}
+
+.timelineList {
+  display: flex;
+  flex-direction: column;
+}
+
+.timelineRow {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  padding: var(--space-xl) 0;
+  border-top: 1px solid var(--border);
+  gap: var(--space-xl);
+}
+
+@media (max-width: 640px) {
+  .timelineRow {
+    grid-template-columns: 1fr;
+    gap: var(--space-xs);
+  }
+}
+
+.timelineYear {
+  display: flex;
+  align-items: flex-start;
+}
+
+.yearNumber {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+}
+
+.timelineContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.milestoneTitle {
+  color: var(--primary);
+  font-family: var(--font-display);
+}
+
+/* ==========================================================================
+   Craft Pillars
+   ========================================================================== */
+.craftPillarsSection {
+  padding: var(--space-3xl) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.craftPillarsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: var(--space-2xl);
+}
+
+.exploreLink {
+  font-family: var(--font-grotesk);
+  font-size: var(--text-metadata);
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  transition: color 0.2s ease;
+}
+
+.exploreLink:hover {
+  color: var(--primary);
+}
+
+.pillarsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+}
+
+@media (max-width: 900px) {
+  .pillarsGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+}
+
+.pillarCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.pillarImageFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background-color: var(--surface-subtle);
+  margin-bottom: var(--space-md);
+}
+
+.pillarImg {
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.pillarCard:hover .pillarImg {
+  transform: scale(1.04);
+}
+
+.pillarBadge {
+  position: absolute;
+  top: var(--space-sm);
+  left: var(--space-sm);
+  z-index: 2;
+}
+
+.pillarMeta {
+  display: flex;
+  flex-direction: column;
+}
+
+.pillarHeading {
+  margin-top: 4px;
+  font-family: var(--font-display);
+  color: var(--primary);
+}
+
+/* ==========================================================================
+   Commitment Section
+   ========================================================================== */
+.commitmentSection {
+  padding: var(--space-3xl) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.commitmentBox {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: var(--space-xl);
+  padding: var(--space-2xl);
+  background-color: var(--surface-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+@media (max-width: 640px) {
+  .commitmentBox {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+  }
+}
+
+.commitmentIcon {
+  display: flex;
+  align-items: flex-start;
+}
+
+.commitmentText {
+  display: flex;
+  flex-direction: column;
+}
+
+.commitmentTitle {
+  margin-top: var(--space-xs);
+  color: var(--primary);
+}
+
+.commitmentPoints {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  margin-top: var(--space-xs);
+  letter-spacing: 0.12em;
+}
+
+/* ==========================================================================
+   CTA Section
+   ========================================================================== */
+.ctaSection {
+  padding-top: var(--space-4xl);
+}
+
+.ctaInner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ctaTitle {
+  margin-top: var(--space-xs);
+  margin-bottom: var(--space-md);
+  color: var(--primary);
+}
+
+.ctaSub {
+  color: var(--muted);
+  margin-bottom: var(--space-2xl);
+  line-height: 1.6;
+}
+
+.ctaActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  justify-content: center;
+}

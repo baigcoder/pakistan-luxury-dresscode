@@ -1,0 +1,183 @@
+.section {
+  padding-top: var(--space-5xl);
+  padding-bottom: var(--space-5xl);
+  border-bottom: 1px solid var(--line);
+  background-color: var(--paper-light);
+  overflow: hidden;
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: var(--space-2xl);
+  gap: var(--space-md);
+}
+
+.title {
+  color: var(--ink);
+  margin-top: 4px;
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+}
+
+.controlBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line);
+  color: var(--espresso);
+  background-color: var(--paper);
+  transition: all var(--duration-micro) var(--ease-editorial);
+}
+
+.controlBtn:hover {
+  background-color: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+/* ==========================================================================
+   Rail Track
+   ========================================================================== */
+.railTrack {
+  display: flex;
+  gap: var(--space-xl);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-left: var(--gutter-mobile);
+  padding-right: var(--gutter-mobile);
+  padding-bottom: var(--space-lg);
+  scrollbar-width: thin;
+  scrollbar-color: var(--taupe) transparent;
+}
+
+@media (min-width: 1024px) {
+  .railTrack {
+    padding-left: var(--gutter-desktop);
+    padding-right: var(--gutter-desktop);
+  }
+}
+
+.card {
+  flex: 0 0 320px;
+  scroll-snap-align: start;
+}
+
+@media (min-width: 768px) {
+  .card {
+    flex: 0 0 380px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .card {
+    flex: 0 0 420px;
+  }
+}
+
+.cardLink {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  group: true;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background-color: var(--paper);
+  border: 1px solid var(--line);
+}
+
+.image {
+  object-fit: cover;
+  transition: transform var(--duration-image) var(--ease-editorial);
+}
+
+.card:hover .image {
+  transform: scale(1.035);
+}
+
+.cardBadge {
+  position: absolute;
+  top: var(--space-md);
+  left: var(--space-md);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(241, 238, 232, 0.92);
+  backdrop-filter: blur(8px);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line);
+  z-index: 2;
+}
+
+.badgeIndex {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--terracotta);
+}
+
+.badgeCode {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.cardMeta {
+  padding-top: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cardTitleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.cardTitle {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.seasonTag {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.cardDesc {
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.provenanceRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--space-xs);
+  border-top: 1px solid var(--line-subtle);
+  margin-top: 4px;
+}

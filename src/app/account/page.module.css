@@ -1,0 +1,237 @@
+.page {
+  padding-top: clamp(28px, 3.5vw, 52px);
+  padding-bottom: var(--space-4xl);
+  min-height: 100vh;
+  background-color: var(--surface);
+}
+
+.header {
+  padding-bottom: var(--space-2xl);
+  border-bottom: 1px solid var(--border);
+}
+
+.headerMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-md);
+  letter-spacing: 0.14em;
+}
+
+.title {
+  color: var(--primary);
+  margin-bottom: var(--space-sm);
+}
+
+.subhead {
+  max-width: 640px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   Tabs Bar
+   ========================================================================== */
+.tabsBar {
+  display: flex;
+  gap: var(--space-xs);
+  padding: var(--space-xl) 0;
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+}
+
+.tabBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-family: var(--font-grotesk);
+  font-size: var(--text-metadata);
+  letter-spacing: 0.12em;
+  font-weight: 500;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--muted);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.tabBtn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.tabActive {
+  background-color: var(--primary);
+  color: var(--surface);
+  border-color: var(--primary);
+}
+
+/* ==========================================================================
+   Tab Content
+   ========================================================================== */
+.tabContent {
+  padding-top: var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.orderCard,
+.appointmentCard {
+  background-color: var(--surface-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-xl);
+}
+
+.orderTop,
+.apptTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-md);
+}
+
+@media (max-width: 640px) {
+  .orderTop,
+  .apptTop {
+    flex-direction: column;
+  }
+}
+
+.orderTitle,
+.apptTitle {
+  margin-top: 4px;
+  color: var(--primary);
+}
+
+.orderSpecs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+@media (max-width: 768px) {
+  .orderSpecs {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+}
+
+.specItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Measurements Form */
+.measurementsBox {
+  background-color: var(--surface-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2xl);
+  max-width: 860px;
+}
+
+@media (max-width: 640px) {
+  .measurementsBox {
+    padding: var(--space-lg);
+  }
+}
+
+.measurementsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.boxTitle {
+  margin-top: 4px;
+  color: var(--primary);
+}
+
+.savedBanner {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-grotesk);
+  font-size: var(--text-metadata);
+  color: var(--accent);
+  letter-spacing: 0.08em;
+}
+
+.measureGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+@media (max-width: 768px) {
+  .measureGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-family: var(--font-grotesk);
+  font-size: var(--text-metadata);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--secondary);
+}
+
+.input,
+.textarea {
+  padding: 10px 12px;
+  font-family: var(--font-grotesk);
+  font-size: var(--text-body);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--primary);
+  outline: none;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.saveWrap {
+  margin-top: var(--space-lg);
+}
+
+/* Appointments Tab */
+.apptDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: var(--space-lg);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--border);
+}
+
+.apptRow {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: baseline;
+}
+
+.requestNewWrap {
+  padding: var(--space-2xl) 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}

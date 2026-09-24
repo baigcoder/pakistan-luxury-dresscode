@@ -1,0 +1,190 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: var(--paper);
+  z-index: var(--z-modal);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  animation: fadeIn var(--duration-ui) var(--ease-editorial);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-lg) var(--gutter-mobile);
+  border-bottom: 1px solid var(--line);
+}
+
+.brandTitle {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  letter-spacing: -0.04em;
+  font-weight: 350;
+  line-height: 1;
+}
+
+.closeButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: var(--ink);
+  padding: 0;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: var(--space-xl) var(--gutter-mobile);
+  gap: var(--space-3xl);
+}
+
+/* ==========================================================================
+   Primary Nav Links
+   ========================================================================== */
+.navList {
+  display: flex;
+  flex-direction: column;
+}
+
+.navItem {
+  border-bottom: 1px solid var(--line-subtle);
+}
+
+.navLink {
+  display: flex;
+  align-items: baseline;
+  padding: 16px 0;
+  color: var(--ink);
+  text-decoration: none;
+  transition: transform var(--duration-micro) var(--ease-editorial);
+}
+
+.navLink:hover {
+  transform: translateX(6px);
+}
+
+.itemIndex {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--terracotta);
+  width: 36px;
+  flex-shrink: 0;
+}
+
+.itemLabel {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 8vw, 3rem);
+  letter-spacing: -0.02em;
+  font-weight: 300;
+  text-transform: uppercase;
+  flex: 1;
+}
+
+.itemArrow {
+  color: var(--muted);
+}
+
+/* ==========================================================================
+   Secondary Utilities
+   ========================================================================== */
+.secondarySection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+  margin-top: auto;
+  padding-top: var(--space-xl);
+  border-top: 1px solid var(--line);
+}
+
+.utilityGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-sm);
+}
+
+.utilBtn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: 12px 16px;
+  background-color: var(--paper-light);
+  border: 1px solid var(--line);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+/* Currency Row */
+.currencyRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.currencyLabel {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.currencyPills {
+  display: flex;
+  gap: 6px;
+}
+
+.currencyPill {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  background: transparent;
+}
+
+.pillActive {
+  background-color: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+/* Cultural Statement */
+.culturalFooter {
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--line-subtle);
+}
+
+.culturalStatement {
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.provenanceNote {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  color: var(--terracotta);
+}

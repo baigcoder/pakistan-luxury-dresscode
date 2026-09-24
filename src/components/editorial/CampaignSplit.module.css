@@ -1,0 +1,76 @@
+.section {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  background-color: var(--espresso);
+}
+
+.panoramicContainer {
+  position: relative;
+  width: 100%;
+  min-height: 75vh;
+  display: flex;
+  align-items: flex-end;
+}
+
+@media (min-width: 1024px) {
+  .panoramicContainer {
+    min-height: 85vh;
+  }
+}
+
+.image {
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(21, 19, 17, 0.1) 0%,
+    rgba(21, 19, 17, 0.4) 40%,
+    rgba(21, 19, 17, 0.85) 100%
+  );
+  z-index: 1;
+}
+
+.contentContainer {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding-bottom: var(--space-4xl);
+  padding-top: var(--space-4xl);
+}
+
+.textAnchor {
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.anchorBadge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.headline {
+  color: var(--paper);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.description {
+  color: var(--taupe);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 520px;
+}
+
+.ctaGroup {
+  padding-top: var(--space-xs);
+}

@@ -1,0 +1,284 @@
+.page {
+  padding-top: clamp(28px, 3.5vw, 52px);
+  padding-bottom: var(--space-4xl);
+  min-height: 100vh;
+  background-color: var(--surface);
+}
+
+.searchHeader {
+  padding-bottom: var(--space-2xl);
+  border-bottom: 1px solid var(--border);
+}
+
+.title {
+  color: var(--primary);
+  margin-top: var(--space-xs);
+  margin-bottom: var(--space-xl);
+}
+
+.inputWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--space-md);
+}
+
+.searchIcon {
+  position: absolute;
+  left: 16px;
+  color: var(--muted);
+  pointer-events: none;
+}
+
+.input {
+  width: 100%;
+  padding: 18px 90px 18px 52px;
+  font-family: var(--font-grotesk);
+  font-size: 1.25rem;
+  background-color: var(--surface-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--primary);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.clearBtn {
+  position: absolute;
+  right: 16px;
+  background: none;
+  border: none;
+  font-family: var(--font-grotesk);
+  font-size: var(--text-metadata);
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  padding: 6px 10px;
+}
+
+.clearBtn:hover {
+  color: var(--primary);
+}
+
+.popularRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.chip {
+  padding: 6px 12px;
+  font-family: var(--font-grotesk);
+  font-size: var(--text-metadata);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background-color: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.chip:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* ==========================================================================
+   Results Area
+   ========================================================================== */
+.resultsArea {
+  padding-top: var(--space-2xl);
+}
+
+.resultsCount {
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--border);
+}
+
+.initialState,
+.noResults {
+  padding: var(--space-3xl) 0;
+  text-align: center;
+}
+
+.sectionsStack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xl);
+}
+
+.resultGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-xl);
+}
+
+@media (max-width: 900px) {
+  .productsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.productCard {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+}
+
+.productFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background-color: var(--surface-subtle);
+  margin-bottom: var(--space-xs);
+}
+
+.productImg {
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.productCard:hover .productImg {
+  transform: scale(1.04);
+}
+
+.productMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.productTitle {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--primary);
+}
+
+.productPrice {
+  font-family: var(--font-grotesk);
+  font-size: var(--text-metadata);
+  color: var(--muted);
+}
+
+/* Crafts Grid */
+.craftsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+}
+
+@media (max-width: 768px) {
+  .craftsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.craftCard {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+}
+
+.craftFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background-color: var(--surface-subtle);
+  margin-bottom: var(--space-sm);
+}
+
+.craftImg {
+  object-fit: cover;
+}
+
+.craftBadge {
+  position: absolute;
+  top: var(--space-xs);
+  left: var(--space-xs);
+  z-index: 2;
+}
+
+.craftMeta {
+  display: flex;
+  flex-direction: column;
+}
+
+.craftTitle {
+  font-family: var(--font-display);
+  color: var(--primary);
+  margin-top: 2px;
+}
+
+/* Journal Grid */
+.journalGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+}
+
+@media (max-width: 768px) {
+  .journalGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.journalCard {
+  text-decoration: none;
+  color: inherit;
+  padding: var(--space-lg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background-color: var(--surface);
+  transition: border-color 0.2s ease;
+}
+
+.journalCard:hover {
+  border-color: var(--primary);
+}
+
+.journalMeta {
+  display: flex;
+  flex-direction: column;
+}
+
+.journalTitle {
+  font-family: var(--font-display);
+  color: var(--primary);
+  margin-top: 4px;
+}
+
+.readLink {
+  margin-top: var(--space-sm);
+  font-family: var(--font-grotesk);
+  font-size: var(--text-metadata);
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  font-weight: 500;
+}

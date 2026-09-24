@@ -1,0 +1,115 @@
+.page {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 8fr);
+  gap: clamp(40px, 6vw, 120px);
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: clamp(28px, 3.5vw, 52px) clamp(20px, 3vw, 44px) clamp(96px, 12vw, 180px);
+}
+
+.sticky {
+  position: sticky;
+  top: calc(var(--header-offset) + 40px);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-top: 8px;
+  transition: top 0.6s var(--ease-editorial);
+}
+
+.label {
+  display: block;
+  margin-bottom: 14px;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+}
+
+.nav {
+  border-top: 1px solid var(--line-strong);
+}
+
+.navLink {
+  position: relative;
+  display: block;
+  padding: 12px 0 12px 0;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--muted);
+  transition: color 0.3s ease, padding 0.5s var(--ease-editorial);
+}
+
+.navLink:hover {
+  color: var(--ink);
+  padding-left: 10px;
+}
+
+.active {
+  color: var(--ink);
+  font-style: italic;
+  padding-left: 18px;
+}
+
+.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 8px;
+  height: 1px;
+  background-color: var(--terracotta);
+}
+
+.concierge p {
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: var(--espresso);
+}
+
+.contactLink {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.8rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--line-strong);
+  transition: text-decoration-color 0.3s ease, color 0.3s ease;
+}
+
+.contactLink:hover {
+  color: var(--terracotta);
+  text-decoration-color: currentColor;
+}
+
+/* Reading column */
+.content {
+  min-width: 0;
+  max-width: 780px;
+}
+
+.content h2 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+}
+
+.content section {
+  scroll-margin-top: calc(var(--nav-height) + 24px);
+}
+
+@media (max-width: 900px) {
+  .page {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .aside {
+    order: 2;
+  }
+
+  .sticky {
+    position: static;
+  }
+}

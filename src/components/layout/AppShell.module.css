@@ -1,0 +1,34 @@
+.shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+  background-color: var(--paper);
+}
+
+.skipToContent {
+  position: absolute;
+  top: -100px;
+  left: var(--space-md);
+  background-color: var(--ink);
+  color: var(--paper);
+  padding: 8px 16px;
+  z-index: 100;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  transition: top var(--duration-micro) ease;
+}
+
+.skipToContent:focus {
+  top: var(--space-md);
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.offset {
+  padding-top: var(--nav-height);
+}

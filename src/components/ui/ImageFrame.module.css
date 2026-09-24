@@ -1,0 +1,136 @@
+.frame {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  background-color: var(--paper-tint);
+}
+
+.withBorder {
+  border: 1px solid var(--line);
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   Aspect Ratio Classes
+   ========================================================================== */
+.ratio_16_9 {
+  aspect-ratio: 16 / 9;
+}
+
+.ratio_4_5 {
+  aspect-ratio: 4 / 5;
+}
+
+.ratio_3_4 {
+  aspect-ratio: 3 / 4;
+}
+
+.ratio_1_1 {
+  aspect-ratio: 1 / 1;
+}
+
+.ratio_3_2 {
+  aspect-ratio: 3 / 2;
+}
+
+.ratio_4_3 {
+  aspect-ratio: 4 / 3;
+}
+
+/* ==========================================================================
+   Image Transitions & Hover Zoom (08-ANIMATION.md)
+   scale: 1 → 1.035
+   ========================================================================== */
+.image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition:
+    opacity 600ms var(--ease-editorial),
+    transform var(--duration-image) var(--ease-editorial);
+  transform: scale(1);
+}
+
+.imageLoaded {
+  opacity: 1;
+}
+
+.hoverZoom:hover .image {
+  transform: scale(1.035);
+}
+
+/* ==========================================================================
+   Subtle Skeleton
+   ========================================================================== */
+.skeleton {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    var(--paper-tint) 0%,
+    var(--paper-light) 50%,
+    var(--paper-tint) 100%
+  );
+  background-size: 200% 100%;
+  animation: skeletonPulse 1.8s ease-in-out infinite;
+  z-index: 1;
+  transition: opacity 400ms var(--ease-editorial);
+}
+
+.skeleton.loaded {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes skeletonPulse {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* ==========================================================================
+   Badge Overlay
+   ========================================================================== */
+.badgeWrapper {
+  position: absolute;
+  top: var(--space-md);
+  left: var(--space-md);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   Caption
+   ========================================================================== */
+.caption {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: 10px;
+  font-family: var(--font-sans);
+  color: var(--muted);
+}
+
+.captionLine {
+  display: inline-block;
+  width: 16px;
+  height: 1px;
+  background-color: var(--line);
+}
+
+.captionText {
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}

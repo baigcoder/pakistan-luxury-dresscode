@@ -1,0 +1,55 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: var(--radius-pill);
+  line-height: 1;
+  white-space: nowrap;
+  user-select: none;
+  transition: all var(--duration-micro) var(--ease-editorial);
+}
+
+/* Variants */
+.neutral {
+  background-color: var(--paper-tint);
+  color: var(--espresso);
+  border: 1px solid var(--line);
+}
+
+.outline {
+  background-color: transparent;
+  color: var(--muted);
+  border: 1px solid var(--line);
+}
+
+.terracotta {
+  background-color: rgba(140, 88, 73, 0.1);
+  color: var(--terracotta);
+  border: 1px solid rgba(140, 88, 73, 0.25);
+}
+
+.indigo {
+  background-color: rgba(38, 58, 67, 0.08);
+  color: var(--indigo);
+  border: 1px solid rgba(38, 58, 67, 0.25);
+}
+
+.dark {
+  background-color: var(--ink);
+  color: var(--paper);
+  border: 1px solid var(--ink);
+}
+
+/* Sizes */
+.sm {
+  padding: 4px 8px;
+  font-size: 0.62rem;
+}
+
+.md {
+  padding: 6px 12px;
+  font-size: 0.68rem;
+}

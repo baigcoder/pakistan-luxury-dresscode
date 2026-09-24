@@ -1,0 +1,96 @@
+.section {
+  padding-top: var(--space-5xl);
+  padding-bottom: var(--space-5xl);
+  border-bottom: 1px solid var(--line);
+  background-color: var(--paper);
+}
+
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--line);
+  margin-bottom: var(--space-3xl);
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.statementRow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-4xl);
+}
+
+@media (min-width: 1024px) {
+  .statementRow {
+    grid-template-columns: 5fr 7fr;
+    gap: var(--space-4xl);
+    align-items: baseline;
+  }
+}
+
+.statement {
+  color: var(--ink);
+  line-height: 0.96;
+}
+
+.leadText {
+  color: var(--espresso);
+  max-width: 680px;
+}
+
+/* ==========================================================================
+   Asymmetric 7:5 Split
+   ========================================================================== */
+.splitGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3xl);
+}
+
+@media (min-width: 1024px) {
+  .splitGrid {
+    grid-template-columns: 7fr 5fr;
+    gap: var(--space-4xl);
+    align-items: start;
+  }
+}
+
+.dominantCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.dominantCaption {
+  padding-top: var(--space-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.secondaryCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+@media (min-width: 1024px) {
+  .secondaryCol {
+    padding-top: var(--space-4xl); /* Editorial offset on grid */
+  }
+}
+
+.secondaryWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.craftSnippet {
+  background-color: var(--paper-light);
+  border: 1px solid var(--line);
+  padding: var(--space-lg);
+}

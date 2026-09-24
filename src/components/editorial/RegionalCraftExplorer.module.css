@@ -1,0 +1,309 @@
+.explorerWrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(48px, 7vw, 96px);
+}
+
+/* ==========================================================================
+   Lens Section (Macro -> Detail -> Garment)
+   ========================================================================== */
+.lensSection {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.lensHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.eyebrow {
+  font-family: var(--font-grotesk);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.lensTitle {
+  font-family: var(--font-grotesk);
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin: 4px 0 0;
+}
+
+.lensTabs {
+  display: flex;
+  gap: 8px;
+}
+
+.lensTab {
+  font-family: var(--font-grotesk);
+  font-size: 0.65625rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xs);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lensTab:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.lensTabActive {
+  background-color: var(--primary);
+  color: var(--surface);
+  border-color: var(--primary);
+}
+
+.stageFrame {
+  position: relative;
+  width: 100%;
+  height: clamp(380px, 58vh, 620px);
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: var(--surface-subtle);
+  box-shadow: 0 4px 24px rgba(21, 19, 17, 0.04);
+}
+
+.stageImg {
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.stageFrame:hover .stageImg {
+  transform: scale(1.02);
+}
+
+.stageCaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: clamp(16px, 2.5vw, 28px);
+  background: linear-gradient(180deg, transparent 0%, rgba(21, 19, 17, 0.72) 100%);
+  color: #ffffff;
+  z-index: 2;
+}
+
+.captionText {
+  font-family: var(--font-grotesk);
+  font-size: clamp(0.72rem, 0.95vw, 0.82rem);
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  display: block;
+  max-width: 800px;
+}
+
+/* ==========================================================================
+   Regions Section (6 Regional Archives)
+   ========================================================================== */
+.regionsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.regionsHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 640px;
+}
+
+.regionsTitle {
+  font-family: var(--font-grotesk);
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin: 0;
+}
+
+.regionsSub {
+  font-family: var(--font-grotesk);
+  font-size: 0.84rem;
+  line-height: 1.6;
+  color: var(--secondary);
+  margin: 0;
+}
+
+.regionsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: clamp(24px, 3.5vw, 48px);
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .regionsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.regionsList {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+}
+
+.regionItem {
+  padding: 16px 14px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.regionItem:hover,
+.regionActive {
+  background-color: var(--surface-subtle);
+  padding-left: 20px;
+}
+
+.regionActive {
+  border-left: 2px solid var(--primary);
+}
+
+.regionItemTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.regionNumber {
+  font-family: var(--font-grotesk);
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.regionName {
+  font-family: var(--font-grotesk);
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin: 0;
+}
+
+.regionTradition {
+  font-family: var(--font-grotesk);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0;
+}
+
+/* Right Preview Panel */
+.previewPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: sticky;
+  top: calc(var(--header-offset) + 24px);
+  transition: top 0.6s var(--ease-editorial);
+}
+
+.previewImageFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: var(--surface-subtle);
+}
+
+.previewImg {
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.previewPanel:hover .previewImg {
+  transform: scale(1.025);
+}
+
+.previewBadge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  padding: 4px 10px;
+  background-color: rgba(244, 242, 238, 0.92);
+  backdrop-filter: blur(6px);
+  border-radius: 2px;
+  font-family: var(--font-grotesk);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+.previewNarrative {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.previewMaterials {
+  font-family: var(--font-grotesk);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.previewDesc {
+  font-family: var(--font-grotesk);
+  font-size: 0.84rem;
+  line-height: 1.6;
+  color: var(--secondary);
+  margin: 0;
+}
+
+.previewLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-grotesk);
+  font-size: 0.65625rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--primary);
+  text-decoration: none;
+  margin-top: 4px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.previewLink:hover {
+  color: var(--accent);
+  transform: translateX(3px);
+}

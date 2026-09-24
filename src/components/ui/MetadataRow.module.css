@@ -1,0 +1,32 @@
+.row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-sans);
+}
+
+.label {
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+.value {
+  font-size: 0.85rem;
+  color: var(--ink);
+  text-align: right;
+  letter-spacing: -0.005em;
+  font-weight: 400;
+}
+
+.provenance {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--terracotta);
+}

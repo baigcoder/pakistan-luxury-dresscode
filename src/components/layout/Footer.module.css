@@ -1,0 +1,302 @@
+.footer {
+  position: relative;
+  background-color: var(--ink);
+  color: var(--paper);
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1760px;
+  margin: 0 auto;
+  padding: clamp(80px, 10vw, 160px) clamp(20px, 3vw, 44px) 0;
+}
+
+/* ==========================================================================
+   Newsletter
+   ========================================================================== */
+.newsletter {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(40px, 6vw, 120px);
+  align-items: end;
+  padding-bottom: clamp(64px, 8vw, 120px);
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 22px;
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--brass);
+}
+
+.newsletterHeading {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(3rem, 7vw, 7.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.035em;
+}
+
+.newsletterHeading em {
+  font-style: italic;
+  color: var(--brass);
+}
+
+.formCol {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.formLede {
+  max-width: 380px;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: rgba(241, 238, 232, 0.66);
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(241, 238, 232, 0.4);
+  transition: border-color 0.4s ease;
+}
+
+.form:focus-within {
+  border-color: var(--paper);
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  padding: 16px 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  color: var(--paper);
+}
+
+.input::placeholder {
+  color: rgba(241, 238, 232, 0.45);
+}
+
+.submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 0 16px 16px;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--paper);
+  transition: color 0.3s ease;
+}
+
+.submit:hover {
+  color: var(--brass);
+}
+
+.submit svg {
+  transition: transform 0.4s var(--ease-editorial);
+}
+
+.submit:hover svg {
+  transform: translate(2px, -2px);
+}
+
+.success {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(241, 238, 232, 0.4);
+  font-size: 0.9rem;
+  color: var(--brass);
+}
+
+/* ==========================================================================
+   Body
+   ========================================================================== */
+.body {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  gap: clamp(40px, 6vw, 120px);
+  padding: clamp(56px, 6vw, 96px) 0;
+}
+
+.statement {
+  max-width: 360px;
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 300;
+  line-height: 1.35;
+  color: rgba(241, 238, 232, 0.86);
+}
+
+.addresses {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 32px;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted-on-dark);
+}
+
+.contactLink {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--paper);
+  transition: color 0.3s ease;
+}
+
+.contactLink:hover {
+  color: var(--brass);
+}
+
+.navCols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 40px 32px;
+}
+
+.colTitle {
+  margin-bottom: 20px;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted-on-dark);
+}
+
+.linkList {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.link {
+  font-size: 0.86rem;
+  color: rgba(241, 238, 232, 0.88);
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.5s var(--ease-editorial), color 0.3s ease;
+}
+
+.link:hover {
+  color: var(--paper);
+  background-size: 100% 1px;
+}
+
+/* ==========================================================================
+   Provenance & legal
+   ========================================================================== */
+.provenance {
+  max-width: 760px;
+  padding: 28px 0;
+  border-top: 1px solid var(--line-dark);
+  font-size: 0.76rem;
+  line-height: 1.65;
+  color: var(--muted-on-dark);
+}
+
+.provenanceTag {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--brass);
+}
+
+.inlineLink {
+  color: rgba(241, 238, 232, 0.86);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(241, 238, 232, 0.3);
+  transition: text-decoration-color 0.3s ease;
+}
+
+.inlineLink:hover {
+  text-decoration-color: currentColor;
+}
+
+.legal {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 0;
+  border-top: 1px solid var(--line-dark);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted-on-dark);
+}
+
+.legalLinks {
+  display: flex;
+  gap: 24px;
+}
+
+.legalLinks a {
+  transition: color 0.3s ease;
+}
+
+.legalLinks a:hover {
+  color: var(--paper);
+}
+
+/* ==========================================================================
+   Wordmark
+   ========================================================================== */
+.wordmarkWrap {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  height: 0.72em;
+  font-size: clamp(8rem, 35vw, 42rem);
+  line-height: 1;
+  user-select: none;
+}
+
+.wordmark {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  background: linear-gradient(180deg, rgba(241, 238, 232, 0.16) 0%, rgba(241, 238, 232, 0.02) 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transform: translateY(0.04em);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .newsletter,
+  .body {
+    grid-template-columns: 1fr;
+  }
+
+  .legal {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,276 @@
+.section {
+  padding: clamp(40px, 6vw, 96px) clamp(20px, 3vw, 44px) clamp(96px, 12vw, 200px);
+  max-width: 1760px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+  padding-bottom: clamp(28px, 3vw, 44px);
+  margin-bottom: clamp(40px, 5vw, 80px);
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 18px;
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.index {
+  color: var(--terracotta);
+  margin-right: 8px;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(3rem, 7.5vw, 8rem);
+  line-height: 0.88;
+  letter-spacing: -0.035em;
+}
+
+.title em {
+  font-style: italic;
+  padding-left: 0.6em;
+}
+
+.count {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  vertical-align: top;
+  position: relative;
+  top: 0.6em;
+  color: var(--muted);
+}
+
+.viewAll {
+  flex-shrink: 0;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding-bottom: 6px;
+  border-bottom: 1px solid currentColor;
+  transition: color 0.3s ease, letter-spacing 0.6s var(--ease-editorial);
+}
+
+.viewAll:hover {
+  color: var(--terracotta);
+  letter-spacing: 0.24em;
+}
+
+/* ==========================================================================
+   Staggered grid
+   ========================================================================== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: clamp(14px, 1.6vw, 28px);
+  row-gap: 56px;
+  align-items: start;
+}
+
+@media (min-width: 1025px) {
+  .item:nth-child(even) {
+    margin-top: clamp(60px, 8vw, 140px);
+  }
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .item:nth-child(even) {
+    margin-top: 56px;
+  }
+}
+
+@media (max-width: 560px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .item:nth-child(even) {
+    margin-top: 0;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ==========================================================================
+   Card
+   ========================================================================== */
+.imageWrap {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background-color: var(--paper-tint);
+}
+
+.imageLink {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.image {
+  object-fit: cover;
+  transition:
+    transform 1.4s var(--ease-editorial),
+    opacity 0.8s var(--ease-editorial);
+}
+
+.imageAlt {
+  opacity: 0;
+  transform: scale(1.06);
+}
+
+.item:hover .image {
+  transform: scale(1.04);
+}
+
+.item:hover .imageAlt {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.number {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--paper);
+  mix-blend-mode: difference;
+  pointer-events: none;
+}
+
+.wishlistBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: var(--ink);
+  background-color: rgba(241, 238, 232, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0;
+  transform: scale(0.85);
+  transition:
+    opacity 0.4s var(--ease-editorial),
+    transform 0.4s var(--ease-editorial),
+    color 0.2s ease;
+}
+
+.item:hover .wishlistBtn,
+.wishlistBtn:focus-visible,
+.wishlisted {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.wishlisted {
+  color: var(--terracotta);
+}
+
+.quick {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  padding: 11px 14px;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--ink);
+  background-color: rgba(241, 238, 232, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.5s var(--ease-editorial), transform 0.6s var(--ease-editorial);
+  pointer-events: none;
+}
+
+.item:hover .quick {
+  opacity: 1;
+  transform: none;
+}
+
+@media (hover: none) {
+  .wishlistBtn {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.meta {
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.metaTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.name {
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 1.35vw, 1.4rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.name a {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.6s var(--ease-editorial);
+}
+
+.item:hover .name a {
+  background-size: 100% 1px;
+}
+
+.price {
+  flex-shrink: 0;
+  font-size: 0.76rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+.detail {
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
