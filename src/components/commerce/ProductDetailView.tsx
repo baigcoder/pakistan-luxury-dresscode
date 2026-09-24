@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ProductItem, PRODUCTS } from "@/data/products";
@@ -27,9 +27,9 @@ interface ProductDetailViewProps {
 export const ProductDetailView: React.FC<ProductDetailViewProps> = ({ product }) => {
   const { addToBag, toggleWishlist, isInWishlist } = useCommerce();
 
+  const [selectedColor, setSelectedColor] = useState(product.colors[0]?.name || "");
   const [activeMediaIndex, setActiveMediaIndex] = useState(0);
   const [selectedSize, setSelectedSize] = useState(product.sizes[0] || "Standard");
-  const [selectedColor, setSelectedColor] = useState(product.colors[0]?.name || "");
   const [isAdded, setIsAdded] = useState(false);
   const [isZoomed, setIsZoomed] = useState(false);
   const [openAccordion, setOpenAccordion] = useState<string | null>("fabric");
@@ -40,8 +40,34 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({ product })
 
   const isWishlisted = isInWishlist(product.slug);
 
+  // Active color option
+  const activeColorObj = useMemo(() => {
+    return product.colors.find((c) => c.name === selectedColor) || product.colors[0];
+  }, [product.colors, selectedColor]);
+
+  // Gallery changes dynamically based on selected color variant
+  const activeGallery = useMemo(() => {
+    if (activeColorObj?.gallery && activeColorObj.gallery.length > 0) {
+      return activeColorObj.gallery;
+    }
+    if (activeColorObj?.image) {
+      const rest = product.gallery.filter((g) => g.url !== activeColorObj.image);
+      return [
+        {
+          url: activeColorObj.image,
+          alt: `${product.name} in ${activeColorObj.name}`,
+          caption: `${product.name} — ${activeColorObj.name}`,
+        },
+        ...rest,
+      ];
+    }
+    return product.gallery;
+  }, [activeColorObj, product.gallery, product.name]);
+
+  const currentMedia = activeGallery[activeMediaIndex] || activeGallery[0] || product.gallery[0];
+
   const handleAdd = () => {
-    addToBag(product, selectedSize);
+    addToBag(product, selectedSize, 1, selectedColor);
     setIsAdded(true);
     setTimeout(() => setIsAdded(false), 2000);
   };
@@ -54,8 +80,6 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({ product })
   const relatedProducts = PRODUCTS.filter(
     (p) => product.relatedSlugs?.includes(p.slug) || (p.category === product.category && p.id !== product.id)
   ).slice(0, 3);
-
-  const currentMedia = product.gallery[activeMediaIndex] || product.gallery[0];
 
   return (
     <div className={styles.pageWrapper}>
@@ -85,6 +109,7 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({ product })
               onClick={() => setIsZoomed(!isZoomed)}
             >
               <Image
+                key={`${selectedColor}-${activeMediaIndex}-${currentMedia.url}`}
                 src={currentMedia.url}
                 alt={currentMedia.alt}
                 fill
@@ -120,11 +145,11 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({ product })
             )}
 
             {/* Thumbnails Row */}
-            {product.gallery.length > 1 && (
+            {activeGallery.length > 1 && (
               <div className={styles.thumbnailsRow}>
-                {product.gallery.map((media, idx) => (
+                {activeGallery.map((media, idx) => (
                   <button
-                    key={media.url}
+                    key={`${selectedColor}-${media.url}-${idx}`}
                     type="button"
                     className={[
                       styles.thumbBtn,
@@ -197,8 +222,13 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({ product })
                           .filter(Boolean)
                           .join(" ")}
                         style={{ backgroundColor: color.hex }}
-                        onClick={() => setSelectedColor(color.name)}
+                        onClick={() => {
+                          setSelectedColor(color.name);
+                          setActiveMediaIndex(0);
+                          setIsZoomed(false);
+                        }}
                         aria-label={`Select color ${color.name}`}
+                        title={color.name}
                       />
                     ))}
                   </div>

@@ -6,14 +6,15 @@ import { ProductItem, PRODUCTS } from "@/data/products";
 export interface CartItem {
   product: ProductItem;
   size: string;
+  color?: string;
   quantity: number;
 }
 
 interface CommerceContextType {
   cart: CartItem[];
-  addToBag: (product: ProductItem, size?: string, quantity?: number) => void;
-  removeFromBag: (productId: string, size: string) => void;
-  updateQuantity: (productId: string, size: string, newQty: number) => void;
+  addToBag: (product: ProductItem, size?: string, quantity?: number, color?: string) => void;
+  removeFromBag: (productId: string, size: string, color?: string) => void;
+  updateQuantity: (productId: string, size: string, newQty: number, color?: string) => void;
   clearBag: () => void;
   bagCount: number;
   bagSubtotal: number;
@@ -96,37 +97,37 @@ export const CommerceProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const closeCartDrawer = useCallback(() => setIsCartDrawerOpen(false), []);
   const toggleCartDrawer = useCallback(() => setIsCartDrawerOpen((p) => !p), []);
 
-  const addToBag = useCallback((product: ProductItem, size?: string, quantity: number = 1) => {
+  const addToBag = useCallback((product: ProductItem, size?: string, quantity: number = 1, color?: string) => {
     const chosenSize = size || product.sizes[0] || "Standard";
+    const chosenColor = color || product.colors[0]?.name || "";
     setCart((prev) => {
       const existingIdx = prev.findIndex(
-        (item) => item.product.id === product.id && item.size === chosenSize
+        (item) => item.product.id === product.id && item.size === chosenSize && (!chosenColor || item.color === chosenColor)
       );
       if (existingIdx > -1) {
         const next = [...prev];
-        // Copy, don't mutate: updaters can run twice (Strict Mode) and would double-count
         next[existingIdx] = { ...next[existingIdx], quantity: next[existingIdx].quantity + quantity };
         return next;
       }
-      return [...prev, { product, size: chosenSize, quantity }];
+      return [...prev, { product, size: chosenSize, color: chosenColor, quantity }];
     });
     setIsCartDrawerOpen(true);
   }, []);
 
-  const removeFromBag = useCallback((productId: string, size: string) => {
+  const removeFromBag = useCallback((productId: string, size: string, color?: string) => {
     setCart((prev) =>
-      prev.filter((item) => !(item.product.id === productId && item.size === size))
+      prev.filter((item) => !(item.product.id === productId && item.size === size && (!color || item.color === color)))
     );
   }, []);
 
-  const updateQuantity = useCallback((productId: string, size: string, newQty: number) => {
+  const updateQuantity = useCallback((productId: string, size: string, newQty: number, color?: string) => {
     if (newQty <= 0) {
-      removeFromBag(productId, size);
+      removeFromBag(productId, size, color);
       return;
     }
     setCart((prev) =>
       prev.map((item) =>
-        item.product.id === productId && item.size === size
+        item.product.id === productId && item.size === size && (!color || item.color === color)
           ? { ...item, quantity: newQty }
           : item
       )

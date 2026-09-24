@@ -86,69 +86,74 @@ export default function CartPage() {
             {/* Left: Bag Items */}
             <div className={styles.itemsColumn}>
               <div className={styles.itemsList}>
-                {cart.map((item) => (
-                  <div key={`${item.product.id}-${item.size}`} className={styles.cartItem}>
-                    <div className={styles.itemImageWrapper}>
-                      <Image
-                        src={item.product.image}
-                        alt={item.product.name}
-                        fill
-                        sizes="120px"
-                        className={styles.itemImage}
-                      />
-                    </div>
-
-                    <div className={styles.itemDetails}>
-                      <div className={styles.itemTop}>
-                        <div>
-                          <span className="metadata">{item.product.collection}</span>
-                          <h3 className={styles.itemName}>
-                            <Link href={`/product/${item.product.slug}`}>
-                              {item.product.name}
-                            </Link>
-                          </h3>
-                          <span className={styles.itemSpec}>SIZE: {item.size}</span>
-                          <span className={styles.itemFabric}>{item.product.fabric.split("&")[0]}</span>
-                        </div>
-
-                        <button
-                          type="button"
-                          className={styles.removeBtn}
-                          onClick={() => removeFromBag(item.product.id, item.size)}
-                          aria-label={`Remove ${item.product.name}`}
-                        >
-                          <X size={16} />
-                        </button>
+                {cart.map((item) => {
+                  const itemImg = item.product.colors?.find((c) => c.name === item.color)?.image || item.product.image;
+                  return (
+                    <div key={`${item.product.id}-${item.size}-${item.color || ""}`} className={styles.cartItem}>
+                      <div className={styles.itemImageWrapper}>
+                        <Image
+                          src={itemImg}
+                          alt={item.product.name}
+                          fill
+                          sizes="120px"
+                          className={styles.itemImage}
+                        />
                       </div>
 
-                      <div className={styles.itemBottom}>
-                        <div className={styles.qtyControl}>
+                      <div className={styles.itemDetails}>
+                        <div className={styles.itemTop}>
+                          <div>
+                            <span className="metadata">{item.product.collection}</span>
+                            <h3 className={styles.itemName}>
+                              <Link href={`/product/${item.product.slug}`}>
+                                {item.product.name}
+                              </Link>
+                            </h3>
+                            <span className={styles.itemSpec}>
+                              SIZE: {item.size}{item.color ? ` · PALETTE: ${item.color.toUpperCase()}` : ""}
+                            </span>
+                            <span className={styles.itemFabric}>{item.product.fabric.split("&")[0]}</span>
+                          </div>
+
                           <button
                             type="button"
-                            className={styles.qtyBtn}
-                            onClick={() => updateQuantity(item.product.id, item.size, item.quantity - 1)}
-                            aria-label="Decrease quantity"
+                            className={styles.removeBtn}
+                            onClick={() => removeFromBag(item.product.id, item.size, item.color)}
+                            aria-label={`Remove ${item.product.name}`}
                           >
-                            <Minus size={12} />
-                          </button>
-                          <span className={styles.qtyNum}>{item.quantity}</span>
-                          <button
-                            type="button"
-                            className={styles.qtyBtn}
-                            onClick={() => updateQuantity(item.product.id, item.size, item.quantity + 1)}
-                            aria-label="Increase quantity"
-                          >
-                            <Plus size={12} />
+                            <X size={16} />
                           </button>
                         </div>
 
-                        <span className={styles.itemTotal}>
-                          Rs. {(item.product.price * item.quantity).toLocaleString()}
-                        </span>
+                        <div className={styles.itemBottom}>
+                          <div className={styles.qtyControl}>
+                            <button
+                              type="button"
+                              className={styles.qtyBtn}
+                              onClick={() => updateQuantity(item.product.id, item.size, item.quantity - 1, item.color)}
+                              aria-label="Decrease quantity"
+                            >
+                              <Minus size={12} />
+                            </button>
+                            <span className={styles.qtyNum}>{item.quantity}</span>
+                            <button
+                              type="button"
+                              className={styles.qtyBtn}
+                              onClick={() => updateQuantity(item.product.id, item.size, item.quantity + 1, item.color)}
+                              aria-label="Increase quantity"
+                            >
+                              <Plus size={12} />
+                            </button>
+                          </div>
+
+                          <span className={styles.itemTotal}>
+                            Rs. {(item.product.price * item.quantity).toLocaleString()}
+                          </span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
 
               {/* Bespoke Care Notice */}

@@ -138,65 +138,70 @@ export const CartDrawer: React.FC = () => {
                Items
                ========================================================================== */
             <ul className={styles.items}>
-              {cart.map((item) => (
-                <li key={`${item.product.id}-${item.size}`} className={styles.item}>
-                  <Link
-                    href={`/product/${item.product.slug}`}
-                    className={styles.itemThumb}
-                    onClick={closeCartDrawer}
-                    tabIndex={-1}
-                  >
-                    <Image src={item.product.image} alt="" fill sizes="96px" className={styles.img} />
-                  </Link>
+              {cart.map((item) => {
+                const itemImg = item.product.colors?.find((c) => c.name === item.color)?.image || item.product.image;
+                return (
+                  <li key={`${item.product.id}-${item.size}-${item.color || ""}`} className={styles.item}>
+                    <Link
+                      href={`/product/${item.product.slug}`}
+                      className={styles.itemThumb}
+                      onClick={closeCartDrawer}
+                      tabIndex={-1}
+                    >
+                      <Image src={itemImg} alt="" fill sizes="96px" className={styles.img} />
+                    </Link>
 
-                  <div className={styles.itemInfo}>
-                    <div className={styles.itemTop}>
-                      <div>
-                        <span className={styles.itemCollection}>{item.product.collection}</span>
-                        <Link
-                          href={`/product/${item.product.slug}`}
-                          className={styles.itemName}
-                          onClick={closeCartDrawer}
-                        >
-                          {item.product.name}
-                        </Link>
-                        <span className={styles.itemSize}>{item.size}</span>
-                      </div>
-                      <button
-                        type="button"
-                        className={styles.removeBtn}
-                        onClick={() => removeFromBag(item.product.id, item.size)}
-                        aria-label={`Remove ${item.product.name} from bag`}
-                      >
-                        <X size={14} strokeWidth={1.4} />
-                      </button>
-                    </div>
-
-                    <div className={styles.itemBottom}>
-                      <div className={styles.qty} role="group" aria-label={`Quantity of ${item.product.name}`}>
+                    <div className={styles.itemInfo}>
+                      <div className={styles.itemTop}>
+                        <div>
+                          <span className={styles.itemCollection}>{item.product.collection}</span>
+                          <Link
+                            href={`/product/${item.product.slug}`}
+                            className={styles.itemName}
+                            onClick={closeCartDrawer}
+                          >
+                            {item.product.name}
+                          </Link>
+                          <span className={styles.itemSize}>
+                            {item.size}{item.color ? ` · ${item.color}` : ""}
+                          </span>
+                        </div>
                         <button
                           type="button"
-                          onClick={() => updateQuantity(item.product.id, item.size, item.quantity - 1)}
-                          aria-label="Decrease quantity"
+                          className={styles.removeBtn}
+                          onClick={() => removeFromBag(item.product.id, item.size, item.color)}
+                          aria-label={`Remove ${item.product.name} from bag`}
                         >
-                          <Minus size={12} />
-                        </button>
-                        <span aria-live="polite">{item.quantity}</span>
-                        <button
-                          type="button"
-                          onClick={() => updateQuantity(item.product.id, item.size, item.quantity + 1)}
-                          aria-label="Increase quantity"
-                        >
-                          <Plus size={12} />
+                          <X size={14} strokeWidth={1.4} />
                         </button>
                       </div>
-                      <span className={styles.itemPrice}>
-                        Rs. {(item.product.price * item.quantity).toLocaleString()}
-                      </span>
+
+                      <div className={styles.itemBottom}>
+                        <div className={styles.qty} role="group" aria-label={`Quantity of ${item.product.name}`}>
+                          <button
+                            type="button"
+                            onClick={() => updateQuantity(item.product.id, item.size, item.quantity - 1, item.color)}
+                            aria-label="Decrease quantity"
+                          >
+                            <Minus size={12} />
+                          </button>
+                          <span aria-live="polite">{item.quantity}</span>
+                          <button
+                            type="button"
+                            onClick={() => updateQuantity(item.product.id, item.size, item.quantity + 1, item.color)}
+                            aria-label="Increase quantity"
+                          >
+                            <Plus size={12} />
+                          </button>
+                        </div>
+                        <span className={styles.itemPrice}>
+                          Rs. {(item.product.price * item.quantity).toLocaleString()}
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                </li>
-              ))}
+                  </li>
+                );
+              })}
             </ul>
           )}
         </div>

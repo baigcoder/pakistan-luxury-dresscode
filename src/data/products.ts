@@ -10,6 +10,13 @@ export interface ProductGalleryItem {
   aspect?: string;
 }
 
+export interface ProductColorOption {
+  name: string;
+  hex: string;
+  image?: string;
+  gallery?: ProductGalleryItem[];
+}
+
 export interface ProductItem {
   id: string;
   slug: string;
@@ -28,7 +35,7 @@ export interface ProductItem {
   craftRegion: string;
   silhouette: string;
   sizes: string[];
-  colors: { name: string; hex: string }[];
+  colors: ProductColorOption[];
   badge?: string;
   description: string;
   longDescription: string;
@@ -77,8 +84,50 @@ export const PRODUCTS: ProductItem[] = [
     silhouette: "Architectural structured lapel & relaxed flared hem",
     sizes: ["Size 01 (UK 6–8)", "Size 02 (UK 10–12)", "Size 03 (UK 14–16)", "Bespoke Made-to-Measure"],
     colors: [
-      { name: "Unbleached Ivory", hex: "#F1EEE8" },
-      { name: "Deep Charcoal", hex: "#28211D" },
+      {
+        name: "Unbleached Ivory",
+        hex: "#F1EEE8",
+        image: "/images/hero-couture.jpg",
+        gallery: [
+          {
+            url: "/images/hero-couture.jpg",
+            alt: "Sculptural Raw Silk Trench in Unbleached Ivory",
+            caption: "Front silhouette cut in unbleached ivory raw silk",
+          },
+          {
+            url: "/images/craft-atelier.jpg",
+            alt: "Close-up of hand-needlework on lapel",
+            caption: "Minimalist geometric Zardozi embroidery on lapels",
+          },
+          {
+            url: "/images/lahore-courtyard.jpg",
+            alt: "Architectural context drape",
+            caption: "Fluid motion captured in historic Lahore courtyard",
+          },
+        ],
+      },
+      {
+        name: "Deep Charcoal",
+        hex: "#28211D",
+        image: "/images/trench-charcoal.jpg",
+        gallery: [
+          {
+            url: "/images/trench-charcoal.jpg",
+            alt: "Sculptural Raw Silk Trench in Deep Charcoal",
+            caption: "Tailored silhouette in deep charcoal mulberry silk",
+          },
+          {
+            url: "/images/craft-atelier.jpg",
+            alt: "Close-up of hand-needlework on lapel",
+            caption: "Tonal metallic Zardozi embroidery on lapels",
+          },
+          {
+            url: "/images/lahore-courtyard.jpg",
+            alt: "Architectural context drape",
+            caption: "Architectural courtyard drape in deep charcoal",
+          },
+        ],
+      },
     ],
     badge: "EDITION 01 OF 25",
     description: "An architectural statement coat combining sharp European tailoring with subtle royal needlework.",
@@ -134,8 +183,50 @@ export const PRODUCTS: ProductItem[] = [
     silhouette: "High mandarin stand collar, structured chest, concealed horn buttons",
     sizes: ["Chest 38 (Small)", "Chest 40 (Medium)", "Chest 42 (Large)", "Bespoke Consultation"],
     colors: [
-      { name: "Midnight Charcoal", hex: "#28211D" },
-      { name: "Deep Ink", hex: "#151311" },
+      {
+        name: "Midnight Charcoal",
+        hex: "#28211D",
+        image: "/images/hero-men.jpg",
+        gallery: [
+          {
+            url: "/images/hero-men.jpg",
+            alt: "Full silhouette of Architectural Charcoal Sherwani in Midnight Charcoal",
+            caption: "High mandarin stand collar and structured chest silhouette in Midnight Charcoal",
+          },
+          {
+            url: "/images/craft-atelier.jpg",
+            alt: "Atelier embroidery detail on placket",
+            caption: "Tone-on-tone matte charcoal placket hand-needlework",
+          },
+          {
+            url: "/images/lahore-courtyard.jpg",
+            alt: "Architectural setting",
+            caption: "Clean geometric tailoring against aged stone",
+          },
+        ],
+      },
+      {
+        name: "Deep Ink",
+        hex: "#151311",
+        image: "/images/sherwani-deep-ink.jpg",
+        gallery: [
+          {
+            url: "/images/sherwani-deep-ink.jpg",
+            alt: "Full silhouette of Architectural Sherwani in Deep Ink",
+            caption: "Razor-sharp tailored bandgala silhouette in Deep Ink Swat wool",
+          },
+          {
+            url: "/images/craft-atelier.jpg",
+            alt: "Atelier embroidery detail on placket",
+            caption: "Deep jet-black tone-on-tone geometric placket embroidery",
+          },
+          {
+            url: "/images/lahore-courtyard.jpg",
+            alt: "Architectural setting",
+            caption: "Minimalist architectural stone colonnade context",
+          },
+        ],
+      },
     ],
     badge: "BESPOKE ONLY",
     description: "Reinterpreting the ceremonial sherwani into a modern minimalist architectural coat.",
@@ -185,8 +276,40 @@ export const PRODUCTS: ProductItem[] = [
     silhouette: "Relaxed fluid tunic with geometric border cuffs",
     sizes: ["Size 01 (S)", "Size 02 (M)", "Size 03 (L)"],
     colors: [
-      { name: "Vat Indigo", hex: "#263A43" },
-      { name: "Madder Terracotta", hex: "#8C5849" },
+      {
+        name: "Vat Indigo",
+        hex: "#263A43",
+        image: "/images/macro-ajrak.jpg",
+        gallery: [
+          {
+            url: "/images/macro-ajrak.jpg",
+            alt: "Extreme macro of Ajrak block print in Vat Indigo",
+            caption: "Natural indigo and madder root block print on organic cotton",
+          },
+          {
+            url: "/images/hero-couture.jpg",
+            alt: "Worn drape view in Indigo",
+            caption: "Sculptural relaxed tunic silhouette with geometric cuffs",
+          },
+        ],
+      },
+      {
+        name: "Madder Terracotta",
+        hex: "#8C5849",
+        image: "/images/hero-campaign-dresscode.jpg",
+        gallery: [
+          {
+            url: "/images/hero-campaign-dresscode.jpg",
+            alt: "Vat Ajrak Tunic in Madder Terracotta",
+            caption: "Warm madder root terracotta natural dye palette",
+          },
+          {
+            url: "/images/macro-ajrak.jpg",
+            alt: "Macro detail",
+            caption: "Hand-carved acacia woodblock relief detail",
+          },
+        ],
+      },
     ],
     badge: "NATURAL DYES",
     description: "Authentic Sindhi block printing disciplined into a relaxed, sculptural everyday luxury tunic.",
@@ -235,8 +358,40 @@ export const PRODUCTS: ProductItem[] = [
     silhouette: "High-waist wide-leg trouser with unconstructed jacket",
     sizes: ["Size 01 (UK 8)", "Size 02 (UK 10)", "Size 03 (UK 12)", "Size 04 (UK 14)"],
     colors: [
-      { name: "Sandstone Linen", hex: "#B7A99D" },
-      { name: "Unbleached Cotton", hex: "#F1EEE8" },
+      {
+        name: "Sandstone Linen",
+        hex: "#B7A99D",
+        image: "/images/lahore-courtyard.jpg",
+        gallery: [
+          {
+            url: "/images/lahore-courtyard.jpg",
+            alt: "Pleated Heritage Suit in Sandstone Linen",
+            caption: "Wide-leg trouser and unconstructed jacket in raw sandstone linen",
+          },
+          {
+            url: "/images/hero-couture.jpg",
+            alt: "Studio detail",
+            caption: "Hand-stitched deep knife pleats and clean waistband",
+          },
+        ],
+      },
+      {
+        name: "Unbleached Cotton",
+        hex: "#F1EEE8",
+        image: "/images/hero-couture.jpg",
+        gallery: [
+          {
+            url: "/images/hero-couture.jpg",
+            alt: "Pleated Heritage Suit in Unbleached Cotton",
+            caption: "Crisp unbleached organic cotton variant with subtle horn buttons",
+          },
+          {
+            url: "/images/lahore-courtyard.jpg",
+            alt: "Courtyard detail",
+            caption: "Bespoke hand-sewn buttonholes and pleat detail",
+          },
+        ],
+      },
     ],
     badge: "SS26 PRE-ORDER",
     description: "Tailored for high-summer ease, inspired by the historical courtyards of Lahore.",
@@ -286,8 +441,40 @@ export const PRODUCTS: ProductItem[] = [
     silhouette: "Draped ceremonial evening cape with high stand collar",
     sizes: ["One Size (Custom Length Option)"],
     colors: [
-      { name: "Royal Madder Crimson", hex: "#8C5849" },
-      { name: "Obsidian Velvet", hex: "#151311" },
+      {
+        name: "Royal Madder Crimson",
+        hex: "#8C5849",
+        image: "/images/craft-atelier.jpg",
+        gallery: [
+          {
+            url: "/images/craft-atelier.jpg",
+            alt: "Royal Zardozi Cape in Royal Madder Crimson",
+            caption: "Master artisan creating intricate gold and copper threadwork",
+          },
+          {
+            url: "/images/hero-couture.jpg",
+            alt: "Editorial model wearing cape",
+            caption: "Dramatic ceremonial drape over minimalist evening gown",
+          },
+        ],
+      },
+      {
+        name: "Obsidian Velvet",
+        hex: "#151311",
+        image: "/images/trench-charcoal.jpg",
+        gallery: [
+          {
+            url: "/images/trench-charcoal.jpg",
+            alt: "Royal Zardozi Cape in Obsidian Velvet",
+            caption: "Obsidian silk velvet with coiled gold and copper wire embroidery",
+          },
+          {
+            url: "/images/craft-atelier.jpg",
+            alt: "Atelier detail",
+            caption: "Gold threadwork in progress at Punjab craft cluster",
+          },
+        ],
+      },
     ],
     badge: "MUSEUM ATELIER",
     description: "A testament to centuries of court embroidery, each piece is individually signed by the artisan.",
@@ -331,8 +518,30 @@ export const PRODUCTS: ProductItem[] = [
     silhouette: "Generous 100cm x 220cm wrap with natural feathered fringe",
     sizes: ["Standard 100cm x 220cm"],
     colors: [
-      { name: "Raw Charcoal", hex: "#28211D" },
-      { name: "Natural Taupe", hex: "#B7A99D" },
+      {
+        name: "Raw Charcoal",
+        hex: "#28211D",
+        image: "/images/macro-ajrak.jpg",
+        gallery: [
+          {
+            url: "/images/macro-ajrak.jpg",
+            alt: "Hand-Loomed Swat Pashmina in Raw Charcoal",
+            caption: "Ultra-fine highland pashmina twill weave in raw charcoal",
+          },
+        ],
+      },
+      {
+        name: "Natural Taupe",
+        hex: "#B7A99D",
+        image: "/images/hero-editorial-dresscode.jpg",
+        gallery: [
+          {
+            url: "/images/hero-editorial-dresscode.jpg",
+            alt: "Hand-Loomed Swat Pashmina in Natural Taupe",
+            caption: "High-altitude undyed natural taupe cashmere cashmere",
+          },
+        ],
+      },
     ],
     badge: "HERITAGE ACCESSORY",
     description: "Cloud-soft hand-spun highland pashmina, loomed in the northern valleys of Pakistan.",
