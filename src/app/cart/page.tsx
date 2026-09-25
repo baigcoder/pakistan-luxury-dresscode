@@ -5,25 +5,15 @@ import Link from "next/link";
 import Image from "next/image";
 import { useCommerce } from "@/context/CommerceContext";
 import { BRAND } from "@/config/brand";
-import { Button, HairlineDivider } from "@/components/ui";
-import {
-  ShoppingBag,
-  Plus,
-  Minus,
-  X,
-  ShieldCheck,
-  CheckCircle,
-  ArrowRight,
-  PhoneCall,
-} from "lucide-react";
+import { Plus, Minus, X } from "lucide-react";
 import styles from "./page.module.css";
 
+const titleCase = (s: string) => s.toLowerCase().replace(/(^|\s)\S/g, (c) => c.toUpperCase());
+
 export default function CartPage() {
-  const { cart, removeFromBag, updateQuantity, formattedSubtotal, bagSubtotal, bagCount } =
-    useCommerce();
+  const { cart, removeFromBag, updateQuantity, formattedSubtotal, bagCount } = useCommerce();
 
   const [checkoutComplete, setCheckoutComplete] = useState(false);
-  const [shippingMethod, setShippingMethod] = useState("complimentary");
 
   const handleCheckout = (e: React.FormEvent) => {
     e.preventDefault();
@@ -33,24 +23,19 @@ export default function CartPage() {
   if (checkoutComplete) {
     return (
       <div className={styles.page}>
-        <div className="container-editorial">
-          <div className={styles.successCard}>
-            <CheckCircle size={56} className={styles.successIcon} />
-            <span className="provenance-tag">ACQUISITION INITIATED</span>
-            <h1 className="heading-1" style={{ margin: "12px 0 16px" }}>
-              Thank You for Your Patronage.
-            </h1>
-            <p className="body-editorial" style={{ maxWidth: "600px", color: "var(--espresso)" }}>
-              Your order has been registered with the {BRAND.name} Atelier. Our private concierge
-              team will contact you within 24 hours to confirm your measurements, production schedule,
-              and insured courier dispatch details.
-            </p>
-            <div style={{ marginTop: "32px" }}>
-              <Button variant="capsule" size="md" href="/" icon={<ArrowRight size={14} />}>
-                RETURN TO ATELIER HOME
-              </Button>
-            </div>
-          </div>
+        <div className={styles.success}>
+          <span className={styles.eyebrow}>Acquisition initiated</span>
+          <h1 className={styles.successTitle}>
+            Thank you for your <em>patronage.</em>
+          </h1>
+          <p className={styles.successBody}>
+            Your order has been registered with the {BRAND.name} atelier. Our private concierge team
+            will contact you within 24 hours to confirm your measurements, production schedule, and
+            insured courier dispatch details.
+          </p>
+          <Link href="/" className={styles.textLink}>
+            Return to the house <span aria-hidden="true">→</span>
+          </Link>
         </div>
       </div>
     );
@@ -58,185 +43,210 @@ export default function CartPage() {
 
   return (
     <div className={styles.page}>
-      <div className="container-max">
-        {/* Header */}
-        <div className={styles.header}>
-          <div>
-            <span className="metadata">ACQUISITION BAG</span>
-            <h1 className={`${styles.title} display-l`}>Your atelier <em>bag</em></h1>
-          </div>
-          <span className="metadata">
-            {bagCount} {bagCount === 1 ? "PIECE" : "PIECES"}
-          </span>
+      <header className={styles.header}>
+        <div>
+          <span className={styles.eyebrow}>Acquisition bag</span>
+          <h1 className={styles.title}>
+            Your atelier <em>bag</em>
+          </h1>
         </div>
+        <span className={styles.count}>
+          <span className={styles.countNum}>{String(bagCount).padStart(2, "0")}</span>
+          {bagCount === 1 ? "Piece" : "Pieces"}
+        </span>
+      </header>
 
-        {cart.length === 0 ? (
-          <div className={styles.emptyState}>
-            <ShoppingBag size={44} className={styles.emptyIcon} />
-            <h2 className="heading-2">Your Bag is Empty</h2>
-            <p className="body-regular" style={{ color: "var(--muted)", maxWidth: "420px", margin: "12px 0 24px" }}>
-              No pieces have been selected yet. Browse our current collections and pre-orders.
-            </p>
-            <Button variant="capsule" size="md" href="/shop" icon={<ArrowRight size={14} />}>
-              EXPLORE CATALOG
-            </Button>
-          </div>
-        ) : (
-          <div className={styles.splitLayout}>
-            {/* Left: Bag Items */}
-            <div className={styles.itemsColumn}>
-              <div className={styles.itemsList}>
-                {cart.map((item) => {
-                  const itemImg = item.product.colors?.find((c) => c.name === item.color)?.image || item.product.image;
-                  return (
-                    <div key={`${item.product.id}-${item.size}-${item.color || ""}`} className={styles.cartItem}>
-                      <div className={styles.itemImageWrapper}>
-                        <Image
-                          src={itemImg}
-                          alt={item.product.name}
-                          fill
-                          sizes="120px"
-                          className={styles.itemImage}
-                        />
+      {cart.length === 0 ? (
+        <div className={styles.empty}>
+          <p className={styles.emptyTitle}>
+            Nothing selected <em>yet.</em>
+          </p>
+          <p className={styles.emptyBody}>
+            Browse the current editions and pre-orders — every piece is made in small runs.
+          </p>
+          <Link href="/shop" className={styles.cta}>
+            <span>Explore the catalogue</span>
+            <span className={styles.ctaArrow} aria-hidden="true">
+              →
+            </span>
+          </Link>
+        </div>
+      ) : (
+        <div className={styles.split}>
+          {/* Items */}
+          <div className={styles.itemsColumn}>
+            <ul className={styles.items}>
+              {cart.map((item) => {
+                const itemImg =
+                  item.product.colors?.find((c) => c.name === item.color)?.image ||
+                  item.product.image;
+                return (
+                  <li
+                    key={`${item.product.id}-${item.size}-${item.color || ""}`}
+                    className={styles.item}
+                  >
+                    <Link
+                      href={`/product/${item.product.slug}`}
+                      className={styles.itemFrame}
+                      tabIndex={-1}
+                    >
+                      <Image
+                        src={itemImg}
+                        alt={item.product.name}
+                        fill
+                        sizes="(max-width: 600px) 110px, 180px"
+                        className={styles.itemImage}
+                      />
+                    </Link>
+
+                    <div className={styles.itemBody}>
+                      <div className={styles.itemTop}>
+                        <div>
+                          <span className={styles.itemCollection}>
+                            {titleCase(item.product.collection)}
+                          </span>
+                          <h2 className={styles.itemName}>
+                            <Link href={`/product/${item.product.slug}`}>{item.product.name}</Link>
+                          </h2>
+                        </div>
+                        <button
+                          type="button"
+                          className={styles.removeBtn}
+                          onClick={() => removeFromBag(item.product.id, item.size, item.color)}
+                          aria-label={`Remove ${item.product.name}`}
+                        >
+                          <X size={16} strokeWidth={1.4} />
+                        </button>
                       </div>
 
-                      <div className={styles.itemDetails}>
-                        <div className={styles.itemTop}>
+                      <dl className={styles.itemSpecs}>
+                        <div>
+                          <dt>Size</dt>
+                          <dd>{item.size}</dd>
+                        </div>
+                        {item.color && (
                           <div>
-                            <span className="metadata">{item.product.collection}</span>
-                            <h3 className={styles.itemName}>
-                              <Link href={`/product/${item.product.slug}`}>
-                                {item.product.name}
-                              </Link>
-                            </h3>
-                            <span className={styles.itemSpec}>
-                              SIZE: {item.size}{item.color ? ` · PALETTE: ${item.color.toUpperCase()}` : ""}
-                            </span>
-                            <span className={styles.itemFabric}>{item.product.fabric.split("&")[0]}</span>
+                            <dt>Palette</dt>
+                            <dd>{item.color}</dd>
                           </div>
+                        )}
+                        <div>
+                          <dt>Cloth</dt>
+                          <dd>{item.product.fabric.split("&")[0].trim()}</dd>
+                        </div>
+                      </dl>
 
+                      <div className={styles.itemBottom}>
+                        <div className={styles.qty} role="group" aria-label="Quantity">
                           <button
                             type="button"
-                            className={styles.removeBtn}
-                            onClick={() => removeFromBag(item.product.id, item.size, item.color)}
-                            aria-label={`Remove ${item.product.name}`}
+                            className={styles.qtyBtn}
+                            onClick={() =>
+                              updateQuantity(
+                                item.product.id,
+                                item.size,
+                                item.quantity - 1,
+                                item.color,
+                              )
+                            }
+                            aria-label="Decrease quantity"
                           >
-                            <X size={16} />
+                            <Minus size={12} strokeWidth={1.4} />
+                          </button>
+                          <span className={styles.qtyNum} aria-live="polite">
+                            {item.quantity}
+                          </span>
+                          <button
+                            type="button"
+                            className={styles.qtyBtn}
+                            onClick={() =>
+                              updateQuantity(
+                                item.product.id,
+                                item.size,
+                                item.quantity + 1,
+                                item.color,
+                              )
+                            }
+                            aria-label="Increase quantity"
+                          >
+                            <Plus size={12} strokeWidth={1.4} />
                           </button>
                         </div>
 
-                        <div className={styles.itemBottom}>
-                          <div className={styles.qtyControl}>
-                            <button
-                              type="button"
-                              className={styles.qtyBtn}
-                              onClick={() => updateQuantity(item.product.id, item.size, item.quantity - 1, item.color)}
-                              aria-label="Decrease quantity"
-                            >
-                              <Minus size={12} />
-                            </button>
-                            <span className={styles.qtyNum}>{item.quantity}</span>
-                            <button
-                              type="button"
-                              className={styles.qtyBtn}
-                              onClick={() => updateQuantity(item.product.id, item.size, item.quantity + 1, item.color)}
-                              aria-label="Increase quantity"
-                            >
-                              <Plus size={12} />
-                            </button>
-                          </div>
-
-                          <span className={styles.itemTotal}>
-                            Rs. {(item.product.price * item.quantity).toLocaleString()}
-                          </span>
-                        </div>
+                        <span className={styles.itemTotal}>
+                          Rs. {(item.product.price * item.quantity).toLocaleString()}
+                        </span>
                       </div>
                     </div>
-                  );
-                })}
-              </div>
+                  </li>
+                );
+              })}
+            </ul>
 
-              {/* Bespoke Care Notice */}
-              <div className={styles.bespokeNotice}>
-                <ShieldCheck size={20} className={styles.noticeIcon} />
-                <div>
-                  <h4 className="heading-4">Handcrafted Upon Order</h4>
-                  <p className="body-small" style={{ marginTop: "4px" }}>
-                    Each garment is hand-inspected and prepared by our master tailoring house in Lahore.
-                    Enjoy complimentary insured delivery and 14-day archival exchange.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Right: Order Summary Card */}
-            <div className={styles.summaryColumn}>
-              <div className={styles.summaryCard}>
-                <h2 className="heading-3">Order Summary</h2>
-
-                <div className={styles.summaryRows}>
-                  <div className={styles.summaryRow}>
-                    <span>Subtotal</span>
-                    <span className="font-mono">{formattedSubtotal}</span>
-                  </div>
-
-                  <div className={styles.summaryRow}>
-                    <span>Worldwide Insured Shipping</span>
-                    <span style={{ color: "var(--terracotta)" }}>COMPLIMENTARY</span>
-                  </div>
-
-                  <div className={styles.summaryRow}>
-                    <span>Estimated Duties & Taxes</span>
-                    <span>Included</span>
-                  </div>
-
-                  <HairlineDivider />
-
-                  <div className={styles.totalRow}>
-                    <span className="heading-3">Estimated Total</span>
-                    <span className={styles.totalPrice}>{formattedSubtotal}</span>
-                  </div>
-                </div>
-
-                <form onSubmit={handleCheckout} className={styles.checkoutForm}>
-                  <div className={styles.inputStack}>
-                    <input
-                      type="text"
-                      placeholder="Full Name / Patron Name"
-                      required
-                      className={styles.formInput}
-                    />
-                    <input
-                      type="email"
-                      placeholder="Email for Atelier Receipt"
-                      required
-                      className={styles.formInput}
-                    />
-                    <input
-                      type="text"
-                      placeholder="Shipping Address & Country"
-                      required
-                      className={styles.formInput}
-                    />
-                  </div>
-
-                  <button type="submit" className={styles.submitOrderBtn}>
-                    <span>CONFIRM ATELIER ACQUISITION</span>
-                    <ArrowRight size={14} />
-                  </button>
-                </form>
-
-                <div className={styles.conciergeSupport}>
-                  <PhoneCall size={14} />
-                  <span className="metadata">
-                    NEED ASSISTANCE? CALL {BRAND.contact.telephone}
-                  </span>
-                </div>
-              </div>
-            </div>
+            <p className={styles.notice}>
+              <span>Handcrafted upon order</span>
+              Each garment is hand-inspected and prepared by our master tailoring house in Lahore,
+              with complimentary insured delivery and a 14-day archival exchange.
+            </p>
           </div>
-        )}
-      </div>
+
+          {/* Summary + checkout */}
+          <aside className={styles.summary} aria-labelledby="summary-heading">
+            <h2 id="summary-heading" className={styles.summaryTitle}>
+              Order <em>summary</em>
+            </h2>
+
+            <dl className={styles.rows}>
+              <div>
+                <dt>Subtotal</dt>
+                <dd>{formattedSubtotal}</dd>
+              </div>
+              <div>
+                <dt>Worldwide insured shipping</dt>
+                <dd className={styles.accent}>Complimentary</dd>
+              </div>
+              <div>
+                <dt>Estimated duties &amp; taxes</dt>
+                <dd>Included</dd>
+              </div>
+            </dl>
+
+            <div className={styles.total}>
+              <span>Estimated total</span>
+              <span className={styles.totalPrice}>{formattedSubtotal}</span>
+            </div>
+
+            <form onSubmit={handleCheckout} className={styles.form}>
+              <label className={styles.field}>
+                <span>Full name</span>
+                <input type="text" name="name" autoComplete="name" required />
+              </label>
+              <label className={styles.field}>
+                <span>Email for your receipt</span>
+                <input type="email" name="email" autoComplete="email" required />
+              </label>
+              <label className={styles.field}>
+                <span>Shipping address &amp; country</span>
+                <input type="text" name="address" autoComplete="street-address" required />
+              </label>
+
+              <button type="submit" className={styles.submit}>
+                <span>Confirm acquisition</span>
+                <span className={styles.ctaArrow} aria-hidden="true">
+                  →
+                </span>
+              </button>
+            </form>
+
+            <p className={styles.support}>
+              Need assistance? Call{" "}
+              <a href={`tel:${BRAND.contact.telephone.replace(/\s/g, "")}`}>
+                {BRAND.contact.telephone}
+              </a>
+            </p>
+          </aside>
+        </div>
+      )}
     </div>
   );
 }
