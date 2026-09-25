@@ -8,6 +8,8 @@
   position: sticky;
   top: 0;
   height: 100vh;
+  /* Small-viewport height: stays put while mobile browser toolbars show and hide */
+  height: 100svh;
   overflow: hidden;
   display: grid;
   place-items: center;

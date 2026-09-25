@@ -80,8 +80,9 @@
 }
 
 .itemIndex {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.95rem;
   color: var(--terracotta);
   width: 36px;
   flex-shrink: 0;
@@ -92,8 +93,17 @@
   font-size: clamp(2rem, 8vw, 3rem);
   letter-spacing: -0.02em;
   font-weight: 300;
-  text-transform: uppercase;
+  line-height: 1.05;
   flex: 1;
+  transition: color 0.4s ease;
+}
+
+/* The house accent: the chosen word turns italic terracotta under the finger */
+.navLink:hover .itemLabel,
+.navLink:active .itemLabel,
+.navLink:focus-visible .itemLabel {
+  font-style: italic;
+  color: var(--terracotta);
 }
 
 .itemArrow {

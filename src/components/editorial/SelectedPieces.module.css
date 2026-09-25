@@ -97,13 +97,35 @@
   }
 }
 
+/* Phones: two columns, like a lookbook spread, with a gentler stagger */
 @media (max-width: 560px) {
   .grid {
-    grid-template-columns: 1fr;
+    column-gap: 12px;
+    row-gap: 36px;
   }
 
   .item:nth-child(even) {
-    margin-top: 0;
+    margin-top: 40px;
+  }
+
+  .metaTop {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .name {
+    font-size: 1.05rem;
+  }
+
+  .detail {
+    font-size: 0.56rem;
+    letter-spacing: 0.12em;
+    line-height: 1.5;
+  }
+
+  .wishlistBtn {
+    top: 6px;
+    right: 6px;
   }
 
   .header {

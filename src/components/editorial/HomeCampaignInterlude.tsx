@@ -48,8 +48,23 @@ export const HomeCampaignInterlude: React.FC = () => {
             0
           )
             .fromTo(imageRef.current, { scale: 1.3 }, { scale: 1, ease: "power2.inOut", duration: 1 }, 0)
-            .to(leftRef.current, { xPercent: -60, opacity: 0, ease: "power2.in", duration: 0.7 }, 0)
-            .to(rightRef.current, { xPercent: 60, opacity: 0, ease: "power2.in", duration: 0.7 }, 0)
+            // Desktop titles sit either side of the frame and part sideways. On phones they
+            // are stacked above and below it, so they lift away vertically and clear quickly,
+            // before the opening frame reaches them
+            .to(
+              leftRef.current,
+              desktop
+                ? { xPercent: -60, opacity: 0, ease: "power2.in", duration: 0.7 }
+                : { yPercent: -80, opacity: 0, ease: "power1.out", duration: 0.3 },
+              0
+            )
+            .to(
+              rightRef.current,
+              desktop
+                ? { xPercent: 60, opacity: 0, ease: "power2.in", duration: 0.7 }
+                : { yPercent: 80, opacity: 0, ease: "power1.out", duration: 0.3 },
+              0
+            )
             .fromTo(
               captionRef.current,
               { opacity: 0, y: 40 },

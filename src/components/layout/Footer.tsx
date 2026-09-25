@@ -1,13 +1,30 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { BRAND } from "@/config/brand";
 import { FOOTER_SECTIONS } from "@/data/navigation";
 import { ArrowUpRight, Check } from "lucide-react";
 import styles from "./Footer.module.css";
 
+// Below this width the link columns fold into tap-to-open groups
+const COMPACT_QUERY = "(max-width: 700px)";
+
+const subscribeCompact = (onChange: () => void) => {
+  const mq = window.matchMedia(COMPACT_QUERY);
+  mq.addEventListener("change", onChange);
+  return () => mq.removeEventListener("change", onChange);
+};
+
 export const Footer: React.FC = () => {
+  // The server renders the open desktop columns; phones fold them after hydration,
+  // well below the fold
+  const isCompact = useSyncExternalStore(
+    subscribeCompact,
+    () => window.matchMedia(COMPACT_QUERY).matches,
+    () => false,
+  );
+  const [openSection, setOpenSection] = useState<string | null>(null);
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
 
@@ -81,20 +98,39 @@ export const Footer: React.FC = () => {
           </div>
 
           <nav className={styles.navCols} aria-label="Footer">
-            {FOOTER_SECTIONS.map((section) => (
-              <div key={section.title}>
-                <h3 className={styles.colTitle}>{section.title}</h3>
-                <ul className={styles.linkList}>
-                  {section.links.map((link) => (
-                    <li key={link.label}>
-                      <Link href={link.href} className={styles.link}>
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+            {FOOTER_SECTIONS.map((section, i) => {
+              const listId = `footer-links-${i}`;
+              const isOpen = !isCompact || openSection === section.title;
+              return (
+                <div key={section.title} className={styles.navCol}>
+                  <h3 className={styles.colTitle}>
+                    {isCompact ? (
+                      <button
+                        type="button"
+                        className={styles.colToggle}
+                        aria-expanded={isOpen}
+                        aria-controls={listId}
+                        onClick={() => setOpenSection(isOpen ? null : section.title)}
+                      >
+                        {section.title}
+                        <span className={styles.colToggleIcon} aria-hidden="true" />
+                      </button>
+                    ) : (
+                      section.title
+                    )}
+                  </h3>
+                  <ul id={listId} className={styles.linkList} hidden={!isOpen}>
+                    {section.links.map((link) => (
+                      <li key={link.label}>
+                        <Link href={link.href} className={styles.link}>
+                          {link.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
           </nav>
         </div>
 

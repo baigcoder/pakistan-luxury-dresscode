@@ -228,6 +228,7 @@
 }
 
 .swatchBtn {
+  position: relative;
   width: 28px;
   height: 28px;
   border-radius: 50%;
@@ -714,4 +715,33 @@
 .relatedHeading em {
   font-style: italic;
   color: var(--terracotta);
+}
+
+/* ==========================================================================
+   Phones: finger-sized targets without changing what is drawn
+   ========================================================================== */
+@media (max-width: 700px) {
+  /* The product name is the page heading just below; the last crumb only clipped */
+  .crumbLast {
+    display: none;
+  }
+
+  .breadcrumbs a {
+    padding: 12px 0;
+  }
+
+  /* 16px gap = two 8px halos, so neighbouring hit areas meet without overlapping */
+  .colorSwatches {
+    gap: 16px;
+  }
+
+  .swatchBtn::before {
+    content: "";
+    position: absolute;
+    inset: -8px;
+  }
+
+  .sizeGuideBtn {
+    min-height: 44px;
+  }
 }
