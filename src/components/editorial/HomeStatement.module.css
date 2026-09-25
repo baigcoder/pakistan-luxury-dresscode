@@ -95,6 +95,8 @@
 .stat {
   display: flex;
   flex-direction: column-reverse;
+  /* column-reverse: flex-end packs to the top, so figures share one line */
+  justify-content: flex-end;
   gap: 10px;
   padding-top: 16px;
   border-top: 1px solid var(--line-strong);
@@ -106,6 +108,7 @@
   font-weight: 300;
   line-height: 1;
   letter-spacing: -0.03em;
+  font-variant-numeric: lining-nums tabular-nums;
 }
 
 .statLabel {

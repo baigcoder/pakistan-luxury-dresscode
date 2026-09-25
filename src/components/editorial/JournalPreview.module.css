@@ -1,183 +1,235 @@
 .section {
-  padding: clamp(40px, 6vw, 90px) clamp(16px, 3.2vw, 40px) clamp(60px, 8vw, 120px);
-}
-
-.container {
-  max-width: 1360px;
+  max-width: 1760px;
   margin: 0 auto;
+  padding: clamp(96px, 11vw, 180px) clamp(20px, 3vw, 44px) clamp(96px, 12vw, 200px);
 }
 
+/* ==========================================================================
+   Header — the house section rhythm
+   ========================================================================== */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  padding-bottom: var(--space-md);
-  border-bottom: 1px solid var(--border);
-  margin-bottom: var(--space-2xl);
-}
-
-.headerLeft {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+  gap: 32px;
+  padding-bottom: clamp(28px, 3vw, 44px);
+  margin-bottom: clamp(40px, 5vw, 80px);
+  border-bottom: 1px solid var(--line);
 }
 
 .eyebrow {
-  font-family: var(--font-grotesk);
-  font-size: 0.625rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
+  display: block;
+  margin-bottom: 18px;
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--muted);
+}
+
+.index {
+  color: var(--terracotta);
+  margin-right: 8px;
 }
 
 .title {
-  font-family: var(--font-grotesk);
-  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--primary);
-  margin: 0;
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(3rem, 7.5vw, 8rem);
+  line-height: 0.88;
+  letter-spacing: -0.035em;
 }
 
-.viewAllLink {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: var(--font-grotesk);
-  font-size: 0.6875rem;
+.title em {
+  font-style: italic;
+  color: var(--terracotta);
+}
+
+/* Second line steps in, echoing the Selected pieces heading */
+.title > :nth-child(2) {
+  padding-left: 0.9em;
+}
+
+.viewAll {
+  flex-shrink: 0;
+  font-size: 0.68rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--primary);
-  text-decoration: none;
-  transition: color 0.2s ease, transform 0.2s ease;
+  padding-bottom: 6px;
+  border-bottom: 1px solid currentColor;
+  transition: color 0.3s ease, letter-spacing 0.6s var(--ease-editorial);
 }
 
-.viewAllLink:hover {
-  color: var(--accent);
-  transform: translateX(2px);
+.viewAll:hover {
+  color: var(--terracotta);
+  letter-spacing: 0.24em;
 }
 
 /* ==========================================================================
-   3-Column Editorial Grid
+   Grid — one lead story, two in its margin
    ========================================================================== */
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(20px, 2.5vw, 36px);
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  column-gap: clamp(28px, 4.5vw, 88px);
+  row-gap: clamp(40px, 4vw, 64px);
 }
 
-@media (max-width: 900px) {
-  .grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-2xl);
-  }
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
+.lead {
+  grid-row: span 2;
 }
 
 .cardLink {
-  text-decoration: none;
-  color: inherit;
   display: flex;
   flex-direction: column;
+  gap: 22px;
+  height: 100%;
+}
+
+/* Secondary stories sit image-beside-text */
+.card:not(.lead) .cardLink {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+  gap: clamp(18px, 2vw, 32px);
+  align-items: end;
+}
+
+.card:not(.lead) + .card:not(.lead) {
+  padding-top: clamp(40px, 4vw, 64px);
+  border-top: 1px solid var(--line);
 }
 
 .imageFrame {
   position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 3 / 4;
   overflow: hidden;
-  border-radius: 6px;
-  background-color: var(--surface-subtle);
-  margin-bottom: var(--space-sm);
+  background-color: var(--paper-tint);
+}
+
+.lead .imageFrame {
+  aspect-ratio: 16 / 11;
 }
 
 .image {
   object-fit: cover;
-  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  transition:
+    transform 1.6s var(--ease-editorial),
+    filter 1s var(--ease-editorial);
 }
 
-.card:hover .image {
-  transform: scale(1.035);
-}
-
-.categoryBadge {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  z-index: 2;
-  background-color: rgba(244, 242, 238, 0.9);
-  backdrop-filter: blur(6px);
-  padding: 3px 8px;
-  border-radius: 2px;
-  font-family: var(--font-grotesk);
-  font-size: 0.5625rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--primary);
+.cardLink:hover .image {
+  transform: scale(1.04);
 }
 
 .meta {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 14px;
 }
 
 .dateRow {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2px;
-}
-
-.storyDate,
-.readTime {
-  font-family: var(--font-grotesk);
-  font-size: 0.625rem;
-  letter-spacing: 0.14em;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--muted);
 }
 
+.category {
+  color: var(--terracotta);
+}
+
+.readTime {
+  margin-left: auto;
+}
+
 .storyTitle {
-  font-family: var(--font-grotesk);
-  font-size: 1.05rem;
-  font-weight: 500;
-  line-height: 1.35;
-  color: var(--primary);
-  margin: 0;
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(1.45rem, 2vw, 2rem);
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+  transition: color 0.4s ease;
+}
+
+.lead .storyTitle {
+  font-size: clamp(2rem, 3.6vw, 3.6rem);
+  line-height: 1;
+  letter-spacing: -0.025em;
+  max-width: 18ch;
+}
+
+.deck {
+  display: block;
+  margin-top: 0.4em;
+  font-style: italic;
+  font-size: 0.62em;
+  line-height: 1.2;
+  color: var(--muted);
 }
 
 .excerpt {
-  font-family: var(--font-grotesk);
-  font-size: 0.8125rem;
-  line-height: 1.6;
-  color: var(--secondary);
-  margin: 6px 0 10px;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  max-width: 52ch;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--espresso);
 }
 
 .readMore {
-  font-family: var(--font-grotesk);
-  font-size: 0.65rem;
+  align-self: flex-start;
+  padding-bottom: 5px;
+  border-bottom: 1px solid currentColor;
+  font-size: 0.64rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--accent);
-  transition: transform 0.2s ease;
-  display: inline-block;
+  transition: color 0.3s ease, letter-spacing 0.6s var(--ease-editorial);
 }
 
-.card:hover .readMore {
-  transform: translateX(3px);
+.cardLink:hover .readMore {
+  color: var(--terracotta);
+  letter-spacing: 0.26em;
+}
+
+.cardLink:hover .storyTitle {
+  color: var(--espresso);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lead {
+    grid-row: auto;
+  }
+
+  .card:not(.lead) {
+    padding-top: clamp(32px, 6vw, 48px);
+    border-top: 1px solid var(--line);
+  }
+}
+
+@media (max-width: 560px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .title > :nth-child(2) {
+    padding-left: 0.45em;
+  }
+
+  .card:not(.lead) .cardLink {
+    grid-template-columns: minmax(0, 0.7fr) minmax(0, 1fr);
+    align-items: start;
+  }
 }

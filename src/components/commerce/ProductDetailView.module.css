@@ -708,3 +708,10 @@
   font-size: 0.6rem;
   letter-spacing: 0.2em;
 }
+
+/* Display headings carry one italic accent word */
+.spotlightTitle em,
+.relatedHeading em {
+  font-style: italic;
+  color: var(--terracotta);
+}

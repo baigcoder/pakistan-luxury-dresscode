@@ -80,12 +80,14 @@
 }
 
 .metaIndex {
-  display: inline-block;
-  padding: 3px 8px;
   margin-right: 10px;
-  border: 1px solid rgba(241, 238, 232, 0.4);
-  border-radius: var(--radius-pill);
-  letter-spacing: 0.18em;
+  color: var(--brass);
+}
+
+.metaIndex::after {
+  content: "/";
+  margin-left: 10px;
+  color: rgba(241, 238, 232, 0.4);
 }
 
 /* ==========================================================================

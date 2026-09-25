@@ -432,9 +432,9 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({ product })
         <div className="container-editorial">
           <div className={styles.spotlightCard}>
             <div className={styles.spotlightContent}>
-              <span className="provenance-tag">THE MASTER ATELIER</span>
-              <h2 className="display-m" style={{ margin: "8px 0 16px" }}>
-                HONORING GENERATIONAL HANDS.
+              <span className="provenance-tag">The master atelier</span>
+              <h2 className={`display-m ${styles.spotlightTitle}`} style={{ margin: "8px 0 16px" }}>
+                Honouring <em>generational</em> hands.
               </h2>
               <p className="body-editorial" style={{ maxWidth: "560px", color: "var(--espresso)" }}>
                 Each NAVA piece is registered with the artisan workshop where it was woven,
@@ -443,7 +443,7 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({ product })
               </p>
               <div style={{ marginTop: "24px" }}>
                 <Button variant="capsule" size="md" href="/craft" icon={<ArrowRight size={14} />}>
-                  READ INTANGIBLE CRAFT REGISTER
+                  Read the craft register
                 </Button>
               </div>
             </div>
@@ -468,8 +468,10 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({ product })
         <section className={styles.relatedSection}>
           <div className="container-max">
             <div className={styles.relatedHeader}>
-              <span className="metadata">COORDINATING SILHOUETTES</span>
-              <h2 className="heading-2">CURATED PAIRINGS</h2>
+              <span className="metadata">Coordinating silhouettes</span>
+              <h2 className={`heading-2 ${styles.relatedHeading}`}>
+                Curated <em>pairings</em>
+              </h2>
             </div>
 
             <div className={styles.relatedGrid}>

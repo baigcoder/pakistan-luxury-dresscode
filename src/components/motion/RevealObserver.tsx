@@ -15,11 +15,15 @@ export const RevealObserver: React.FC = () => {
     const root = document.documentElement;
     root.classList.add("reveal-ready");
 
+    // Observed box → the reveal elements it stands in for
+    const watched = new Map<Element, HTMLElement[]>();
+
     const io = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
           if (!entry.isIntersecting) continue;
-          entry.target.classList.add("is-revealed");
+          watched.get(entry.target)?.forEach((el) => el.classList.add("is-revealed"));
+          watched.delete(entry.target);
           io.unobserve(entry.target);
         }
       },
@@ -33,7 +37,15 @@ export const RevealObserver: React.FC = () => {
           const delay = el.dataset.revealDelay;
           if (delay) el.style.setProperty("--reveal-delay", `${delay}ms`);
           el.setAttribute("data-reveal-bound", "");
-          io.observe(el);
+          // A clip reveal starts at inset(100%), which leaves it no visible area for
+          // IntersectionObserver to see, so watch its parent's box instead
+          const target = el.dataset.reveal === "clip" ? el.parentElement ?? el : el;
+          const group = watched.get(target);
+          if (group) group.push(el);
+          else {
+            watched.set(target, [el]);
+            io.observe(target);
+          }
         });
     };
 
@@ -44,6 +56,7 @@ export const RevealObserver: React.FC = () => {
     return () => {
       mo.disconnect();
       io.disconnect();
+      watched.clear();
       document
         .querySelectorAll("[data-reveal-bound]")
         .forEach((el) => el.removeAttribute("data-reveal-bound"));
