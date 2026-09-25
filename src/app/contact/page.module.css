@@ -1,250 +1,365 @@
 .page {
-  padding-top: clamp(28px, 3.5vw, 52px);
-  padding-bottom: var(--space-4xl);
-  min-height: 100vh;
-  background-color: var(--surface);
+  background-color: var(--paper);
+  padding-bottom: clamp(96px, 11vw, 180px);
 }
 
+.eyebrow {
+  display: block;
+  margin-bottom: 18px;
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.index {
+  color: var(--terracotta);
+  margin-right: 8px;
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
 .header {
-  padding-bottom: var(--space-2xl);
-  border-bottom: 1px solid var(--border);
+  padding: clamp(22px, 2.6vw, 40px) 0 clamp(56px, 7vw, 112px);
 }
 
 .headerMeta {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: var(--space-md);
-  letter-spacing: 0.14em;
+  gap: 24px;
+  padding-bottom: 18px;
+  margin-bottom: clamp(48px, 7vw, 112px);
+  border-bottom: 1px solid var(--line-strong);
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
 .title {
-  color: var(--primary);
-  margin-bottom: var(--space-sm);
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(3.6rem, 10vw, 11rem);
+  line-height: 0.86;
+  letter-spacing: -0.05em;
+  animation: fadeUp 1.4s var(--ease-editorial) both;
+}
+
+.title > span {
+  display: block;
+}
+
+.titleIndent {
+  padding-left: 1em;
+}
+
+.title em,
+.formTitle em,
+.successTitle em,
+.locationsTitle em {
+  font-style: italic;
+  color: var(--terracotta);
 }
 
 .subhead {
-  max-width: 640px;
-  color: var(--muted);
-  line-height: 1.6;
+  max-width: 44ch;
+  margin: clamp(28px, 3vw, 44px) 0 0 auto;
+  font-size: clamp(0.95rem, 1.1vw, 1.08rem);
+  line-height: 1.65;
+  color: var(--espresso);
+  animation: fadeUp 1.2s var(--ease-editorial) 0.35s both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* ==========================================================================
-   Main Grid Layout
+   Form + locations
    ========================================================================== */
-.mainSection {
-  padding-top: var(--space-3xl);
-}
-
 .contactGrid {
   display: grid;
-  grid-template-columns: 1.3fr 1fr;
-  gap: var(--space-3xl);
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: clamp(48px, 7vw, 128px);
   align-items: start;
+  padding-top: clamp(40px, 5vw, 72px);
+  border-top: 1px solid var(--line);
 }
 
-@media (max-width: 960px) {
-  .contactGrid {
-    grid-template-columns: minmax(0, 1fr);
-    gap: var(--space-2xl);
-  }
+.formTitle,
+.locationsTitle,
+.successTitle {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(2.4rem, 4.6vw, 4.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
 }
 
-/* ==========================================================================
-   Form Column
-   ========================================================================== */
-.formCol {
-  background-color: var(--surface-subtle);
-  border: 1px solid var(--border);
-  padding: var(--space-2xl);
-  border-radius: var(--radius-sm);
-}
-
-@media (max-width: 640px) {
-  .formCol {
-    padding: var(--space-lg);
-  }
-}
-
-.formHeader {
-  margin-bottom: var(--space-lg);
-}
-
-.formTitle {
-  margin-top: var(--space-xs);
-  color: var(--primary);
+.formIntro {
+  max-width: 48ch;
+  margin: 20px 0 clamp(36px, 4vw, 56px);
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--muted);
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  gap: var(--space-lg);
+  gap: clamp(24px, 2.6vw, 36px);
 }
 
 .fieldRow {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-md);
-}
-
-@media (max-width: 640px) {
-  .fieldRow {
-    grid-template-columns: minmax(0, 1fr);
-  }
+  gap: clamp(20px, 2.6vw, 40px);
 }
 
 .field {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
 .label {
-  font-family: var(--font-grotesk);
-  font-size: var(--text-metadata);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--primary);
+  font-size: 0.6rem;
   font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.3s ease;
+}
+
+.field:focus-within .label {
+  color: var(--ink);
 }
 
 .input,
 .select,
 .textarea {
   width: 100%;
-  padding: 12px 14px;
-  font-family: var(--font-grotesk);
-  font-size: var(--text-body);
-  background-color: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  color: var(--primary);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  padding: 8px 0 12px;
+  border: 0;
+  border-bottom: 1px solid var(--line-strong);
+  border-radius: 0;
+  background: transparent;
+  font-size: 1rem;
+  color: var(--ink);
   outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--taupe);
 }
 
 .input:focus,
 .select:focus,
 .textarea:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 1px var(--accent);
+  border-bottom-color: var(--ink);
+}
+
+.select {
+  appearance: none;
+  padding-right: 24px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23756C66' stroke-width='1.2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 4px center;
+  cursor: pointer;
 }
 
 .textarea {
+  min-height: 120px;
   resize: vertical;
+  line-height: 1.6;
 }
 
 .submitWrap {
-  margin-top: var(--space-sm);
+  margin-top: 12px;
 }
 
 .successState {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: var(--space-2xl) var(--space-lg);
+  align-items: flex-start;
+  padding: clamp(28px, 3vw, 44px) 0;
+  border-top: 1px solid var(--line-strong);
 }
 
-.successTitle {
-  margin-top: var(--space-md);
-  color: var(--primary);
+.successBody {
+  max-width: 52ch;
+  margin: 20px 0 32px;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--espresso);
 }
 
-/* ==========================================================================
-   Locations Column
-   ========================================================================== */
+/* Locations */
 .locationsCol {
-  display: flex;
-  flex-direction: column;
-}
-
-.locationsTitle {
-  margin-top: var(--space-xs);
-  margin-bottom: var(--space-xl);
-  color: var(--primary);
+  position: sticky;
+  top: calc(var(--header-offset) + 32px);
+  transition: top 0.6s var(--ease-editorial);
 }
 
 .locationsList {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xl);
+  margin-top: clamp(28px, 3vw, 44px);
+  border-top: 1px solid var(--line);
 }
 
 .locationCard {
-  padding: var(--space-lg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  background-color: var(--surface);
+  padding: clamp(22px, 2.4vw, 32px) 0;
+  border-bottom: 1px solid var(--line);
 }
 
 .locationCity {
-  color: var(--primary);
-  margin-bottom: 4px;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
 }
 
 .locationAddress {
-  font-family: var(--font-grotesk);
-  font-size: var(--text-body);
-  color: var(--secondary);
-}
-
-.locationArea {
-  font-family: var(--font-grotesk);
-  font-size: var(--text-caption);
+  margin-top: 6px;
+  font-size: 0.88rem;
   color: var(--muted);
-  margin-bottom: var(--space-md);
 }
 
 .contactDetails {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 8px;
-  padding-top: var(--space-sm);
-  border-top: 1px solid var(--border);
+  margin-top: 18px;
 }
 
-.contactItem {
-  display: flex;
-  align-items: center;
-  gap: var(--space-xs);
-  font-family: var(--font-grotesk);
-  font-size: var(--text-caption);
-  color: var(--secondary);
+.contactDetails > div {
+  display: grid;
+  grid-template-columns: 6rem minmax(0, 1fr);
+  gap: 12px;
+  align-items: baseline;
 }
 
+.contactDetails dt {
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.contactDetails dd {
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--espresso);
+}
+
+.contactDetails a {
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.contactDetails a:hover {
+  color: var(--ink);
+  border-bottom-color: currentColor;
+}
+
+/* WhatsApp concierge — the one dark note on the page */
 .conciergeCard {
-  margin-top: var(--space-xl);
-  padding: var(--space-xl);
-  background-color: var(--surface-subtle);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
+  margin-top: clamp(32px, 3.4vw, 48px);
+  padding: clamp(24px, 2.6vw, 36px);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.conciergeEyebrow {
+  display: block;
+  margin-bottom: 14px;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--brass);
 }
 
 .conciergeHead {
-  margin-top: var(--space-xs);
-  color: var(--primary);
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(1.8rem, 2.4vw, 2.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.conciergeHead em {
+  font-style: italic;
+  color: var(--brass);
+}
+
+.conciergeBody {
+  margin: 12px 0 22px;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--muted-on-dark);
 }
 
 .whatsAppLink {
-  font-family: var(--font-grotesk);
-  font-size: var(--text-metadata);
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  color: var(--accent);
-  text-decoration: none;
   display: inline-block;
-  transition: transform 0.2s ease, color 0.2s ease;
+  padding-bottom: 6px;
+  border-bottom: 1px solid currentColor;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: color 0.3s ease, letter-spacing 0.6s var(--ease-editorial);
 }
 
 .whatsAppLink:hover {
-  color: var(--primary);
-  transform: translateX(4px);
+  color: var(--brass);
+  letter-spacing: 0.24em;
 }
 
-.field input,
-.field select,
-.field textarea {
-  min-width: 0;
-  max-width: 100%;
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 1000px) {
+  .contactGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .locationsCol {
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  .headerMeta {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .titleIndent {
+    padding-left: 0.45em;
+  }
+
+  .subhead {
+    margin-left: 0;
+  }
+
+  .fieldRow {
+    grid-template-columns: 1fr;
+  }
+
+  .contactDetails > div {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
 }

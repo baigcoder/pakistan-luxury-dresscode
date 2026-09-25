@@ -5,7 +5,7 @@
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-xs); /* architectural 0–4px, per the design system */
   line-height: 1;
   white-space: nowrap;
   user-select: none;

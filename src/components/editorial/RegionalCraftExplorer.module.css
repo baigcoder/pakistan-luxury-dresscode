@@ -2,308 +2,439 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: clamp(48px, 7vw, 96px);
+  gap: clamp(112px, 13vw, 220px);
 }
 
 /* ==========================================================================
-   Lens Section (Macro -> Detail -> Garment)
+   Section header — shared by both parts, matches the house section rhythm
    ========================================================================== */
-.lensSection {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.lensHeader {
+.header {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  padding-bottom: var(--space-md);
-  border-bottom: 1px solid var(--border);
-  flex-wrap: wrap;
-  gap: var(--space-md);
+  gap: 32px;
+  padding-bottom: clamp(28px, 3vw, 44px);
+  margin-bottom: clamp(32px, 4vw, 64px);
+  border-bottom: 1px solid var(--line);
 }
 
 .eyebrow {
-  font-family: var(--font-grotesk);
-  font-size: 0.625rem;
+  display: block;
+  margin-bottom: 18px;
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.index {
+  color: var(--terracotta);
+  margin-right: 8px;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(3rem, 7.5vw, 8rem);
+  line-height: 0.88;
+  letter-spacing: -0.035em;
+}
+
+.title em {
+  font-style: italic;
+  color: var(--terracotta);
+}
+
+/* Second line steps in, echoing the Selected pieces heading */
+.title > :nth-child(2) {
+  padding-left: 0.9em;
+}
+
+/* ==========================================================================
+   Part 1 — Material anatomy
+   ========================================================================== */
+.lensTabs {
+  display: flex;
+  gap: clamp(20px, 3vw, 48px);
+}
+
+.lensTab {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 0 0 14px;
+  color: var(--muted);
+  transition: color 0.4s var(--ease-editorial);
+}
+
+.lensTab:hover,
+.lensTabActive {
+  color: var(--ink);
+}
+
+.lensNum {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--terracotta);
+}
+
+.lensLabel {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* Hairline track + timed fill: the fill finishing advances the stage */
+.lensTab::after,
+.lensProgress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+}
+
+.lensTab::after {
+  content: "";
+  background: var(--line);
+}
+
+.lensProgress {
+  z-index: 1;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s var(--ease-editorial);
+}
+
+.lensTabActive .lensProgress {
+  transform: scaleX(1);
+}
+
+.lensProgress[data-running] {
+  animation: lensFill 7s linear forwards;
+}
+
+.lensTabs:hover .lensProgress[data-running] {
+  animation-play-state: paused;
+}
+
+@keyframes lensFill {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+.stageFrame {
+  position: relative;
+  width: 100%;
+  height: clamp(420px, 78vh, 860px);
+  overflow: hidden;
+  background-color: var(--espresso);
+}
+
+.stageImg,
+.previewImg {
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.06);
+  transition:
+    opacity 1.2s var(--ease-editorial),
+    transform 2.4s var(--ease-editorial);
+}
+
+.stageImg.isActive,
+.previewImg.isActive {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.stageCaption {
+  position: absolute;
+  inset: auto 0 0 0;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+  padding: clamp(80px, 10vw, 160px) clamp(20px, 3vw, 44px) clamp(20px, 2.6vw, 40px);
+  background: linear-gradient(180deg, rgba(21, 19, 17, 0) 0%, rgba(21, 19, 17, 0.62) 100%);
+  color: var(--paper);
+  pointer-events: none;
+}
+
+.captionFig {
+  flex-shrink: 0;
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(241, 238, 232, 0.72);
+}
+
+.captionText {
+  max-width: 34ch;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.3rem, 2.2vw, 2.1rem);
+  line-height: 1.15;
+  text-align: right;
+  text-wrap: balance;
+  animation: captionIn 1s var(--ease-editorial) both;
+}
+
+@keyframes captionIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ==========================================================================
+   Part 2 — Regional archives
+   ========================================================================== */
+.regionsSub {
+  max-width: 34ch;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+.regionsGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: clamp(32px, 6vw, 112px);
+  align-items: start;
+}
+
+.regionsList {
+  border-top: 1px solid var(--line);
+}
+
+.regionItem {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 3.2rem minmax(0, 1fr) auto;
+  align-items: baseline;
+  padding: clamp(18px, 1.8vw, 26px) 0;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  color: var(--muted);
+  transition: color 0.5s var(--ease-editorial);
+}
+
+.regionItem:hover,
+.regionActive {
+  color: var(--ink);
+}
+
+.regionNumber {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--terracotta);
+}
+
+.regionText {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform 0.7s var(--ease-editorial);
+}
+
+.regionActive .regionText {
+  transform: translateX(0.5rem);
+}
+
+.regionName {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.regionActive .regionName {
+  font-style: italic;
+}
+
+.regionTradition {
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.regionArrow {
+  font-size: 1.1rem;
+  opacity: 0;
+  transform: translateX(-12px);
+  transition:
+    opacity 0.5s var(--ease-editorial),
+    transform 0.7s var(--ease-editorial);
+}
+
+.regionActive .regionArrow {
+  opacity: 1;
+  transform: none;
+}
+
+.previewPanel {
+  position: sticky;
+  top: calc(var(--header-offset) + 32px);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  transition: top 0.6s var(--ease-editorial);
+}
+
+.previewImageFrame {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  max-height: 72vh;
+  overflow: hidden;
+  background-color: var(--paper-tint);
+}
+
+.previewNarrative {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  animation: captionIn 0.9s var(--ease-editorial) both;
+}
+
+.previewTop {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.previewRef {
+  color: var(--terracotta);
+}
+
+.previewCount {
+  color: var(--muted);
+}
+
+.previewDesc {
+  max-width: 36ch;
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(1.4rem, 2vw, 1.9rem);
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+  text-wrap: pretty;
+}
+
+.previewMeta {
+  display: grid;
+  grid-template-columns: 7rem minmax(0, 1fr);
+  gap: 16px;
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+.previewMeta dt {
+  padding-top: 0.2em;
+  font-size: 0.62rem;
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--muted);
 }
 
-.lensTitle {
-  font-family: var(--font-grotesk);
-  font-size: clamp(1.2rem, 2vw, 1.6rem);
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--primary);
-  margin: 4px 0 0;
-}
-
-.lensTabs {
-  display: flex;
-  gap: 8px;
-}
-
-.lensTab {
-  font-family: var(--font-grotesk);
-  font-size: 0.65625rem;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  padding: 6px 14px;
-  background: transparent;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-xs);
-  color: var(--muted);
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.lensTab:hover {
-  color: var(--primary);
-  border-color: var(--primary);
-}
-
-.lensTabActive {
-  background-color: var(--primary);
-  color: var(--surface);
-  border-color: var(--primary);
-}
-
-.stageFrame {
-  position: relative;
-  width: 100%;
-  height: clamp(380px, 58vh, 620px);
-  border-radius: 16px;
-  overflow: hidden;
-  background-color: var(--surface-subtle);
-  box-shadow: 0 4px 24px rgba(21, 19, 17, 0.04);
-}
-
-.stageImg {
-  object-fit: cover;
-  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.stageFrame:hover .stageImg {
-  transform: scale(1.02);
-}
-
-.stageCaption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: clamp(16px, 2.5vw, 28px);
-  background: linear-gradient(180deg, transparent 0%, rgba(21, 19, 17, 0.72) 100%);
-  color: #ffffff;
-  z-index: 2;
-}
-
-.captionText {
-  font-family: var(--font-grotesk);
-  font-size: clamp(0.72rem, 0.95vw, 0.82rem);
-  letter-spacing: 0.08em;
-  line-height: 1.5;
-  text-transform: uppercase;
-  display: block;
-  max-width: 800px;
-}
-
-/* ==========================================================================
-   Regions Section (6 Regional Archives)
-   ========================================================================== */
-.regionsSection {
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-}
-
-.regionsHeader {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  max-width: 640px;
-}
-
-.regionsTitle {
-  font-family: var(--font-grotesk);
-  font-size: clamp(1.4rem, 2.4vw, 2rem);
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: var(--primary);
-  margin: 0;
-}
-
-.regionsSub {
-  font-family: var(--font-grotesk);
-  font-size: 0.84rem;
-  line-height: 1.6;
-  color: var(--secondary);
-  margin: 0;
-}
-
-.regionsGrid {
-  display: grid;
-  grid-template-columns: 1fr 1.15fr;
-  gap: clamp(24px, 3.5vw, 48px);
-  align-items: start;
-}
-
-@media (max-width: 900px) {
-  .regionsGrid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.regionsList {
-  display: flex;
-  flex-direction: column;
-  border-top: 1px solid var(--border);
-}
-
-.regionItem {
-  padding: 16px 14px;
-  border-bottom: 1px solid var(--border);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.regionItem:hover,
-.regionActive {
-  background-color: var(--surface-subtle);
-  padding-left: 20px;
-}
-
-.regionActive {
-  border-left: 2px solid var(--primary);
-}
-
-.regionItemTop {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.regionNumber {
-  font-family: var(--font-grotesk);
-  font-size: 0.58rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.regionName {
-  font-family: var(--font-grotesk);
-  font-size: 1.05rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--primary);
-  margin: 0;
-}
-
-.regionTradition {
-  font-family: var(--font-grotesk);
-  font-size: 0.6875rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin: 0;
-}
-
-/* Right Preview Panel */
-.previewPanel {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  position: sticky;
-  top: calc(var(--header-offset) + 24px);
-  transition: top 0.6s var(--ease-editorial);
-}
-
-.previewImageFrame {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 11;
-  border-radius: 12px;
-  overflow: hidden;
-  background-color: var(--surface-subtle);
-}
-
-.previewImg {
-  object-fit: cover;
-  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.previewPanel:hover .previewImg {
-  transform: scale(1.025);
-}
-
-.previewBadge {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  z-index: 2;
-  padding: 4px 10px;
-  background-color: rgba(244, 242, 238, 0.92);
-  backdrop-filter: blur(6px);
-  border-radius: 2px;
-  font-family: var(--font-grotesk);
-  font-size: 0.58rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--primary);
-}
-
-.previewNarrative {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.previewMaterials {
-  font-family: var(--font-grotesk);
-  font-size: 0.625rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.previewDesc {
-  font-family: var(--font-grotesk);
-  font-size: 0.84rem;
-  line-height: 1.6;
-  color: var(--secondary);
-  margin: 0;
+.previewMeta dd {
+  color: var(--espresso);
 }
 
 .previewLink {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: var(--font-grotesk);
-  font-size: 0.65625rem;
+  align-self: flex-start;
+  margin-top: 6px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid currentColor;
+  font-size: 0.68rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--primary);
-  text-decoration: none;
-  margin-top: 4px;
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition: color 0.3s ease, letter-spacing 0.6s var(--ease-editorial);
 }
 
 .previewLink:hover {
-  color: var(--accent);
-  transform: translateX(3px);
+  color: var(--terracotta);
+  letter-spacing: 0.24em;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 900px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .regionsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Preview first on small screens, so a tap shows its result */
+  .previewPanel {
+    position: static;
+    order: -1;
+  }
+
+  .previewImageFrame {
+    aspect-ratio: 4 / 3;
+  }
+
+  .stageCaption {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .captionText {
+    text-align: left;
+  }
+}
+
+@media (max-width: 560px) {
+  .title > :nth-child(2) {
+    padding-left: 0.45em;
+  }
+
+  .lensTabs {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .stageFrame {
+    height: 64vh;
+  }
+
+  .previewMeta {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+}
+
+/* Reduced motion zeroes durations globally, which would fire the timer at once */
+@media (prefers-reduced-motion: reduce) {
+  .lensProgress[data-running] {
+    animation: none;
+  }
 }

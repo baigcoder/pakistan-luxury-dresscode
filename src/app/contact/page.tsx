@@ -2,8 +2,7 @@
 
 import React, { useState } from "react";
 import { BRAND } from "@/config/brand";
-import { Button, Badge, HairlineDivider } from "@/components/ui";
-import { MapPin, Phone, Mail, Clock, CheckCircle2, Calendar } from "lucide-react";
+import { Button } from "@/components/ui";
 import styles from "./page.module.css";
 
 // Addresses live in the brand config so every page agrees
@@ -42,17 +41,20 @@ export default function ContactPage() {
       <section className={styles.header}>
         <div className="container-editorial">
           <div className={styles.headerMeta}>
-            <span className="metadata">PRIVATE SALON & CONCIERGE</span>
-            <span className="metadata">WORLDWIDE ASSISTANCE</span>
+            <span>Private salon &amp; concierge</span>
+            <span>Worldwide assistance</span>
           </div>
 
-          <h1 className={`${styles.title} display-l`}>
-            Concierge &amp; <em>appointments.</em>
+          <h1 className={styles.title}>
+            <span>Concierge &amp;</span>
+            <span className={styles.titleIndent}>
+              <em>appointments.</em>
+            </span>
           </h1>
 
-          <p className={`${styles.subhead} body-editorial`}>
-            Our ateliers welcome clients for bespoke garment engineering, made-to-measure
-            fittings, and private viewings of archived heritage textiles.
+          <p className={styles.subhead}>
+            Our ateliers welcome clients for bespoke garment engineering, made-to-measure fittings,
+            and private viewings of archived heritage textiles.
           </p>
         </div>
       </section>
@@ -64,26 +66,27 @@ export default function ContactPage() {
             {/* Form Column */}
             <div className={styles.formCol}>
               <div className={styles.formHeader}>
-                <span className="metadata">REQUEST PRIVATE SALON SESSION</span>
-                <h2 className={`${styles.formTitle} heading-2`}>
-                  Schedule an Appointment
+                <span className={styles.eyebrow}>
+                  <span className={styles.index}>(01)</span> Private salon session
+                </span>
+                <h2 className={styles.formTitle}>
+                  Schedule an <em>appointment</em>
                 </h2>
-                <p className="body-regular" style={{ color: "var(--muted)", margin: "4px 0 24px" }}>
-                  A dedicated atelier concierge will respond within 24 business hours to
-                  finalize your appointment itinerary.
+                <p className={styles.formIntro}>
+                  A dedicated atelier concierge will respond within 24 business hours to finalize
+                  your appointment itinerary.
                 </p>
               </div>
 
               {submitted ? (
                 <div className={styles.successState}>
-                  <CheckCircle2 size={48} color="var(--accent)" />
-                  <h3 className={`${styles.successTitle} heading-2`}>
-                    Appointment Request Received
+                  <span className={styles.eyebrow}>Request received</span>
+                  <h3 className={styles.successTitle}>
+                    Thank you, <em>{formData.fullName.split(" ")[0]}.</em>
                   </h3>
-                  <p className="body-regular" style={{ color: "var(--secondary)", margin: "8px 0 24px" }}>
-                    Thank you, {formData.fullName}. Your inquiry for{" "}
-                    <strong>{formData.service}</strong> at our {formData.location} has been
-                    registered. Our senior client liaison will contact you directly via{" "}
+                  <p className={styles.successBody}>
+                    Your inquiry for <strong>{formData.service}</strong> at our {formData.location}{" "}
+                    has been registered. Our senior client liaison will contact you directly via{" "}
                     {formData.email}.
                   </p>
                   <Button
@@ -101,7 +104,7 @@ export default function ContactPage() {
                       });
                     }}
                   >
-                    SUBMIT ANOTHER INQUIRY
+                    Submit another inquiry
                   </Button>
                 </div>
               ) : (
@@ -109,7 +112,7 @@ export default function ContactPage() {
                   <div className={styles.fieldRow}>
                     <div className={styles.field}>
                       <label htmlFor="fullName" className={styles.label}>
-                        Full Name *
+                        Full name *
                       </label>
                       <input
                         id="fullName"
@@ -117,16 +120,14 @@ export default function ContactPage() {
                         required
                         placeholder="e.g. Ayesha Malik"
                         value={formData.fullName}
-                        onChange={(e) =>
-                          setFormData({ ...formData, fullName: e.target.value })
-                        }
+                        onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                         className={styles.input}
                       />
                     </div>
 
                     <div className={styles.field}>
                       <label htmlFor="email" className={styles.label}>
-                        Email Address *
+                        Email address *
                       </label>
                       <input
                         id="email"
@@ -134,9 +135,7 @@ export default function ContactPage() {
                         required
                         placeholder="ayesha@domain.com"
                         value={formData.email}
-                        onChange={(e) =>
-                          setFormData({ ...formData, email: e.target.value })
-                        }
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         className={styles.input}
                       />
                     </div>
@@ -145,30 +144,26 @@ export default function ContactPage() {
                   <div className={styles.fieldRow}>
                     <div className={styles.field}>
                       <label htmlFor="phone" className={styles.label}>
-                        Contact Telephone / WhatsApp
+                        Telephone / WhatsApp
                       </label>
                       <input
                         id="phone"
                         type="tel"
                         placeholder="+92 300 0000000"
                         value={formData.phone}
-                        onChange={(e) =>
-                          setFormData({ ...formData, phone: e.target.value })
-                        }
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         className={styles.input}
                       />
                     </div>
 
                     <div className={styles.field}>
                       <label htmlFor="location" className={styles.label}>
-                        Desired Atelier Location
+                        Atelier
                       </label>
                       <select
                         id="location"
                         value={formData.location}
-                        onChange={(e) =>
-                          setFormData({ ...formData, location: e.target.value })
-                        }
+                        onChange={(e) => setFormData({ ...formData, location: e.target.value })}
                         className={styles.select}
                       >
                         {ATELIER_LOCATIONS.map((loc) => (
@@ -183,7 +178,7 @@ export default function ContactPage() {
                   <div className={styles.fieldRow}>
                     <div className={styles.field}>
                       <label htmlFor="service" className={styles.label}>
-                        Service Nature
+                        Service
                       </label>
                       <select
                         id="service"
@@ -206,7 +201,7 @@ export default function ContactPage() {
 
                     <div className={styles.field}>
                       <label htmlFor="preferredDate" className={styles.label}>
-                        Preferred Date Window
+                        Preferred date
                       </label>
                       <input
                         id="preferredDate"
@@ -222,23 +217,21 @@ export default function ContactPage() {
 
                   <div className={styles.field}>
                     <label htmlFor="message" className={styles.label}>
-                      Special Inquiries or Fit Details (Optional)
+                      Fit details or special requests (optional)
                     </label>
                     <textarea
                       id="message"
                       rows={4}
                       placeholder="Please mention silhouette interests, upcoming calendar dates, or measurement specifics..."
                       value={formData.message}
-                      onChange={(e) =>
-                        setFormData({ ...formData, message: e.target.value })
-                      }
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       className={styles.textarea}
                     />
                   </div>
 
                   <div className={styles.submitWrap}>
                     <Button variant="capsule" size="lg" type="submit">
-                      TRANSMIT APPOINTMENT REQUEST &rarr;
+                      Request appointment &rarr;
                     </Button>
                   </div>
                 </form>
@@ -247,43 +240,50 @@ export default function ContactPage() {
 
             {/* Atelier Locations Column */}
             <div className={styles.locationsCol}>
-              <span className="metadata">SALON COORDINATES</span>
-              <h2 className={`${styles.locationsTitle} heading-2`}>
-                Atelier Locations
+              <span className={styles.eyebrow}>
+                <span className={styles.index}>(02)</span> Salon coordinates
+              </span>
+              <h2 className={styles.locationsTitle}>
+                The <em>ateliers</em>
               </h2>
 
               <div className={styles.locationsList}>
                 {ATELIER_LOCATIONS.map((loc) => (
                   <div key={loc.city} className={styles.locationCard}>
-                    <h3 className={`${styles.locationCity} heading-3`}>{loc.city}</h3>
-                    <p className={styles.locationAddress}>{loc.address}</p>
-                    <p className={styles.locationArea}>{loc.area}</p>
+                    <h3 className={styles.locationCity}>{loc.city}</h3>
+                    <p className={styles.locationAddress}>
+                      {loc.address}, {loc.area}
+                    </p>
 
-                    <div className={styles.contactDetails}>
-                      <div className={styles.contactItem}>
-                        <Phone size={14} color="var(--accent)" />
-                        <span>{loc.phone}</span>
+                    <dl className={styles.contactDetails}>
+                      <div>
+                        <dt>Telephone</dt>
+                        <dd>
+                          <a href={`tel:${loc.phone.replace(/\s/g, "")}`}>{loc.phone}</a>
+                        </dd>
                       </div>
-                      <div className={styles.contactItem}>
-                        <Mail size={14} color="var(--accent)" />
-                        <span>{loc.email}</span>
+                      <div>
+                        <dt>Email</dt>
+                        <dd>
+                          <a href={`mailto:${loc.email}`}>{loc.email}</a>
+                        </dd>
                       </div>
-                      <div className={styles.contactItem}>
-                        <Clock size={14} color="var(--accent)" />
-                        <span>{loc.hours}</span>
+                      <div>
+                        <dt>Hours</dt>
+                        <dd>{loc.hours}</dd>
                       </div>
-                    </div>
+                    </dl>
                   </div>
                 ))}
               </div>
 
               {/* Direct WhatsApp Concierge Banner */}
               <div className={styles.conciergeCard}>
-                <span className="metadata">INSTANT CONCIERGE</span>
-                <h4 className={`${styles.conciergeHead} heading-3`}>
-                  Private Client WhatsApp
-                </h4>
-                <p className="body-regular" style={{ color: "var(--muted)", margin: "4px 0 16px" }}>
+                <span className={styles.conciergeEyebrow}>Instant concierge</span>
+                <h3 className={styles.conciergeHead}>
+                  Private client <em>WhatsApp</em>
+                </h3>
+                <p className={styles.conciergeBody}>
                   For immediate styling questions, urgent garment dispatches, or VIP runway
                   acquisitions.
                 </p>
@@ -293,7 +293,7 @@ export default function ContactPage() {
                   rel="noopener noreferrer"
                   className={styles.whatsAppLink}
                 >
-                  START WHATSAPP CONVERSATION &rarr;
+                  Start a conversation <span aria-hidden="true">→</span>
                 </a>
               </div>
             </div>

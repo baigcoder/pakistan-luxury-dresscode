@@ -404,7 +404,7 @@
 .chip {
   padding: 9px 16px;
   border: 1px solid var(--line-strong);
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-xs);
   font-size: 0.66rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
