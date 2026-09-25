@@ -43,10 +43,11 @@ export const HeroCampaign: React.FC = () => {
       <div ref={mediaRef} className={styles.media} data-cursor="view">
         <div className={styles.mediaInner}>
           <Image
-            src="/images/hero-editorial-dresscode.jpg"
+            src="/images/hero-editorial-dresscode@2x.jpg"
             alt="NAVA SS26 campaign — three models in an unconstructed raw silk trench, an architectural bandgala and organza drapery"
             fill
             priority
+            quality={90}
             sizes="100vw"
             className={styles.image}
           />

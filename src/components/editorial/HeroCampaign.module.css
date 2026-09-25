@@ -40,12 +40,16 @@
   object-position: center 30%;
 }
 
+/* Shade where the type sits: the header and meta row, the headline on the left,
+   the lede and CTAs along the bottom. The faces on the right stay clear. */
 .scrim {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(21, 19, 17, 0.28) 0%, rgba(21, 19, 17, 0) 28%),
-    linear-gradient(0deg, rgba(21, 19, 17, 0.78) 0%, rgba(21, 19, 17, 0.25) 42%, rgba(21, 19, 17, 0) 62%);
+    linear-gradient(180deg, rgba(21, 19, 17, 0.46) 0%, rgba(21, 19, 17, 0.14) 16%, rgba(21, 19, 17, 0) 30%),
+    radial-gradient(ellipse 62% 58% at 18% 50%, rgba(21, 19, 17, 0.4) 0%, rgba(21, 19, 17, 0) 100%),
+    linear-gradient(0deg, rgba(21, 19, 17, 0.78) 0%, rgba(21, 19, 17, 0.25) 42%, rgba(21, 19, 17, 0) 62%),
+    radial-gradient(ellipse 120% 90% at 50% 45%, rgba(21, 19, 17, 0) 55%, rgba(21, 19, 17, 0.28) 100%);
 }
 
 /* ==========================================================================
@@ -81,7 +85,9 @@
 
 .metaIndex {
   margin-right: 10px;
-  color: var(--brass);
+  font-weight: 600;
+  /* Full paper, heavier than the rest of the row: brass vanished against sunlit stone */
+  color: var(--paper);
 }
 
 .metaIndex::after {
