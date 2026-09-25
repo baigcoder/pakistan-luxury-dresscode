@@ -85,6 +85,10 @@
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   padding: var(--space-xl);
+  /* Space the title, hairline and spec row apart; they stacked flush */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
 }
 
 .orderTop,
