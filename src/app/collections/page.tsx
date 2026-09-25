@@ -62,6 +62,7 @@ export default function CollectionsIndexPage() {
             alt={`${featured.code} — ${titleCase(featured.title)}`}
             fill
             priority
+            quality={90}
             sizes="(max-width: 1024px) 100vw, 58vw"
             className={styles.featuredImage}
           />

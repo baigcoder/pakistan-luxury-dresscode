@@ -13,6 +13,7 @@ export const CampaignSplit: React.FC = () => {
           src="/images/lahore-courtyard.jpg"
           alt="High fashion editorial within Lahore heritage courtyard"
           fill
+          quality={90}
           sizes="100vw"
           className={styles.image}
         />

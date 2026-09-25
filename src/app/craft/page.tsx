@@ -38,6 +38,7 @@ export default function CraftIndexPage() {
             alt="A master artisan hand-embroidering gold Zardozi on crimson silk in a Lahore atelier"
             fill
             priority
+            quality={90}
             sizes="100vw"
             className={styles.heroImage}
           />

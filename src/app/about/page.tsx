@@ -128,6 +128,7 @@ export default function AboutPage() {
             alt="NAVA atelier courtyard in Old Lahore"
             fill
             priority
+            quality={90}
             sizes="100vw"
             className={styles.bannerImg}
           />

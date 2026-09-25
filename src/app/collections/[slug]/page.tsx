@@ -83,6 +83,7 @@ export default async function CollectionDetailPage({
             alt={`${name} — ${col.description}`}
             fill
             priority
+            quality={90}
             sizes="100vw"
             className={styles.heroImg}
           />

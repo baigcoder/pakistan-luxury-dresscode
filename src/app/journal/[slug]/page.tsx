@@ -108,6 +108,7 @@ export default async function JournalArticlePage({
           alt={story.title}
           fill
           priority
+          quality={90}
           sizes="100vw"
           className={styles.heroImage}
         />

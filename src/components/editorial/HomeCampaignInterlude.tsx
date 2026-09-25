@@ -81,6 +81,7 @@ export const HomeCampaignInterlude: React.FC = () => {
               src="/images/lahore-courtyard.jpg"
               alt="NAVA campaign — fluid drapery in raking light across a historic Lahore courtyard"
               fill
+              quality={90}
               sizes="100vw"
               className={styles.image}
             />

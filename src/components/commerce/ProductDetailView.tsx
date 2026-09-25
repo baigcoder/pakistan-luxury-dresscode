@@ -114,6 +114,7 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({ product })
                 alt={currentMedia.alt}
                 fill
                 priority
+                quality={90}
                 sizes="(max-width: 1024px) 100vw, 55vw"
                 className={styles.stageImage}
               />
