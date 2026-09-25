@@ -33,6 +33,7 @@ export const CraftMacro: React.FC = () => {
                 src="/images/macro-ajrak.jpg"
                 alt="Museum-grade extreme macro of Sindhi Ajrak natural block print"
                 fill
+                quality={90}
                 sizes="(max-width: 1024px) 100vw, 65vw"
                 className={styles.macroImage}
               />

@@ -45,6 +45,7 @@ export const NewArrivalsView: React.FC = () => {
             alt="NAVA SS26 campaign — three models in raw silk, bandgala and organza"
             fill
             priority
+            quality={90}
             sizes="100vw"
             className={styles.heroImage}
           />

@@ -25,7 +25,7 @@ export const CategorySplit: React.FC = () => (
     {PANELS.map((p, i) => (
       <Link key={p.label} href={p.href} className={styles.panel} data-cursor="explore">
         <div className={styles.media} data-reveal="clip" data-reveal-delay={String(i * 140)}>
-          <Image src={p.image} alt={p.alt} fill sizes="(max-width: 800px) 100vw, 60vw" className={styles.image} />
+          <Image src={p.image} alt={p.alt} fill quality={90} sizes="(max-width: 800px) 100vw, 60vw" className={styles.image} />
         </div>
         <div className={styles.scrim} />
         <div className={styles.content}>
