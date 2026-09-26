@@ -184,6 +184,11 @@
   gap: 11px;
 }
 
+/* display: flex above would otherwise override the hidden attribute */
+.linkList[hidden] {
+  display: none;
+}
+
 .link {
   font-size: 0.86rem;
   color: rgba(241, 238, 232, 0.88);
@@ -298,5 +303,91 @@
 
   .legal {
     flex-direction: column;
+  }
+}
+
+/* ==========================================================================
+   Phones: link groups fold into a ruled accordion with finger-sized targets
+   ========================================================================== */
+.colToggle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 56px;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  color: var(--paper);
+  text-align: left;
+}
+
+/* A plus that turns into a minus */
+.colToggleIcon {
+  position: relative;
+  width: 12px;
+  height: 12px;
+}
+
+.colToggleIcon::before,
+.colToggleIcon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transition: transform 0.4s var(--ease-editorial);
+}
+
+.colToggleIcon::after {
+  transform: rotate(90deg);
+}
+
+.colToggle[aria-expanded="true"] .colToggleIcon::after {
+  transform: rotate(0deg);
+}
+
+@media (max-width: 700px) {
+  .navCols {
+    display: block;
+    border-top: 1px solid var(--line-dark);
+  }
+
+  .navCol {
+    border-bottom: 1px solid var(--line-dark);
+  }
+
+  .colTitle {
+    margin-bottom: 0;
+  }
+
+  .linkList {
+    gap: 0;
+    padding-bottom: 14px;
+    animation: linksIn 0.5s var(--ease-editorial) both;
+  }
+
+  .link {
+    display: block;
+    padding: 11px 0;
+    font-size: 0.95rem;
+  }
+
+  .legalLinks a {
+    display: inline-block;
+    padding: 12px 0;
+  }
+}
+
+@keyframes linksIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -6px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
   }
 }

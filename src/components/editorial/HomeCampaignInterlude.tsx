@@ -48,8 +48,23 @@ export const HomeCampaignInterlude: React.FC = () => {
             0
           )
             .fromTo(imageRef.current, { scale: 1.3 }, { scale: 1, ease: "power2.inOut", duration: 1 }, 0)
-            .to(leftRef.current, { xPercent: -60, opacity: 0, ease: "power2.in", duration: 0.7 }, 0)
-            .to(rightRef.current, { xPercent: 60, opacity: 0, ease: "power2.in", duration: 0.7 }, 0)
+            // Desktop titles sit either side of the frame and part sideways. On phones they
+            // are stacked above and below it, so they lift away vertically and clear quickly,
+            // before the opening frame reaches them
+            .to(
+              leftRef.current,
+              desktop
+                ? { xPercent: -60, opacity: 0, ease: "power2.in", duration: 0.7 }
+                : { yPercent: -80, opacity: 0, ease: "power1.out", duration: 0.3 },
+              0
+            )
+            .to(
+              rightRef.current,
+              desktop
+                ? { xPercent: 60, opacity: 0, ease: "power2.in", duration: 0.7 }
+                : { yPercent: 80, opacity: 0, ease: "power1.out", duration: 0.3 },
+              0
+            )
             .fromTo(
               captionRef.current,
               { opacity: 0, y: 40 },
@@ -78,8 +93,8 @@ export const HomeCampaignInterlude: React.FC = () => {
         <div ref={frameRef} className={styles.frame} data-cursor="explore">
           <div ref={imageRef} className={styles.imageWrap}>
             <Image
-              src="/images/lahore-courtyard.jpg"
-              alt="NAVA campaign — fluid drapery in raking light across a historic Lahore courtyard"
+              src="/images/hero-editorial-dresscode.jpg"
+              alt="Two NAVA looks beneath sandstone arches at golden hour: an ivory raw-silk trench and a charcoal wool jacket embroidered in tonal thread"
               fill
               quality={90}
               sizes="100vw"
@@ -97,7 +112,7 @@ export const HomeCampaignInterlude: React.FC = () => {
             </div>
             <div className={styles.captionRight}>
               <p className={styles.note}>
-                Raking light across sixteenth-century brickwork. Alluvial tones, unhurried drape.
+                Raking light through sandstone arches. Alluvial tones, unhurried tailoring.
               </p>
               <Link href="/collections/edit-02-mitti" className={styles.cta}>
                 Explore the edit <span aria-hidden="true">→</span>

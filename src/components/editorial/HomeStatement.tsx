@@ -67,8 +67,8 @@ export const HomeStatement: React.FC = () => {
           <figure className={styles.figure} data-reveal="clip">
             <div className={styles.figureImage}>
               <Image
-                src="/images/hero-editorial-dresscode.jpg"
-                alt="A charcoal wool jacket embroidered in tonal thread, worn beneath sandstone arches"
+                src="/images/trench-charcoal.jpg"
+                alt="A charcoal wool coat with hand-embroidered lapels, worn in a stone courtyard"
                 fill
                 sizes="(max-width: 900px) 60vw, 22vw"
                 className={styles.img}

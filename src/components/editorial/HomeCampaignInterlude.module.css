@@ -8,6 +8,8 @@
   position: sticky;
   top: 0;
   height: 100vh;
+  /* Small-viewport height: stays put while mobile browser toolbars show and hide */
+  height: 100svh;
   overflow: hidden;
   display: grid;
   place-items: center;
@@ -154,6 +156,12 @@
 
   .titleRight {
     align-self: flex-end;
+  }
+
+  /* A portrait slice of the pavilion shot would centre on the empty arch between
+     the two models; hold on the embroidered jacket instead */
+  .image {
+    object-position: 74% 40%;
   }
 
   .caption {

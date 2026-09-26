@@ -94,8 +94,10 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({ product })
           <Link href="/shop">Shop</Link>
           <span className={styles.crumbDivider}>/</span>
           <Link href={`/shop/${product.category}`}>{product.category}</Link>
-          <span className={styles.crumbDivider}>/</span>
-          <span className={styles.crumbCurrent}>{product.name}</span>
+          <span className={`${styles.crumbDivider} ${styles.crumbLast}`}>/</span>
+          <span className={`${styles.crumbCurrent} ${styles.crumbLast}`} aria-current="page">
+            {product.name}
+          </span>
         </nav>
 
         <div className={styles.splitGrid}>
