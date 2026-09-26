@@ -67,14 +67,14 @@ export const HomeStatement: React.FC = () => {
           <figure className={styles.figure} data-reveal="clip">
             <div className={styles.figureImage}>
               <Image
-                src="/images/trench-charcoal.jpg"
-                alt="A charcoal wool coat with hand-embroidered lapels, worn in a stone courtyard"
+                src="/images/house-portrait.jpg"
+                alt="A portrait in a red hand-embroidered blouse, gold matha patti and stacked bangles against a deep green wall"
                 fill
                 sizes="(max-width: 900px) 60vw, 22vw"
                 className={styles.img}
               />
             </div>
-            <figcaption className={styles.caption}>Fig. 01 — Embroidered wool, Lahore</figcaption>
+            <figcaption className={styles.caption}>Fig. 01 — Hand embroidery, Lahore</figcaption>
           </figure>
         </aside>
 
