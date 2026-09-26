@@ -93,7 +93,7 @@ export const HomeCampaignInterlude: React.FC = () => {
         <div ref={frameRef} className={styles.frame} data-cursor="explore">
           <div ref={imageRef} className={styles.imageWrap}>
             <Image
-              src="/images/hero-editorial-dresscode.jpg"
+              src="/images/edit-02-pavilion.jpg"
               alt="Two NAVA looks beneath sandstone arches at golden hour: an ivory raw-silk trench and a charcoal wool jacket embroidered in tonal thread"
               fill
               quality={90}
