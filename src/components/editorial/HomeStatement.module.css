@@ -45,8 +45,8 @@
 
 .img {
   object-fit: cover;
-  /* Frames the embroidered jacket on the right of the pavilion shot */
-  object-position: 83% 30%;
+  /* Keeps the embroidered lapels in frame */
+  object-position: 55% 30%;
 }
 
 .caption {

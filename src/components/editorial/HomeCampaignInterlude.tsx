@@ -93,8 +93,8 @@ export const HomeCampaignInterlude: React.FC = () => {
         <div ref={frameRef} className={styles.frame} data-cursor="explore">
           <div ref={imageRef} className={styles.imageWrap}>
             <Image
-              src="/images/lahore-courtyard.jpg"
-              alt="NAVA campaign — fluid drapery in raking light across a historic Lahore courtyard"
+              src="/images/hero-editorial-dresscode.jpg"
+              alt="Two NAVA looks beneath sandstone arches at golden hour: an ivory raw-silk trench and a charcoal wool jacket embroidered in tonal thread"
               fill
               quality={90}
               sizes="100vw"
@@ -112,7 +112,7 @@ export const HomeCampaignInterlude: React.FC = () => {
             </div>
             <div className={styles.captionRight}>
               <p className={styles.note}>
-                Raking light across sixteenth-century brickwork. Alluvial tones, unhurried drape.
+                Raking light through sandstone arches. Alluvial tones, unhurried tailoring.
               </p>
               <Link href="/collections/edit-02-mitti" className={styles.cta}>
                 Explore the edit <span aria-hidden="true">→</span>

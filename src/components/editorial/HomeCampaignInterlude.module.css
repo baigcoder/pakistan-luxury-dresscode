@@ -158,6 +158,12 @@
     align-self: flex-end;
   }
 
+  /* A portrait slice of the pavilion shot would centre on the empty arch between
+     the two models; hold on the embroidered jacket instead */
+  .image {
+    object-position: 74% 40%;
+  }
+
   .caption {
     flex-direction: column;
     align-items: flex-start;
