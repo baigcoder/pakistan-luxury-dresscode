@@ -256,13 +256,13 @@ export const PRODUCTS: ProductItem[] = [
     price: 78000,
     formattedPrice: "Rs. 78,000",
     currency: "PKR",
-    image: "/images/women-indigo-look.jpg",
+    image: "/images/tunic-indigo-ajrak.jpg",
     aspect: "1:1",
     gallery: [
       {
-        url: "/images/women-indigo-look.jpg",
-        alt: "The Vat Indigo Ajrak piece worn over a bias slip on a stone terrace at golden hour",
-        caption: "Relaxed vat-indigo layer over a bias slip",
+        url: "/images/tunic-indigo-ajrak.jpg",
+        alt: "Worn view of Vat Indigo Ajrak Tunic on stone terrace",
+        caption: "Sculptural relaxed tunic silhouette with geometric cuffs",
       },
       {
         url: "/images/macro-ajrak.jpg",
@@ -284,12 +284,12 @@ export const PRODUCTS: ProductItem[] = [
       {
         name: "Vat Indigo",
         hex: "#263A43",
-        image: "/images/women-indigo-look.jpg",
+        image: "/images/tunic-indigo-ajrak.jpg",
         gallery: [
           {
-            url: "/images/women-indigo-look.jpg",
-            alt: "The Vat Indigo Ajrak piece worn over a bias slip on a stone terrace at golden hour",
-            caption: "Relaxed vat-indigo layer over a bias slip",
+            url: "/images/tunic-indigo-ajrak.jpg",
+            alt: "Worn drape view in Indigo",
+            caption: "Sculptural relaxed tunic silhouette with geometric cuffs",
           },
           {
             url: "/images/macro-ajrak.jpg",
@@ -429,18 +429,18 @@ export const PRODUCTS: ProductItem[] = [
     price: 320000,
     formattedPrice: "Rs. 320,000",
     currency: "PKR",
-    image: "/images/craft-atelier.jpg",
+    image: "/images/cape-zardozi-crimson.jpg",
     aspect: "4:3",
     gallery: [
       {
-        url: "/images/craft-atelier.jpg",
-        alt: "Artisan needlework in progress",
-        caption: "Master artisan creating intricate gold and copper threadwork",
+        url: "/images/cape-zardozi-crimson.jpg",
+        alt: "Royal Zardozi Cape in Royal Madder Crimson",
+        caption: "Dramatic ceremonial drape over minimalist evening gown",
       },
       {
-        url: "/images/hero-couture.jpg",
-        alt: "Editorial model wearing cape",
-        caption: "Dramatic ceremonial drape over minimalist evening gown",
+        url: "/images/craft-atelier.jpg",
+        alt: "Artisan needlework in progress",
+        caption: "Master artisan creating intricate gold and copper threadwork on Adda loom",
       },
     ],
     fabric: "Deep Crimson Hand-Woven Silk Velvet",
@@ -452,17 +452,17 @@ export const PRODUCTS: ProductItem[] = [
       {
         name: "Royal Madder Crimson",
         hex: "#8C5849",
-        image: "/images/craft-atelier.jpg",
+        image: "/images/cape-zardozi-crimson.jpg",
         gallery: [
           {
-            url: "/images/craft-atelier.jpg",
+            url: "/images/cape-zardozi-crimson.jpg",
             alt: "Royal Zardozi Cape in Royal Madder Crimson",
             caption: "Master artisan creating intricate gold and copper threadwork",
           },
           {
-            url: "/images/hero-couture.jpg",
-            alt: "Editorial model wearing cape",
-            caption: "Dramatic ceremonial drape over minimalist evening gown",
+            url: "/images/craft-atelier.jpg",
+            alt: "Artisan needlework in progress",
+            caption: "Master artisan creating intricate gold and copper threadwork on Adda loom",
           },
         ],
       },
@@ -511,13 +511,18 @@ export const PRODUCTS: ProductItem[] = [
     price: 65000,
     formattedPrice: "Rs. 65,000",
     currency: "PKR",
-    image: "/images/macro-ajrak.jpg",
+    image: "/images/swat-pashmina.jpg",
     aspect: "1:1",
     gallery: [
       {
-        url: "/images/macro-ajrak.jpg",
+        url: "/images/swat-pashmina.jpg",
         alt: "Textile weave of pashmina",
-        caption: "Ultra-fine highland pashmina twill weave",
+        caption: "Ultra-fine highland pashmina twill weave with natural fringe",
+      },
+      {
+        url: "/images/hero-men.jpg",
+        alt: "Draped with architectural sherwani",
+        caption: "Highland Swat pashmina draped over midnight wool tailoring",
       },
     ],
     fabric: "100% High-Altitude Swat Cashmere Pashmina",
@@ -529,10 +534,10 @@ export const PRODUCTS: ProductItem[] = [
       {
         name: "Raw Charcoal",
         hex: "#28211D",
-        image: "/images/macro-ajrak.jpg",
+        image: "/images/swat-pashmina.jpg",
         gallery: [
           {
-            url: "/images/macro-ajrak.jpg",
+            url: "/images/swat-pashmina.jpg",
             alt: "Hand-Loomed Swat Pashmina in Raw Charcoal",
             caption: "Ultra-fine highland pashmina twill weave in raw charcoal",
           },

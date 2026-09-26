@@ -142,7 +142,7 @@ export const CRAFTS: CraftRecord[] = [
     historicalContext:
       "The craftsmen of Islampur in the Swat Valley have operated pit-looms since the 14th century. Utilizing naturally colored mountain wool without bleach or synthetic mordants, these textiles possess unmatched durability, natural water repellency, and thermal memory.",
     heroImage: "/images/hero-men.jpg",
-    macroImage: "/images/macro-ajrak.jpg",
+    macroImage: "/images/swat-pashmina.jpg",
     aspect: "4:5",
     processStages: [
       {

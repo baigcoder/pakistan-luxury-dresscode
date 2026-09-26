@@ -84,7 +84,7 @@ export const COLLECTIONS: CollectionItem[] = [
     description: "Documentary limited-run embroideries crafted by hereditary female master artisans.",
     materialStory: "Zardozi metallic thread, archival silk velvet.",
     provenance: "Central Punjab Intangible Craft Register",
-    image: "/images/craft-atelier.jpg",
+    image: "/images/cape-zardozi-crimson.jpg",
     aspect: "4:3",
     pieceCount: 8,
     status: "Archive",
