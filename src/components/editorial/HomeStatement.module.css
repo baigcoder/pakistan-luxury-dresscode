@@ -45,8 +45,8 @@
 
 .img {
   object-fit: cover;
-  /* Keeps the embroidered lapels in frame */
-  object-position: 55% 30%;
+  /* The portrait is taller than 4:5; keep the face and matha patti in frame */
+  object-position: center 22%;
 }
 
 .caption {
