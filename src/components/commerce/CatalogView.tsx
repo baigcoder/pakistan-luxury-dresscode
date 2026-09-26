@@ -160,13 +160,32 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ initialCategory = "all
     []
   );
 
-  // Pieces from elsewhere in the house, for sparse categories
+  // The category's own detail photography: every gallery view (all colours) that is
+  // not already a card's lead image, one product at a time so no piece fills the row
+  const inDetail = useMemo(() => {
+    if (activeCategory === "all") return [];
+    const leads = new Set(inCategory.map((p) => p.image));
+    const seen = new Set<string>();
+    const perProduct = inCategory.map((product) =>
+      [product.gallery, ...product.colors.map((c) => c.gallery ?? [])]
+        .flat()
+        .filter((g) => !leads.has(g.url) && !seen.has(g.url) && seen.add(g.url))
+        .map((view) => ({ product, view }))
+    );
+    const views: { product: ProductItem; view: ProductItem["gallery"][number] }[] = [];
+    for (let i = 0; views.length < LOOKBOOK_SIZE && perProduct.some((l) => l[i]); i++) {
+      for (const list of perProduct) if (list[i] && views.length < LOOKBOOK_SIZE) views.push(list[i]);
+    }
+    return views;
+  }, [activeCategory, inCategory]);
+
+  // Pieces from elsewhere in the house, for sparse categories without enough of their own
   const alsoFromAtelier = useMemo(
     () =>
-      activeCategory === "all"
+      activeCategory === "all" || inDetail.length >= LOOKBOOK_SIZE
         ? []
         : PRODUCTS.filter((p) => p.category !== activeCategory).slice(0, 4),
-    [activeCategory]
+    [activeCategory, inDetail]
   );
 
   const activeFilterCount = (selectedCraft !== "all" ? 1 : 0) + (selectedFabric !== "all" ? 1 : 0);
@@ -409,6 +428,52 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ initialCategory = "all
       )}
 
       {/* ==========================================================================
+          The pieces, in detail — the category's own photography
+          ========================================================================== */}
+      {inDetail.length >= LOOKBOOK_SIZE && (
+        <section className={styles.also} aria-labelledby="detail-title">
+          <div className={styles.alsoHead}>
+            <h2 id="detail-title" className={styles.alsoTitle} data-reveal>
+              The pieces, <em>in detail</em>
+            </h2>
+            <Link href="/shop" className={styles.textCta} data-reveal>
+              View all works
+            </Link>
+          </div>
+          <div className={styles.galleryGrid}>
+            {inDetail.map(({ product, view }, i) => (
+              <figure
+                key={view.url}
+                className={styles.productCard}
+                data-reveal
+                data-reveal-delay={String((i % 4) * 90)}
+              >
+                <div className={styles.cardImageFrame} data-cursor="view">
+                  <Link
+                    href={`/product/${product.slug}`}
+                    className={styles.cardImageLink}
+                    aria-label={`${product.name} — ${view.caption}`}
+                  >
+                    <Image
+                      src={view.url}
+                      alt={view.alt}
+                      fill
+                      sizes="(max-width: 1024px) 50vw, 25vw"
+                      className={styles.cardImage}
+                    />
+                  </Link>
+                </div>
+                <figcaption className={styles.cardMeta}>
+                  <span className={styles.cardTitle}>{view.caption}</span>
+                  <span className={styles.cardMetaLine}>{product.name}</span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* ==========================================================================
           Also from the atelier
           ========================================================================== */}
       {alsoFromAtelier.length > 0 && (
@@ -634,6 +699,8 @@ interface ProductCardProps {
   isWishlisted: boolean;
   onToggleWishlist: () => void;
 }
+
+const LOOKBOOK_SIZE = 4;
 
 export const ProductCard: React.FC<ProductCardProps> = ({ product, index, isWishlisted, onToggleWishlist }) => {
   const alt = product.gallery.find((g) => g.url !== product.image);
