@@ -745,3 +745,127 @@
     min-height: 44px;
   }
 }
+
+/* A contrasting atelier card gives the product story a clear visual home. */
+.infoColumn {
+  padding: clamp(24px, 3vw, 48px);
+  color: var(--paper);
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(196, 165, 116, 0.12), transparent 42%),
+    linear-gradient(155deg, #29464E 0%, #1C3035 52%, #19282C 100%);
+  border-top: 2px solid var(--brass);
+}
+
+.titleBlock > :global(.metadata),
+.optionHeader > :global(.metadata) {
+  color: var(--brass);
+}
+
+.productTitle,
+.price,
+.optionSelected {
+  color: var(--paper);
+}
+
+.taxNote,
+.sizeGuideBtn {
+  color: rgba(244, 240, 232, 0.68);
+}
+
+.provenancePill {
+  background: rgba(244, 240, 232, 0.045);
+  border: 1px solid rgba(244, 240, 232, 0.16);
+  border-left: 2px solid var(--brass);
+  padding: 16px 18px;
+}
+
+.provenancePill :global(.provenance-tag) {
+  color: var(--brass);
+}
+
+.provenanceText {
+  color: var(--paper);
+}
+
+.stickyPanel :global(.divider) {
+  background-color: rgba(244, 240, 232, 0.2);
+}
+
+.sizeBtn {
+  background: rgba(244, 240, 232, 0.045);
+  border-color: rgba(244, 240, 232, 0.24);
+  color: var(--paper);
+}
+
+.sizeBtn:hover,
+.sizeActive,
+.sizeActive:hover {
+  background: var(--paper);
+  border-color: var(--paper);
+  color: var(--espresso);
+}
+
+.acquireBtn {
+  background: var(--brass);
+  color: #1B2425;
+  min-height: 56px;
+}
+
+.acquireBtn:hover {
+  background: #D4B986;
+}
+
+.acquireAdded {
+  background: var(--terracotta);
+  color: var(--paper);
+}
+
+.wishlistToggle {
+  border-color: rgba(244, 240, 232, 0.34);
+  background: rgba(244, 240, 232, 0.06);
+  color: var(--paper);
+}
+
+.wishlistToggle:hover,
+.wishlisted {
+  border-color: var(--brass);
+  color: var(--brass);
+}
+
+.leadTimeNotice {
+  background: rgba(244, 240, 232, 0.055);
+  border-color: rgba(244, 240, 232, 0.18);
+}
+
+.leadTimeNotice :global(.metadata) {
+  color: var(--brass);
+}
+
+.leadTimeNotice :global(.body-small) {
+  color: rgba(244, 240, 232, 0.72) !important;
+}
+
+.accordions,
+.accordionItem {
+  border-color: rgba(244, 240, 232, 0.2);
+}
+
+.accordionHeader {
+  color: var(--paper);
+}
+
+.accordionBody,
+.accordionBody :global(.body-regular),
+.accordionBody :global(.body-small) {
+  color: rgba(244, 240, 232, 0.76);
+}
+
+.accordionBody :global(.metadata) {
+  color: var(--brass);
+}
+
+@media (max-width: 1023px) {
+  .infoColumn {
+    padding: clamp(22px, 5vw, 36px);
+  }
+}
