@@ -124,13 +124,11 @@
 
 .featuredImage {
   object-fit: cover;
-  filter: saturate(0.94) contrast(1.025);
-  transition: transform 1.6s var(--ease-editorial), filter 1.6s var(--ease-editorial);
+  transition: transform 1.6s var(--ease-editorial);
 }
 
 .featuredMedia:hover .featuredImage {
   transform: scale(1.04);
-  filter: saturate(1) contrast(1.025);
 }
 
 .provenanceLink {

@@ -123,6 +123,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  min-height: 44px;
   justify-self: center;
   font-family: var(--font-serif);
   font-size: clamp(1.45rem, 2vw, 1.9rem);
@@ -237,6 +238,8 @@
 
   .mobileOnly {
     display: inline-flex;
+    min-height: 44px;
+    align-items: center;
   }
 
   .mobileOnly:first-of-type {
@@ -245,5 +248,7 @@
 
   .mobileBag {
     justify-self: end;
+    min-width: 44px;
+    justify-content: flex-end;
   }
 }

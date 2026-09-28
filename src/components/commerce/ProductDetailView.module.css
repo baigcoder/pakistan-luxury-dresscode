@@ -658,6 +658,7 @@
   font-size: clamp(1.5rem, 1.8vw, 1.9rem);
   font-weight: 400;
   letter-spacing: -0.01em;
+  white-space: nowrap;
 }
 
 .taxNote {
@@ -743,6 +744,14 @@
 
   .sizeGuideBtn {
     min-height: 44px;
+  }
+}
+
+@media (max-width: 360px) {
+  .priceRow {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 3px;
   }
 }
 
