@@ -48,7 +48,7 @@
 .scrim {
   position: absolute;
   inset: 0;
-  background: linear-gradient(0deg, rgba(21, 19, 17, 0.62) 0%, rgba(21, 19, 17, 0) 45%);
+  background: linear-gradient(0deg, rgba(23, 36, 39, 0.76) 0%, rgba(23, 36, 39, 0.04) 62%);
   pointer-events: none;
 }
 

@@ -46,10 +46,10 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(21, 19, 17, 0.46) 0%, rgba(21, 19, 17, 0.14) 16%, rgba(21, 19, 17, 0) 30%),
-    radial-gradient(ellipse 62% 58% at 18% 50%, rgba(21, 19, 17, 0.4) 0%, rgba(21, 19, 17, 0) 100%),
-    linear-gradient(0deg, rgba(21, 19, 17, 0.78) 0%, rgba(21, 19, 17, 0.25) 42%, rgba(21, 19, 17, 0) 62%),
-    radial-gradient(ellipse 120% 90% at 50% 45%, rgba(21, 19, 17, 0) 55%, rgba(21, 19, 17, 0.28) 100%);
+    linear-gradient(180deg, rgba(23, 36, 39, 0.5) 0%, rgba(23, 36, 39, 0.14) 16%, rgba(23, 36, 39, 0) 30%),
+    radial-gradient(ellipse 62% 58% at 18% 50%, rgba(23, 36, 39, 0.45) 0%, rgba(23, 36, 39, 0) 100%),
+    linear-gradient(0deg, rgba(23, 36, 39, 0.82) 0%, rgba(23, 36, 39, 0.27) 42%, rgba(23, 36, 39, 0) 62%),
+    radial-gradient(ellipse 120% 90% at 50% 45%, rgba(23, 36, 39, 0) 55%, rgba(23, 36, 39, 0.3) 100%);
 }
 
 /* ==========================================================================
@@ -112,6 +112,7 @@
 .headline em {
   font-style: italic;
   font-weight: 300;
+  color: var(--brass);
 }
 
 .lineMask {

@@ -1034,8 +1034,12 @@
   }
 
   .heroMedia {
+    order: 0;
+    aspect-ratio: 16 / 10;
+  }
+
+  .heroCopy {
     order: -1;
-    aspect-ratio: 4 / 3;
   }
 
   .heroTitle {
