@@ -61,8 +61,6 @@ export const CollectionIndexList: React.FC<{ collections: CollectionItem[] }> = 
           <li
             key={col.id}
             className={[styles.item, active === i ? styles.active : ""].filter(Boolean).join(" ")}
-            data-reveal
-            data-reveal-delay={String(i * 80)}
           >
             <Link
               href={`/collections/${col.slug}`}
@@ -75,8 +73,13 @@ export const CollectionIndexList: React.FC<{ collections: CollectionItem[] }> = 
                 <span className={styles.thumb}>
                   <Image src={col.image} alt="" fill sizes="96px" className={styles.thumbImg} />
                 </span>
-                <span className={styles.title}>
-                  {col.title.charAt(0) + col.title.slice(1).toLowerCase()}
+                <span className={styles.titleGroup}>
+                  <span className={styles.title}>
+                    {col.title.charAt(0) + col.title.slice(1).toLowerCase()}
+                  </span>
+                  <span className={styles.summary}>
+                    {col.description} <span aria-hidden="true">/</span> {col.materialStory}
+                  </span>
                 </span>
               </span>
               <span className={styles.season}>{col.season}</span>

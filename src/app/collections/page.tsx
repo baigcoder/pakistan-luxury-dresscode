@@ -29,15 +29,8 @@ export default function CollectionsIndexPage() {
         </div>
 
         <h1 className={styles.title}>
-          <span className={styles.lineMask}>
-            <span className={styles.line}>Collec</span>
-          </span>
-          <span className={styles.lineMask}>
-            <span className={`${styles.line} ${styles.indent}`}>
-              <em>tions</em>
-              <sup className={styles.count}>({COLLECTIONS.length})</sup>
-            </span>
-          </span>
+          <span>The</span> <em>collections</em>
+          <sup className={styles.count}>{String(COLLECTIONS.length).padStart(2, "0")}</sup>
         </h1>
 
         <p className={styles.lede}>
@@ -117,8 +110,8 @@ export default function CollectionsIndexPage() {
             The complete <em>index</em>
           </h2>
           <p className={styles.archiveNote} data-reveal>
-            Hover to preview. Every edition is cut in limited runs; archived collections remain
-            available by bespoke commission.
+            Explore the material, region, and season behind each edition. Limited runs are
+            recorded here; archived collections may be requested by bespoke commission.
           </p>
         </div>
 
