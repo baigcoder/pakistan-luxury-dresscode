@@ -31,9 +31,14 @@ export const JournalPreview: React.FC = () => {
             </span>
           </h2>
         </div>
-        <Link href="/journal" className={styles.viewAll} data-reveal>
-          All dispatches <span aria-hidden="true">→</span>
-        </Link>
+        <div className={styles.headerLinks} data-reveal>
+          <Link href="/market-notes" className={styles.marketLink}>
+            Market notes <span aria-hidden="true">↗</span>
+          </Link>
+          <Link href="/journal" className={styles.viewAll}>
+            All dispatches <span aria-hidden="true">→</span>
+          </Link>
+        </div>
       </header>
 
       <div className={styles.grid}>
