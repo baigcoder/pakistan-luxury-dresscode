@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { COLLECTIONS } from "@/data/collections";
 import { CollectionIndexList } from "@/components/editorial";
+import { HouseSeal } from "@/components/ui";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -91,6 +92,12 @@ export default function CollectionsIndexPage() {
               <dd>{featured.pieceCount} pieces · {featured.status}</dd>
             </div>
           </dl>
+
+          <Link href="/craft" className={styles.provenanceLink} data-reveal>
+            <HouseSeal size={17} />
+            <span>Explore the craft register</span>
+            <span aria-hidden="true">→</span>
+          </Link>
 
           <Link href={`/collections/${featured.slug}`} className={styles.cta} data-reveal>
             <span>Explore {titleCase(featured.title)}</span>

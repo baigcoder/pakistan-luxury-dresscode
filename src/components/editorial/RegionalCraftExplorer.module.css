@@ -151,6 +151,15 @@
   transform: scale(1);
 }
 
+.stageImg.isActive {
+  animation: materialDrift 20s ease-in-out infinite alternate;
+}
+
+@keyframes materialDrift {
+  from { transform: scale(1.015) translate3d(-0.2%, 0, 0); }
+  to { transform: scale(1.065) translate3d(0.3%, -0.25%, 0); }
+}
+
 .stageCaption {
   position: absolute;
   inset: auto 0 0 0;
@@ -436,5 +445,10 @@
 @media (prefers-reduced-motion: reduce) {
   .lensProgress[data-running] {
     animation: none;
+  }
+
+  .stageImg.isActive {
+    animation: none;
+    transform: none;
   }
 }

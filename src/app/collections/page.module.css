@@ -124,11 +124,36 @@
 
 .featuredImage {
   object-fit: cover;
-  transition: transform 1.6s var(--ease-editorial);
+  filter: saturate(0.94) contrast(1.025);
+  transition: transform 1.6s var(--ease-editorial), filter 1.6s var(--ease-editorial);
 }
 
 .featuredMedia:hover .featuredImage {
   transform: scale(1.04);
+  filter: saturate(1) contrast(1.025);
+}
+
+.provenanceLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  margin-top: 26px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid rgba(244, 240, 232, 0.3);
+  color: var(--brass);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition: border-color 0.3s ease, gap 0.4s var(--ease-editorial);
+}
+
+.provenanceLink:hover {
+  gap: 15px;
+  border-color: var(--brass);
+}
+
+.provenanceLink svg {
+  flex: 0 0 auto;
 }
 
 .featuredBadge {

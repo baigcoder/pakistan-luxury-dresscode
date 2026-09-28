@@ -7,6 +7,7 @@ import { BRAND } from "@/config/brand";
 import { MAIN_NAV } from "@/data/navigation";
 import { useUI } from "@/context/UIContext";
 import { useCommerce } from "@/context/CommerceContext";
+import { HouseSeal } from "@/components/ui";
 import { MegaMenu } from "./MegaMenu";
 import styles from "./Header.module.css";
 
@@ -126,7 +127,8 @@ export const Header: React.FC = () => {
 
         {/* Centre: wordmark */}
         <Link href="/" className={styles.wordmark} aria-label={`${BRAND.name} — home`}>
-          {BRAND.name}
+          <HouseSeal size={19} className={styles.brandSeal} />
+          <span>{BRAND.name}</span>
         </Link>
 
         {/* Right: utilities */}
