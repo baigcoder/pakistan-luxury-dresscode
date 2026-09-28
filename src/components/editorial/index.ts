@@ -1,4 +1,5 @@
 export * from "./HeroCampaign";
+export * from "./ArchiveFilm";
 export * from "./HomeStatement";
 export * from "./HomeCampaignInterlude";
 export * from "./CollectionIntro";

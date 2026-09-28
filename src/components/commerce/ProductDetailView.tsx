@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ProductItem, PRODUCTS } from "@/data/products";
 import { useCommerce } from "@/context/CommerceContext";
-import { Badge, Button, HairlineDivider } from "@/components/ui";
+import { Badge, Button, HairlineDivider, HouseSeal } from "@/components/ui";
 import {
   Heart,
   ShoppingBag,
@@ -198,10 +198,16 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({ product })
 
               {/* Cultural Provenance Chip */}
               <div className={styles.provenancePill}>
-                <span className="provenance-tag">REGIONAL PROVENANCE</span>
+                <span className={styles.provenanceHeading}>
+                  <HouseSeal size={16} className={styles.provenanceMark} />
+                  <span className="provenance-tag">REGIONAL PROVENANCE</span>
+                </span>
                 <p className={styles.provenanceText}>
                   {product.craftProvenance} &mdash; <em>{product.craftRegion}</em>
                 </p>
+                <Link href="/craft" className={styles.provenanceLink}>
+                  Read the craft register <ArrowRight size={13} aria-hidden="true" />
+                </Link>
               </div>
 
               <HairlineDivider />

@@ -787,6 +787,36 @@
   color: var(--paper);
 }
 
+.provenanceHeading {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.provenanceMark {
+  color: var(--brass);
+  flex: 0 0 auto;
+}
+
+.provenanceLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  color: var(--brass);
+  font-size: 0.61rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.provenanceLink svg {
+  transition: transform 0.35s var(--ease-editorial);
+}
+
+.provenanceLink:hover svg {
+  transform: translateX(4px);
+}
+
 .stickyPanel :global(.divider) {
   background-color: rgba(244, 240, 232, 0.2);
 }

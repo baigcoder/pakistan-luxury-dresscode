@@ -1,6 +1,7 @@
 import React from "react";
 import {
   HeroCampaign,
+  ArchiveFilm,
   CraftMarquee,
   HomeStatement,
   SelectedPieces,
@@ -33,15 +34,18 @@ export default function HomePage() {
       {/* 06 — Women / Men */}
       <CategorySplit />
 
-      {/* 07 — The atelier (dark) */}
+      {/* 07 — A credited archival campaign film */}
+      <ArchiveFilm />
+
+      {/* 08 — The atelier (dark) */}
       <AtelierFeature />
 
-      {/* 08 — Material anatomy & regional archives */}
+      {/* 09 — Material anatomy & regional archives */}
       <section className={styles.archives}>
         <RegionalCraftExplorer />
       </section>
 
-      {/* 09 — Journal */}
+      {/* 10 — Journal */}
       <JournalPreview />
     </>
   );
