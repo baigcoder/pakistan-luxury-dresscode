@@ -97,14 +97,17 @@ const search = (query: string) => {
 };
 
 const SUGGESTIONS = [
+  "Suited",
+  "Bandgala",
   "Raw silk",
   "Ajrak",
   "Sherwani",
   "Zardozi",
+  "Velvet",
+  "Khaddar",
   "Indigo",
   "Pashmina",
   "Linen",
-  "Velvet",
   "Swat",
 ].filter((s) => search(s).length > 0);
 

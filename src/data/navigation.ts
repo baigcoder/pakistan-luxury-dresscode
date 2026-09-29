@@ -57,16 +57,16 @@ export const MAIN_NAV: NavItem[] = [
     href: "/shop/women",
     hasMegaMenu: true,
     megaMenuData: {
-      featuredTitle: "THE NEW SILHOUETTE",
-      featuredImage: "/images/hero-couture.jpg",
+      featuredTitle: "COUTURE SUITED",
+      featuredImage: "/images/women-couture-suit.jpg",
       featuredLink: "/shop/women",
-      featuredCaption: "Precision-tailored suits & fluid drapery",
+      featuredCaption: "Ivory Raw Silk Double-Breasted Suit & Gold Zardozi",
       columns: [
         {
           heading: "Garments",
           links: [
             { label: "All Women's Collection", href: "/shop/women" },
-            { label: "Tailored Jackets & Coats", href: "/shop/women?cat=outerwear" },
+            { label: "Tailored Jackets & Suits", href: "/shop/women?cat=outerwear" },
             { label: "Sculptural Trousers", href: "/shop/women?cat=trousers" },
             { label: "Fluid Tunics & Kurta Forms", href: "/shop/women?cat=tunics" },
             { label: "Draped Gowns & Sets", href: "/shop/women?cat=draped" },
@@ -88,17 +88,17 @@ export const MAIN_NAV: NavItem[] = [
     href: "/shop/men",
     hasMegaMenu: true,
     megaMenuData: {
-      featuredTitle: "VEIL 04 — RAAT",
-      featuredImage: "/images/lahore-courtyard.jpg",
+      featuredTitle: "ATELIER SUITED",
+      featuredImage: "/images/men-architectural-suit.jpg",
       featuredLink: "/shop/men",
-      featuredCaption: "Modern Sherwani Cuts & Architectural Outerwear",
+      featuredCaption: "Obsidian Bandgala & Single-Needle Tailoring",
       columns: [
         {
           heading: "Garments",
           links: [
             { label: "All Men's Collection", href: "/shop/men" },
+            { label: "Bespoke Bandgala Suits", href: "/shop/men?cat=bandgala" },
             { label: "Contemporary Sherwanis", href: "/shop/men?cat=sherwani" },
-            { label: "Architectural Bandgala Jackets", href: "/shop/men?cat=bandgala" },
             { label: "Minimalist Kurtas", href: "/shop/men?cat=kurta" },
             { label: "Pleated Trousers", href: "/shop/men?cat=trousers" },
           ],
@@ -138,7 +138,7 @@ export const MAIN_NAV: NavItem[] = [
           links: [
             { label: "Book Atelier Consultation", href: "/contact?type=consultation" },
             { label: "Custom Embroidery Archive", href: "/craft" },
-            { label: "Couture Process", href: "/journal/couture-discipline" },
+            { label: "Couture Process", href: "/journal/architecture-of-restraint" },
           ],
         },
       ],

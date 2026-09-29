@@ -173,4 +173,48 @@ export const CRAFTS: CraftRecord[] = [
     relatedCollectionTitle: "VEIL 04 — RAAT",
     relatedProductSlugs: ["charcoal-architectural-sherwani", "swat-pashmina-shawl"],
   },
+  {
+    slug: "khaddar",
+    name: "Charsadda Handloom Khaddar: Generational Warp & Weft",
+    regionalOrigin: "Charsadda & Peshawar Basin",
+    province: "Khyber Pakhtunkhwa",
+    registrationCode: "ICH REG. KPK KHD-052",
+    officialCitation:
+      "Recorded in the National Register of the Intangible Cultural Heritage of Pakistan under regional traditional textile and hand-spinning disciplines.",
+    summary:
+      "Unbleached coarse cotton hand-spun on wooden charkhas and hand-loomed into breathable, textured fabric that softens with every wash.",
+    historicalContext:
+      "Woven along the Kabul and Swat River plains since Gandharan antiquity, Charsadda Khaddar is celebrated for its natural breathing weave and thermal adaptability. Hand-spun yarn retains micro-irregularities (slubs) that insulate in the winter cold and breathe through the arid northern summer.",
+    heroImage: "/images/campaign-mitti-interlude.jpg",
+    macroImage: "/images/hero-campaign-dresscode.jpg",
+    aspect: "16:9",
+    processStages: [
+      {
+        step: 1,
+        title: "Kapaas Carding & Charkha Spinning",
+        description: "Raw unrefined cotton is combed by hand and spun into organic irregular yarns on traditional wooden charkhas by female artisan cooperatives.",
+        materials: "Indigenous long-staple cotton fibers",
+      },
+      {
+        step: 2,
+        title: "Taana Sizing (Natural Rice Starch Treatment)",
+        description: "Warp lengths are stretched across outdoor courtyard pegs and treated with boiled rice water starch to give the yarn tensile resilience on the loom.",
+        materials: "Organic rice starch, river water",
+      },
+      {
+        step: 3,
+        title: "Khadde Hand-Looming",
+        description: "Weavers alternate foot-treadles on wooden frame looms, passing wooden shuttles by hand to create the signature structured texture and tactile grain of authentic Khaddar.",
+        materials: "Traditional Charsadda timber loom, flying shuttle",
+      },
+    ],
+    artisanMaster: {
+      title: "Ustad Abdul Wahid & Village Weaving Guild",
+      atelierLocation: "Charsadda District, Khyber Pakhtunkhwa",
+      quote: "Khaddar is honest cloth. It has no chemical gloss, no synthetic lies. When it touches your skin, you feel the earth and the hand that spun it.",
+    },
+    relatedCollectionSlug: "edit-02-mitti",
+    relatedCollectionTitle: "EDIT 02 — MITTI",
+    relatedProductSlugs: ["sandstone-unconstructed-double-breasted-suit", "indigo-ajrak-architectural-kurta"],
+  },
 ];

@@ -87,7 +87,7 @@ const BESPOKE: Partial<Record<Category, { title: string; italic: string; body: s
   },
 };
 
-const CRAFT_OPTIONS = ["Sindh", "Zardozi", "Swat", "Knife Pleats"];
+const CRAFT_OPTIONS = ["Tailoring", "Zardozi", "Sindh", "Swat", "Knife Pleats"];
 const FABRIC_OPTIONS = ["Silk", "Wool", "Cotton", "Linen", "Velvet", "Cashmere"];
 
 const matchesCraft = (p: ProductItem, craft: string) =>
