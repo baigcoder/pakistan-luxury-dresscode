@@ -31,15 +31,20 @@ export const metadata: Metadata = {
   },
   description: BRAND.statement,
   keywords: [
+    "NAVA",
+    "Hassan Baig",
     "Pakistani Luxury Fashion",
     "Couture Pakistan",
     "Sindhi Ajrak",
     "Contemporary Silhouette",
     "Handcrafted Tailoring",
     "NAVA Atelier",
+    "Lahore Fashion House",
+    "Raw Silk Trench",
+    "Intangible Cultural Heritage",
   ],
-  authors: [{ name: BRAND.name }],
-  creator: BRAND.name,
+  authors: [{ name: BRAND.name }, { name: "Hassan Baig", url: "https://nava-atelier.com/about#founder" }],
+  creator: "Hassan Baig",
   publisher: BRAND.name,
   metadataBase: new URL("https://nava-atelier.com"),
   openGraph: {
@@ -95,6 +100,46 @@ export default function RootLayout({
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: introSkipScript }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": "https://nava-atelier.com/#organization",
+                  name: BRAND.name,
+                  legalName: BRAND.legalName,
+                  url: "https://nava-atelier.com",
+                  logo: "https://nava-atelier.com/images/hero-couture.jpg",
+                  founder: {
+                    "@type": "Person",
+                    name: BRAND.founder.name,
+                    jobTitle: "Founder & Creative Director",
+                    description: "Software Engineer & Fashion Atelier Architect",
+                    image: "https://nava-atelier.com/images/founder-hassan-baig.jpg",
+                  },
+                  address: {
+                    "@type": "PostalAddress",
+                    addressLocality: "Lahore",
+                    addressCountry: "PK",
+                  },
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://nava-atelier.com/#website",
+                  url: "https://nava-atelier.com",
+                  name: BRAND.name,
+                  description: BRAND.statement,
+                  publisher: {
+                    "@id": "https://nava-atelier.com/#organization",
+                  },
+                },
+              ],
+            }),
+          }}
+        />
       </head>
       <body>
         <IntroCurtain />
