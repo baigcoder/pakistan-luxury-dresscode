@@ -14,3 +14,4 @@ export * from "./CategorySplit";
 export * from "./AtelierFeature";
 export * from "./FounderSpotlight";
 export * from "./CollectionIndexList";
+export * from "./BespokeSuitingFeature";

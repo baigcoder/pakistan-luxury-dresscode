@@ -42,15 +42,15 @@ export const JOURNAL_STORIES: JournalArticleItem[] = [
       "Why true luxury lies in negative space, unconstructed shoulders, and letting the raw fiber speak louder than ornamentation.",
     readTime: "5 MIN READ",
     publishedDate: "SEPTEMBER 2026",
-    image: "/images/hero-couture.jpg",
-    aspect: "4:5",
+    image: "/images/hero-couture-campaign-2026.jpg",
+    aspect: "16:9",
     author: "Creative Direction Atelier",
     authorRole: "Head of Design, NAVA",
     pullQuote: "We stripped away the decorative distraction until only the structural spine and the breath of the silk remained.",
     pullQuoteAttribution: "NAVA Manifesto on Form, 2026",
     relatedCollection: "FORM 01 — NOOR",
     relatedCollectionSlug: "form-01-noor",
-    relatedProductSlugs: ["sculptural-raw-silk-trench", "draped-organza-column-gown"],
+    relatedProductSlugs: ["obsidian-bandgala-architectural-suit", "ivory-zardozi-raw-silk-pant-suit", "sculptural-raw-silk-trench"],
     contentSections: [
       {
         heading: "I. The Weight of Excess",
@@ -60,13 +60,13 @@ export const JOURNAL_STORIES: JournalArticleItem[] = [
         ]
       },
       {
-        heading: "II. Unconstructed Geometry",
+        heading: "II. Unconstructed Geometry & Suited Restraint",
         paragraphs: [
           "At NAVA, our exploration of the contemporary silhouette begins with subtraction. Rather than layering padding and horsehair canvas to forge an artificial posture, we engineer garments that fall from the natural clavicle line with architectural precision.",
-          "The Sculptural Raw Silk Trench embodies this exact dialogue. Spun from indigenous handloom tussar silk in South Punjab, its collar stands without interlining, relying strictly on the natural tensile weight of the woven yarn."
+          "Our new bespoke Ivory Raw Silk Pant Suit and Obsidian Bandgala embody this exact dialogue. Spun from indigenous handloom tussar silk in South Punjab, the peaked lapels carry delicate geometric gold zardozi, relying strictly on the natural tensile weight of the woven yarn without synthetic backing."
         ],
-        inlineImage: "/images/hero-men.jpg",
-        imageCaption: "Architectural line studies: unconstructed shoulders and balanced proportions photographed in the Lahore atelier."
+        inlineImage: "/images/women-couture-suit.jpg",
+        imageCaption: "Architectural line studies: double-breasted raw silk tailored suit with gold zardozi peak lapels photographed in the Lahore courtyard."
       },
       {
         heading: "III. The Luxury of Negative Space",
@@ -132,15 +132,15 @@ export const JOURNAL_STORIES: JournalArticleItem[] = [
       "Photographing our resort collection amongst 16th-century arched brickwork, observing how shadow sharpens modern drapery.",
     readTime: "4 MIN READ",
     publishedDate: "JULY 2026",
-    image: "/images/lahore-courtyard.jpg",
-    aspect: "3:2",
+    image: "/images/campaign-mitti-interlude.jpg",
+    aspect: "16:9",
     author: "Photography Direction",
     authorRole: "Editorial Visual Lead",
     pullQuote: "Shadow in the Punjab courtyard is not the absence of light; it is an architectural material with its own geometric mass.",
     pullQuoteAttribution: "Atelier Field Notes, Walled City",
     relatedCollection: "EDIT 02 — MITTI",
     relatedCollectionSlug: "edit-02-mitti",
-    relatedProductSlugs: ["chanderi-silk-pleated-cape", "zardozi-thread-embroidered-sherwani"],
+    relatedProductSlugs: ["sandstone-unconstructed-double-breasted-suit", "chanderi-silk-pleated-cape"],
     contentSections: [
       {
         heading: "I. The Geometry of Brick",
@@ -176,7 +176,7 @@ export const JOURNAL_STORIES: JournalArticleItem[] = [
     pullQuoteAttribution: "Hassan Baig, Lahore Atelier",
     relatedCollection: "FORM 01 — NOOR",
     relatedCollectionSlug: "form-01-noor",
-    relatedProductSlugs: ["sculptural-raw-silk-trench", "zardozi-thread-embroidered-sherwani"],
+    relatedProductSlugs: ["obsidian-bandgala-architectural-suit", "sculptural-raw-silk-trench"],
     contentSections: [
       {
         heading: "I. The Code of the Silhouette",
@@ -191,8 +191,8 @@ export const JOURNAL_STORIES: JournalArticleItem[] = [
           "In software development, 'refactoring' is the deliberate practice of restructuring existing code to improve internal structure without altering external behavior. For decades, the South Asian luxury market has suffered from technical debt: synthetic polyester blends masquerading as royal fabrics, opaque supply chains hiding exploited artisans, and suffocating surface ornamentation that conceals poor tailoring.",
           "We refactored this equation entirely. We stripped away the synthetic interlinings, discarded anonymous trading-hub organzas, and re-engineered the classic Pakistani silhouette from foundational principles: raw tussar silk from Punjab looms, vegetable-dyed khadi cotton, and mountain-sheared Swat wool."
         ],
-        inlineImage: "/images/hero-editorial-dresscode.jpg",
-        imageCaption: "Architectural line studies: Hassan Baig's clean negative-space silhouettes realized in the sixteenth-century Lahore courtyard."
+        inlineImage: "/images/atelier-bespoke-tailoring.jpg",
+        imageCaption: "Bespoke systems engineering: Master tailor's workbench in the Lahore atelier with hand-basted charcoal wool canvas, shears, and silk swatches."
       },
       {
         heading: "III. Computational Negative Space & Artisan Dignity",

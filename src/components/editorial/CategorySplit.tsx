@@ -7,16 +7,16 @@ const PANELS = [
   {
     label: "Women",
     href: "/shop/women",
-    image: "/images/hero-couture.jpg",
-    alt: "Ivory tailored suit with geometric Zardozi lapels",
-    note: "Sculptural tailoring, raw silk, organza",
+    image: "/images/women-couture-suit.jpg",
+    alt: "Ivory tailored raw silk double-breasted suit with geometric Zardozi peak lapels",
+    note: "Sculptural tailoring, raw silk, zardozi needlework",
   },
   {
     label: "Men",
     href: "/shop/men",
-    image: "/images/hero-men.jpg",
-    alt: "Charcoal architectural sherwani in highland wool",
-    note: "Bandgala, sherwani, highland wool",
+    image: "/images/men-architectural-suit.jpg",
+    alt: "Obsidian architectural bandgala suit in handloom highland wool",
+    note: "Bandgala, architectural suiting, highland wool",
   },
 ];
 
@@ -25,7 +25,7 @@ export const CategorySplit: React.FC = () => (
     {PANELS.map((p, i) => (
       <Link key={p.label} href={p.href} className={styles.panel} data-cursor="explore">
         <div className={styles.media} data-reveal="clip" data-reveal-delay={String(i * 140)}>
-          <Image src={p.image} alt={p.alt} fill quality={90} sizes="(max-width: 800px) 100vw, 60vw" className={styles.image} />
+          <Image src={p.image} alt={p.alt} fill quality={95} sizes="(max-width: 800px) 100vw, 60vw" className={styles.image} />
         </div>
         <div className={styles.scrim} />
         <div className={styles.content}>

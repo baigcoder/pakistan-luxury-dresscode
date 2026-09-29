@@ -5,6 +5,7 @@ import {
   CraftMarquee,
   HomeStatement,
   SelectedPieces,
+  BespokeSuitingFeature,
   HomeCampaignInterlude,
   CategorySplit,
   AtelierFeature,
@@ -17,7 +18,7 @@ import styles from "./page.module.css";
 export default function HomePage() {
   return (
     <>
-      {/* 01 — Full-bleed campaign */}
+      {/* 01 — Full-bleed campaign with multi-look suited switcher */}
       <HeroCampaign />
 
       {/* 02 — Regional craft ticker */}
@@ -29,27 +30,30 @@ export default function HomePage() {
       {/* 04 — Staggered product gallery */}
       <SelectedPieces />
 
-      {/* 05 — Pinned frame opening to full-bleed */}
+      {/* 05 — The Suited Archive: Bespoke Tailoring & Workbench Anatomy */}
+      <BespokeSuitingFeature />
+
+      {/* 06 — Pinned frame opening to full-bleed Mitti campaign */}
       <HomeCampaignInterlude />
 
-      {/* 06 — Women / Men */}
+      {/* 07 — Women / Men bespoke suiting split */}
       <CategorySplit />
 
-      {/* 07 — A credited archival campaign film */}
+      {/* 08 — A credited archival campaign film */}
       <ArchiveFilm />
 
-      {/* 08 — The atelier (dark) */}
+      {/* 09 — The atelier (dark) */}
       <AtelierFeature />
 
-      {/* 09 — The Founder: Software Engineer & Creative Director */}
+      {/* 10 — The Founder: Software Engineer & Creative Director */}
       <FounderSpotlight />
 
-      {/* 10 — Material anatomy & regional archives */}
+      {/* 11 — Material anatomy & regional archives */}
       <section className={styles.archives}>
         <RegionalCraftExplorer />
       </section>
 
-      {/* 10 — Journal */}
+      {/* 12 — Journal */}
       <JournalPreview />
     </>
   );

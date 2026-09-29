@@ -93,10 +93,10 @@ export const HomeCampaignInterlude: React.FC = () => {
         <div ref={frameRef} className={styles.frame} data-cursor="explore">
           <div ref={imageRef} className={styles.imageWrap}>
             <Image
-              src="/images/hero-editorial-dresscode.jpg"
-              alt="Two NAVA looks beneath sandstone arches at golden hour: an ivory raw-silk trench and a charcoal wool jacket embroidered in tonal thread"
+              src="/images/campaign-mitti-interlude.jpg"
+              alt="NAVA Edit 02 Mitti — Two figures in motion through sun-drenched terracotta arches in an earthen raw-silk trench and double-breasted linen-wool suit"
               fill
-              quality={90}
+              quality={95}
               sizes="100vw"
               className={styles.image}
             />
@@ -112,7 +112,7 @@ export const HomeCampaignInterlude: React.FC = () => {
             </div>
             <div className={styles.captionRight}>
               <p className={styles.note}>
-                Raking light through sandstone arches. Alluvial tones, unhurried tailoring.
+                Raking morning light through sandstone colonnades. Alluvial tones, unhurried tailoring.
               </p>
               <Link href="/collections/edit-02-mitti" className={styles.cta}>
                 Explore the edit <span aria-hidden="true">→</span>
