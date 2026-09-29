@@ -14,9 +14,10 @@ const LABELS: Record<string, string> = {
 };
 
 /**
- * A quiet follower that only appears over interactive imagery
- * (`data-cursor="view" | "shop" | ...`), labelled in the display serif.
- * Dismisses instantly on route change, click, touch, or scroll.
+ * An ultra-refined, non-intrusive luxury cursor accent.
+ * - Completely disabled on product pages so fine tailoring and fabric can be inspected cleanly
+ * - Uses a delicate, ethereal hairline ring (never an opaque disc blocking images)
+ * - Dismisses instantly on route change, click, pointerdown, touch, or scroll
  */
 export const MinimalCursor: React.FC = () => {
   const [label, setLabel] = useState<string | null>(null);
@@ -33,6 +34,9 @@ export const MinimalCursor: React.FC = () => {
     if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
+    // Do not run cursor on product detail pages to keep fabric inspection pristine
+    if (pathname.startsWith("/product/")) return;
+
     const pos = { x: -200, y: -200 };
     const target = { x: -200, y: -200 };
     let raf = 0;
@@ -47,6 +51,7 @@ export const MinimalCursor: React.FC = () => {
 
     const onLeave = () => setLabel(null);
     const onPointerDown = () => setLabel(null);
+    const onClick = () => setLabel(null);
     const onScroll = () => setLabel(null);
 
     const render = () => {
@@ -60,6 +65,7 @@ export const MinimalCursor: React.FC = () => {
 
     window.addEventListener("mousemove", onMove, { passive: true });
     window.addEventListener("pointerdown", onPointerDown, { passive: true });
+    window.addEventListener("click", onClick, { passive: true });
     window.addEventListener("scroll", onScroll, { passive: true });
     document.documentElement.addEventListener("mouseleave", onLeave);
     raf = requestAnimationFrame(render);
@@ -67,16 +73,22 @@ export const MinimalCursor: React.FC = () => {
     return () => {
       window.removeEventListener("mousemove", onMove);
       window.removeEventListener("pointerdown", onPointerDown);
+      window.removeEventListener("click", onClick);
       window.removeEventListener("scroll", onScroll);
       document.documentElement.removeEventListener("mouseleave", onLeave);
       cancelAnimationFrame(raf);
     };
-  }, []);
+  }, [pathname]);
+
+  // Never render custom cursor on product detail pages
+  if (pathname.startsWith("/product/")) {
+    return null;
+  }
 
   return (
     <div ref={cursorRef} className={styles.cursor} aria-hidden="true">
       <span className={[styles.disc, label ? styles.active : ""].filter(Boolean).join(" ")}>
-        <span className={styles.label}>{label}</span>
+        {label && <span className={styles.label}>{label}</span>}
       </span>
     </div>
   );

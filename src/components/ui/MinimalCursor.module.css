@@ -9,16 +9,18 @@
 
 .disc {
   position: absolute;
-  top: -44px;
-  left: -44px;
-  width: 88px;
-  height: 88px;
-  display: grid;
-  place-items: center;
+  top: -18px;
+  left: -18px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 50%;
-  background-color: rgba(241, 238, 232, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: transparent;
+  border: 1px solid rgba(23, 26, 25, 0.4);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
   color: var(--ink, #172427);
   transform: scale(0);
   opacity: 0;
@@ -32,10 +34,22 @@
 }
 
 .label {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 1.05rem;
-  letter-spacing: 0.02em;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  color: var(--ink);
+  background: rgba(244, 240, 232, 0.95);
+  padding: 3px 9px;
+  border-radius: 9999px;
+  border: 1px solid var(--line, rgba(37, 56, 61, 0.15));
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  pointer-events: none;
 }
 
 @media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
@@ -43,3 +57,4 @@
     display: none !important;
   }
 }
+

@@ -755,56 +755,83 @@
   }
 }
 
-/* A contrasting atelier card gives the product story a clear visual home. */
+/* ==========================================================================
+   Editorial Precision & Atelier Refinements (Harmonious Light Luxury)
+   ========================================================================== */
 .infoColumn {
-  padding: clamp(24px, 3vw, 48px);
-  color: var(--paper);
-  background:
-    radial-gradient(ellipse at 100% 0%, rgba(196, 165, 116, 0.12), transparent 42%),
-    linear-gradient(155deg, #29464E 0%, #1C3035 52%, #19282C 100%);
-  border-top: 2px solid var(--brass);
+  position: relative;
+  background: transparent;
+  color: var(--ink);
+  padding: 0;
 }
 
-.titleBlock > :global(.metadata),
-.optionHeader > :global(.metadata) {
-  color: var(--brass);
+.titleBlock > :global(.metadata) {
+  color: var(--terracotta);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
 }
 
-.productTitle,
-.price,
-.optionSelected {
-  color: var(--paper);
+.productTitle {
+  color: var(--ink);
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(2.4rem, 3.8vw, 4.2rem);
+  line-height: 0.98;
+  letter-spacing: -0.025em;
 }
 
-.taxNote,
-.sizeGuideBtn {
-  color: rgba(244, 240, 232, 0.68);
+.price {
+  color: var(--ink);
+  font-family: var(--font-serif);
+  font-size: clamp(1.45rem, 1.8vw, 1.85rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.taxNote {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .provenancePill {
-  background: rgba(244, 240, 232, 0.045);
-  border: 1px solid rgba(244, 240, 232, 0.16);
-  border-left: 2px solid var(--brass);
-  padding: 16px 18px;
-}
-
-.provenancePill :global(.provenance-tag) {
-  color: var(--brass);
-}
-
-.provenanceText {
-  color: var(--paper);
+  background: var(--paper-light);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--terracotta);
+  padding: 16px 20px;
+  margin-bottom: var(--space-xl);
 }
 
 .provenanceHeading {
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 8px;
 }
 
 .provenanceMark {
-  color: var(--brass);
+  color: var(--terracotta);
   flex: 0 0 auto;
+}
+
+.provenancePill :global(.provenance-tag) {
+  color: var(--terracotta);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.provenanceText {
+  color: var(--espresso);
+  font-family: var(--font-serif);
+  font-size: 1.08rem;
+  line-height: 1.45;
+  margin-top: 8px;
 }
 
 .provenanceLink {
@@ -812,99 +839,184 @@
   align-items: center;
   gap: 8px;
   margin-top: 12px;
-  color: var(--brass);
-  font-size: 0.61rem;
+  color: var(--terracotta);
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
+  font-weight: 500;
+  transition: color 0.25s var(--ease-editorial);
 }
 
 .provenanceLink svg {
   transition: transform 0.35s var(--ease-editorial);
 }
 
+.provenanceLink:hover {
+  color: var(--ink);
+}
+
 .provenanceLink:hover svg {
   transform: translateX(4px);
 }
 
-.stickyPanel :global(.divider) {
-  background-color: rgba(244, 240, 232, 0.2);
+.optionHeader > :global(.metadata) {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.optionSelected {
+  color: var(--ink);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+.sizeGuideBtn {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.sizeGuideBtn:hover {
+  color: var(--ink);
 }
 
 .sizeBtn {
-  background: rgba(244, 240, 232, 0.045);
-  border-color: rgba(244, 240, 232, 0.24);
-  color: var(--paper);
+  background: var(--paper-light);
+  border: 1px solid var(--line);
+  color: var(--espresso);
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-align: center;
+  padding: 13px 14px;
+  transition: all 0.25s var(--ease-editorial);
 }
 
-.sizeBtn:hover,
+.sizeBtn:hover {
+  background-color: var(--paper-tint);
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
 .sizeActive,
 .sizeActive:hover {
-  background: var(--paper);
-  border-color: var(--paper);
-  color: var(--espresso);
+  background-color: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+  font-weight: 500;
 }
 
 .acquireBtn {
-  background: var(--brass);
-  color: #1B2425;
-  min-height: 56px;
+  background-color: var(--ink);
+  color: var(--paper);
+  min-height: 54px;
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  letter-spacing: 0.16em;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 16px rgba(23, 26, 25, 0.08);
+  transition: all 0.3s var(--ease-editorial);
 }
 
 .acquireBtn:hover {
-  background: #D4B986;
+  background-color: var(--espresso);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 28px rgba(23, 26, 25, 0.16);
 }
 
 .acquireAdded {
-  background: var(--terracotta);
+  background-color: var(--terracotta);
   color: var(--paper);
 }
 
 .wishlistToggle {
-  border-color: rgba(244, 240, 232, 0.34);
-  background: rgba(244, 240, 232, 0.06);
-  color: var(--paper);
+  width: 54px;
+  height: 54px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  background: var(--paper-light);
+  color: var(--espresso);
+  transition: all 0.25s var(--ease-editorial);
 }
 
 .wishlistToggle:hover,
 .wishlisted {
-  border-color: var(--brass);
-  color: var(--brass);
+  border-color: var(--ink);
+  color: var(--terracotta);
+  transform: translateY(-1px);
 }
 
 .leadTimeNotice {
-  background: rgba(244, 240, 232, 0.055);
-  border-color: rgba(244, 240, 232, 0.18);
+  background: var(--paper-light);
+  border: 1px solid var(--line);
+  border-left: 2px solid var(--terracotta);
+  padding: 14px 18px;
+  margin-bottom: var(--space-xl);
 }
 
 .leadTimeNotice :global(.metadata) {
-  color: var(--brass);
+  color: var(--terracotta);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .leadTimeNotice :global(.body-small) {
-  color: rgba(244, 240, 232, 0.72) !important;
+  color: var(--espresso) !important;
+  font-size: 0.82rem;
+  line-height: 1.5;
 }
 
-.accordions,
+.accordions {
+  border-top: 1px solid var(--line);
+}
+
 .accordionItem {
-  border-color: rgba(244, 240, 232, 0.2);
+  border-bottom: 1px solid var(--line);
 }
 
 .accordionHeader {
-  color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 18px 0;
+  transition: color 0.2s ease;
+}
+
+.accordionHeader:hover {
+  color: var(--terracotta);
 }
 
 .accordionBody,
 .accordionBody :global(.body-regular),
 .accordionBody :global(.body-small) {
-  color: rgba(244, 240, 232, 0.76);
+  color: var(--espresso);
+  font-size: 0.88rem;
+  line-height: 1.65;
 }
 
 .accordionBody :global(.metadata) {
-  color: var(--brass);
+  color: var(--terracotta);
 }
 
 @media (max-width: 1023px) {
   .infoColumn {
-    padding: clamp(22px, 5vw, 36px);
+    padding: 0;
   }
 }
