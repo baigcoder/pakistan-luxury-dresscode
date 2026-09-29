@@ -221,13 +221,126 @@ export default function AboutPage() {
       </section>
 
       {/* ==========================================================================
-          (03) Regional anchors
+          (03) Founder & Creative Direction: The Systems Architect
+          ========================================================================== */}
+      <section id="founder" className={styles.section} aria-labelledby="founder-heading">
+        <header className={styles.sectionHeader}>
+          <div>
+            <span className={styles.eyebrow} data-reveal>
+              <span className={styles.index}>(03)</span> The founder &amp; creative direction
+            </span>
+            <h2 id="founder-heading" className={styles.sectionTitle} data-reveal="lines">
+              <span className="line-mask">
+                <span>The systems</span>
+              </span>
+              <span className="line-mask">
+                <span>
+                  <em>architect</em>
+                </span>
+              </span>
+            </h2>
+          </div>
+          <p className={styles.headerQuote} data-reveal>
+            &ldquo;Software architecture and couture share a single truth: structural integrity needs no disguise.&rdquo;
+          </p>
+        </header>
+
+        <div className={styles.founderGrid}>
+          <div className={styles.founderVisual} data-reveal>
+            <div className={styles.founderFrame}>
+              <Image
+                src={BRAND.founder.image}
+                alt="Hassan Baig, Founder and Creative Director of NAVA, at his atelier desk with engineering laptop, fashion sketches, and tailoring patterns"
+                fill
+                sizes="(max-width: 900px) 100vw, 45vw"
+                className={styles.founderImg}
+                priority
+              />
+            </div>
+            <figcaption className={styles.founderCaption}>
+              <span>Fig. 02 — The Founder&apos;s Workstation</span>
+              {BRAND.founder.name} at the Lahore atelier desk: bridging software engineering, pattern drafting, and handloom raw silk.
+            </figcaption>
+          </div>
+
+          <div className={styles.founderBio} data-reveal>
+            <div className={styles.founderPillRow}>
+              <span className={styles.founderBadge}>{BRAND.founder.role}</span>
+              <span className={styles.founderBadge}>Software Engineer</span>
+              <span className={styles.founderBadge}>Creative Technologist</span>
+            </div>
+
+            <h3 className={styles.founderName}>{BRAND.founder.name}</h3>
+            <p className={styles.founderRoleSubtitle}>
+              {BRAND.founder.discipline} &middot; {BRAND.founder.location}
+            </p>
+
+            <div className={styles.founderStory}>
+              <p>
+                Trained in software engineering and systems architecture, Hassan Baig founded NAVA
+                out of a profound dissatisfaction with the superficial excesses of contemporary
+                South Asian luxury. Where the conventional wedding couture industry measures prestige
+                through kilograms of synthetic bullion wire, machine-stamped sequins, and stifling
+                layers, Baig brought the radical discipline of software engineering to the cutting table:
+                treating garments not as ornamental canvases, but as precision structural systems.
+              </p>
+              <p>
+                &ldquo;In high-performance software, simplicity is the hardest achievement,&rdquo;
+                reflects Baig. &ldquo;Every superfluous line of code introduces latency and system fragility.
+                I approached the architectural raw silk trench and unconstructed kurta with that exact
+                algorithmic mindset. By removing synthetic interlinings and eliminating cosmetic distractions,
+                we allow the mathematical poise of the shoulder line, the natural tension of hand-spun raw silk,
+                and the quiet presence of negative space to command the silhouette.&rdquo;
+              </p>
+              <p>
+                Under Baig&apos;s creative stewardship, NAVA unifies computational precision with sacred
+                lineage. Sourcing directly from generational master workshops across Lahore, Bhit Shah,
+                and Swat, each edition is treated as an immutable release—transparently priced, culturally
+                honored, and registered under Pakistan&apos;s Intangible Cultural Heritage charter.
+              </p>
+            </div>
+
+            {/* Engineering & Atelier Spec Sheet */}
+            <div className={styles.founderSpecs}>
+              <div className={styles.specItem}>
+                <span className={styles.specKey}>Discipline</span>
+                <span className={styles.specVal}>Software Engineering &amp; Systems Architecture</span>
+              </div>
+              <div className={styles.specItem}>
+                <span className={styles.specKey}>Design Philosophy</span>
+                <span className={styles.specVal}>Structural Negative Space &middot; Zero Synthetic Crutches</span>
+              </div>
+              <div className={styles.specItem}>
+                <span className={styles.specKey}>Heritage Covenants</span>
+                <span className={styles.specVal}>100% Direct Generational Artisan Lineage</span>
+              </div>
+              <div className={styles.specItem}>
+                <span className={styles.specKey}>Atelier Bases</span>
+                <span className={styles.specVal}>Lahore (Walled City / Gulberg) &middot; Karachi</span>
+              </div>
+            </div>
+
+            <div className={styles.founderActions}>
+              <Link href="/journal/the-systems-architect-software-engineering-couture" className={styles.founderCta}>
+                <span>Read Hassan&apos;s Dispatch</span>
+                <span className={styles.founderCtaArrow} aria-hidden="true">&rarr;</span>
+              </Link>
+              <Link href="/contact" className={styles.textLink}>
+                Request a Private Consultation <span aria-hidden="true">&rarr;</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ==========================================================================
+          (04) Regional anchors
           ========================================================================== */}
       <section className={styles.section} aria-labelledby="anchors-heading">
         <header className={styles.sectionHeader}>
           <div>
             <span className={styles.eyebrow} data-reveal>
-              <span className={styles.index}>(03)</span> Geography &amp; lineage
+              <span className={styles.index}>(04)</span> Geography &amp; lineage
             </span>
             <h2 id="anchors-heading" className={styles.sectionTitle} data-reveal="lines">
               <span className="line-mask">
@@ -278,13 +391,13 @@ export default function AboutPage() {
       </section>
 
       {/* ==========================================================================
-          (04) Covenant (dark)
+          (05) Covenant (dark)
           ========================================================================== */}
       <section className={styles.covenant} aria-labelledby="covenant-heading">
         <div className={styles.covenantInner}>
           <header className={styles.covenantHeader}>
             <span className={styles.covenantEyebrow} data-reveal>
-              <span className={styles.covenantIndex}>(04)</span> Ethical sourcing &amp; cultural
+              <span className={styles.covenantIndex}>(05)</span> Ethical sourcing &amp; cultural
               equity
             </span>
             <h2 id="covenant-heading" className={styles.covenantTitle} data-reveal="lines">

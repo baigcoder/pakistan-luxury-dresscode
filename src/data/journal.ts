@@ -157,6 +157,52 @@ export const JOURNAL_STORIES: JournalArticleItem[] = [
         ]
       }
     ]
+  },
+  {
+    id: "journal-04",
+    slug: "the-systems-architect-software-engineering-couture",
+    category: "Atelier",
+    title: "The Systems Architect: How Software Engineering Built the New Pakistani Silhouette",
+    subtitle: "NAVA founder Hassan Baig on applying computational rigor, structural negative space, and modular design to South Asian luxury couture.",
+    excerpt:
+      "Before drawing the first lapel of NAVA’s raw silk trench, founder Hassan Baig spent years architecting software systems. Here, he explains why code and couture are identical disciplines of restraint.",
+    readTime: "6 MIN READ",
+    publishedDate: "SEPTEMBER 2026",
+    image: "/images/founder-hassan-baig.jpg",
+    aspect: "4:5",
+    author: "Hassan Baig",
+    authorRole: "Founder & Creative Director, NAVA",
+    pullQuote: "In software engineering, elegance is achieved when there is no redundant code left to delete. In luxury couture, it is the moment the garment holds its posture without a single synthetic crutch.",
+    pullQuoteAttribution: "Hassan Baig, Lahore Atelier",
+    relatedCollection: "FORM 01 — NOOR",
+    relatedCollectionSlug: "form-01-noor",
+    relatedProductSlugs: ["sculptural-raw-silk-trench", "zardozi-thread-embroidered-sherwani"],
+    contentSections: [
+      {
+        heading: "I. The Code of the Silhouette",
+        paragraphs: [
+          "To the untrained eye, software engineering and luxury dressmaking exist at opposing poles of human endeavor: one rooted in silicon, logic trees, and binary compilation; the other in raw fiber, riverbed vats, and tactile muscle memory.",
+          "Yet at the drafting table of NAVA, they are governed by the exact same truth: structural integrity. A flawed architecture cannot be salvaged by decorative UI flourishes; likewise, an ill-conceived garment cannot be rescued by ten kilograms of machine-stitched sequins. When I founded NAVA in Lahore, my commitment was to apply the austere discipline of systems architecture to the living textile traditions of Pakistan."
+        ]
+      },
+      {
+        heading: "II. Refactoring South Asian Luxury",
+        paragraphs: [
+          "In software development, 'refactoring' is the deliberate practice of restructuring existing code to improve internal structure without altering external behavior. For decades, the South Asian luxury market has suffered from technical debt: synthetic polyester blends masquerading as royal fabrics, opaque supply chains hiding exploited artisans, and suffocating surface ornamentation that conceals poor tailoring.",
+          "We refactored this equation entirely. We stripped away the synthetic interlinings, discarded anonymous trading-hub organzas, and re-engineered the classic Pakistani silhouette from foundational principles: raw tussar silk from Punjab looms, vegetable-dyed khadi cotton, and mountain-sheared Swat wool."
+        ],
+        inlineImage: "/images/hero-editorial-dresscode.jpg",
+        imageCaption: "Architectural line studies: Hassan Baig's clean negative-space silhouettes realized in the sixteenth-century Lahore courtyard."
+      },
+      {
+        heading: "III. Computational Negative Space & Artisan Dignity",
+        paragraphs: [
+          "In algorithmic design, white space is not passive void—it is the functional delimiter that allows information to breathe and process cleanly. When applied to our garments, negative space becomes the ultimate luxury. It demands immaculate cutting; when there are no sequins to hide an uneven seam, every stitch must be mathematically exact.",
+          "Furthermore, as an engineer who values transparency and provenance, building NAVA meant establishing immutable respect for the human beings behind the craft. Every master block-carver, every river dyer in Bhit Shah, and every Zardozi embroiderer in Lahore is treated as an essential co-architect of the house, cataloged with honor in our Intangible Cultural Heritage charter.",
+          "NAVA is not merely a fashion label. It is an operating system for contemporary Pakistani design."
+        ]
+      }
+    ]
   }
 ];
 

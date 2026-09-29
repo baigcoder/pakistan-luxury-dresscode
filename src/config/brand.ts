@@ -13,6 +13,17 @@ export const BRAND = {
   subTagline: "The New Pakistani Silhouette",
   statement:
     "A contemporary Pakistani luxury fashion house translating regional craft, tailoring, and textile knowledge into modern sculptural silhouettes.",
+  founder: {
+    name: "Hassan Baig",
+    role: "Brand Owner & Creative Director",
+    discipline: "Software Engineer & Fashion Atelier Architect",
+    image: "/images/founder-hassan-baig.jpg",
+    location: "Lahore & Karachi, Pakistan",
+    tagline: "The Architecture of Code. The Restraint of Couture.",
+    bio: "A software engineer and creative technologist who founded NAVA to bridge computational precision with Pakistan's living textile heritage. Conceiving garments as architectural systems, he eliminates synthetic excess and superficial ornament in favor of structural negative space, mathematical drape, and uncompromised artisan dignity.",
+    quote:
+      "Both software engineering and haute couture are exercises in restraint: true mastery is not proved by how much you can crowd onto a surface, but by the quiet confidence of what you choose to leave out.",
+  },
   attributes: [
     "quiet",
     "precise",

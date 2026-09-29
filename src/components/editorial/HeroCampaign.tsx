@@ -42,15 +42,30 @@ export const HeroCampaign: React.FC = () => {
     <section ref={sectionRef} className={styles.hero} aria-label="Spring / Summer 2026 campaign">
       <div ref={mediaRef} className={styles.media} data-cursor="view">
         <div className={styles.mediaInner}>
-          <Image
-            src="/images/hero-campaign-dresscode.jpg"
-            alt="NAVA SS26 campaign — three looks at golden hour on a stone terrace: an ivory linen trench, an indigo silk coat over a slip dress, and a rust tailored suit"
-            fill
-            priority
-            quality={90}
-            sizes="100vw"
-            className={styles.image}
-          />
+          {/* Desktop Campaign Hero (Wide Architectural Editorial) */}
+          <div className={styles.desktopMedia}>
+            <Image
+              src="/images/hero-editorial-dresscode.jpg"
+              alt="NAVA SS26 Campaign — Contemporary Pakistani couture tailored under historic Lahore arches"
+              fill
+              priority
+              quality={95}
+              sizes="(min-width: 769px) 100vw, 1px"
+              className={styles.desktopImage}
+            />
+          </div>
+          {/* Mobile Campaign Hero (Vertical 4:5 Portrait framed for mobile viewports) */}
+          <div className={styles.mobileMedia}>
+            <Image
+              src="/images/hero-couture.jpg"
+              alt="NAVA SS26 Campaign — Sculptural Raw Silk Trench in historic Lahore courtyard"
+              fill
+              priority
+              quality={95}
+              sizes="(max-width: 768px) 100vw, 1px"
+              className={styles.mobileImage}
+            />
+          </div>
         </div>
         <div className={styles.scrim} />
       </div>

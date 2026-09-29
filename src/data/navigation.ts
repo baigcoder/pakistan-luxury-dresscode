@@ -226,6 +226,7 @@ export const FOOTER_SECTIONS = [
     title: "The House",
     links: [
       { label: "House Manifesto & Philosophy", href: "/about" },
+      { label: "The Founder: Hassan Baig", href: "/about#founder" },
       { label: "Regional Ateliers & Masters", href: "/about#atelier" },
       { label: "Craft Provenance Register", href: "/craft" },
       { label: "Sell Before We Sew Initiative", href: "/about#preorder" },

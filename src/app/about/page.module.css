@@ -532,6 +532,185 @@
 }
 
 /* ==========================================================================
+   (03) Founder Section
+   ========================================================================== */
+.founderGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  column-gap: clamp(36px, 6vw, 100px);
+  row-gap: 40px;
+  align-items: start;
+}
+
+.founderVisual {
+  position: relative;
+}
+
+.founderFrame {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--paper-tint);
+  box-shadow: 0 24px 60px -15px rgba(23, 36, 39, 0.18);
+}
+
+.founderImg {
+  object-fit: cover;
+  object-position: center 20%;
+  transition: transform 1.4s var(--ease-editorial);
+}
+
+.founderVisual:hover .founderImg {
+  transform: scale(1.03);
+}
+
+.founderCaption {
+  margin-top: 16px;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.founderCaption span {
+  display: inline-block;
+  margin-right: 12px;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+}
+
+.founderBio {
+  display: flex;
+  flex-direction: column;
+}
+
+.founderPillRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.founderBadge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: var(--paper-tint);
+  border: 1px solid var(--line-strong);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--espresso);
+}
+
+.founderName {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.founderRoleSubtitle {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 28px;
+}
+
+.founderStory {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  font-size: 0.94rem;
+  line-height: 1.75;
+  color: var(--espresso);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 32px;
+  margin-bottom: 32px;
+}
+
+.founderSpecs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 28px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 36px;
+}
+
+.specItem {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.specKey {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.specVal {
+  font-size: 0.86rem;
+  line-height: 1.45;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.founderActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 28px;
+}
+
+.founderCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  height: 52px;
+  padding: 0 10px 0 26px;
+  border-radius: var(--radius-pill);
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition: background-color 0.4s var(--ease-editorial), transform 0.3s ease;
+}
+
+.founderCtaArrow {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--paper);
+  color: var(--ink);
+  transition: transform 0.5s var(--ease-editorial);
+}
+
+.founderCta:hover {
+  background: var(--espresso);
+  transform: translateY(-1px);
+}
+
+.founderCta:hover .founderCtaArrow {
+  transform: rotate(-45deg);
+}
+
+/* ==========================================================================
    Responsive
    ========================================================================== */
 @media (max-width: 1100px) {
@@ -564,6 +743,16 @@
   }
 
   .timelineRow {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .founderGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .founderSpecs {
     grid-template-columns: 1fr;
     gap: 16px;
   }

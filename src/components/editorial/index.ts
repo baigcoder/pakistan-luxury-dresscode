@@ -12,4 +12,5 @@ export * from "./RegionalCraftExplorer";
 export * from "./CraftMarquee";
 export * from "./CategorySplit";
 export * from "./AtelierFeature";
+export * from "./FounderSpotlight";
 export * from "./CollectionIndexList";

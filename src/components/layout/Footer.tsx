@@ -89,8 +89,8 @@ export const Footer: React.FC = () => {
           <div className={styles.brandCol}>
             <p className={styles.statement}>{BRAND.statement}</p>
             <div className={styles.addresses}>
-              <span>Lahore atelier</span>
-              <span>Karachi studio</span>
+              <span>Founded by {BRAND.founder.name}</span>
+              <span>Lahore atelier &middot; Karachi studio</span>
               <a href={`mailto:${BRAND.contact.email}`} className={styles.contactLink}>
                 {BRAND.contact.email}
               </a>

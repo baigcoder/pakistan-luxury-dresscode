@@ -8,6 +8,7 @@ import {
   HomeCampaignInterlude,
   CategorySplit,
   AtelierFeature,
+  FounderSpotlight,
   RegionalCraftExplorer,
   JournalPreview,
 } from "@/components/editorial";
@@ -40,7 +41,10 @@ export default function HomePage() {
       {/* 08 — The atelier (dark) */}
       <AtelierFeature />
 
-      {/* 09 — Material anatomy & regional archives */}
+      {/* 09 — The Founder: Software Engineer & Creative Director */}
+      <FounderSpotlight />
+
+      {/* 10 — Material anatomy & regional archives */}
       <section className={styles.archives}>
         <RegionalCraftExplorer />
       </section>
