@@ -22,8 +22,8 @@
    ========================================================================== */
 .hero {
   position: relative;
-  height: calc(100svh - var(--nav-height));
-  min-height: 600px;
+  height: 100svh;
+  min-height: 640px;
   overflow: hidden;
   color: var(--paper);
   background-color: var(--ink);
@@ -52,9 +52,11 @@
 .heroScrim {
   position: absolute;
   inset: 0;
+  pointer-events: none;
   background:
-    linear-gradient(90deg, rgba(21, 19, 17, 0.7) 0%, rgba(21, 19, 17, 0.2) 55%, rgba(21, 19, 17, 0.05) 100%),
-    linear-gradient(0deg, rgba(21, 19, 17, 0.75) 0%, transparent 50%);
+    linear-gradient(180deg, rgba(21, 19, 17, 0.6) 0%, rgba(21, 19, 17, 0.15) 20%, transparent 35%),
+    linear-gradient(90deg, rgba(21, 19, 17, 0.72) 0%, rgba(21, 19, 17, 0.22) 55%, rgba(21, 19, 17, 0.05) 100%),
+    linear-gradient(0deg, rgba(21, 19, 17, 0.8) 0%, transparent 50%);
 }
 
 .heroContent {
@@ -63,7 +65,7 @@
   grid-template-rows: auto 1fr auto;
   max-width: 1760px;
   margin: 0 auto;
-  padding: clamp(20px, 2.5vw, 32px) var(--gutter) clamp(24px, 3vw, 44px);
+  padding: calc(var(--nav-height) + clamp(16px, 2.5vw, 32px)) var(--gutter) clamp(24px, 3vw, 44px);
 }
 
 .heroTop {

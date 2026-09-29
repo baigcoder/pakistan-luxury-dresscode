@@ -16,16 +16,19 @@
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background-color: rgba(241, 238, 232, 0.9);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  color: var(--ink);
+  background-color: rgba(241, 238, 232, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--ink, #172427);
   transform: scale(0);
-  transition: transform 0.55s var(--ease-editorial);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.22s ease;
 }
 
 .active {
   transform: scale(1);
+  opacity: 1;
 }
 
 .label {
@@ -35,8 +38,8 @@
   letter-spacing: 0.02em;
 }
 
-@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
   .cursor {
-    display: none;
+    display: none !important;
   }
 }

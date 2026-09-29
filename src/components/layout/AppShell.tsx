@@ -14,8 +14,13 @@ import { Footer } from "./Footer";
 import styles from "./AppShell.module.css";
 
 export const AppShell: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  // The home page opens on a full-bleed hero that sits beneath the header
-  const isHome = usePathname() === "/";
+  const pathname = usePathname();
+
+  // Pages opening on a full-bleed dark hero that sits seamlessly beneath the transparent header
+  const hasDarkHero =
+    pathname === "/" ||
+    pathname === "/craft" ||
+    pathname.startsWith("/collections/");
 
   return (
     <CommerceProvider>
@@ -35,7 +40,7 @@ export const AppShell: React.FC<{ children: React.ReactNode }> = ({ children }) 
 
           <main
             id="main-content"
-            className={[styles.main, isHome ? "" : styles.offset].filter(Boolean).join(" ")}
+            className={[styles.main, hasDarkHero ? "" : styles.offset].filter(Boolean).join(" ")}
           >
             {children}
           </main>

@@ -35,12 +35,16 @@ export const Header: React.FC = () => {
   const lastY = useRef(0);
 
   const isHome = pathname === "/";
+  const hasDarkHero =
+    pathname === "/" ||
+    pathname === "/craft" ||
+    pathname.startsWith("/collections/");
 
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
-      // On the home page the header stays transparent across the full-bleed hero
-      const threshold = isHome ? window.innerHeight - 120 : 8;
+      // On pages with full-bleed heroes, the header stays transparent across the hero
+      const threshold = hasDarkHero ? window.innerHeight - 120 : 8;
       setIsScrolled(y > threshold);
       const delta = y - lastY.current;
       if (y <= HIDE_AFTER) setIsHidden(false);
@@ -52,11 +56,11 @@ export const Header: React.FC = () => {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, [isHome]);
+  }, [hasDarkHero]);
 
   const menuOpen = Boolean(activeMegaMenu) || currencyOpen;
   const hidden = isHidden && !menuOpen && !isMobileMenuOpen;
-  const solid = isScrolled || menuOpen || !isHome;
+  const solid = isScrolled || menuOpen || !hasDarkHero;
 
   // Let sticky page elements (filters, rails) follow the header in and out
   useEffect(() => {

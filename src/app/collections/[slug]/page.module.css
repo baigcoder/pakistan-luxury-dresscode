@@ -7,7 +7,7 @@
    ========================================================================== */
 .hero {
   position: relative;
-  height: calc(100svh - var(--nav-height));
+  height: 100svh;
   min-height: 560px;
   max-height: 1100px;
   overflow: hidden;
@@ -48,7 +48,7 @@
   margin: 0 auto;
   display: grid;
   grid-template-rows: auto 1fr auto;
-  padding: clamp(22px, 2.6vw, 40px) clamp(20px, 3vw, 44px) clamp(28px, 3.4vw, 52px);
+  padding: calc(var(--nav-height) + clamp(16px, 2.5vw, 28px)) clamp(20px, 3vw, 44px) clamp(28px, 3.4vw, 52px);
 }
 
 .heroTop {
